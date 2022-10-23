@@ -1,0 +1,132 @@
+ALT-ENTER -> important
+
+### some shortcuts  (also see PDF)
+
+CTRL + SHIFT + C -> copy
+CTRL + SHIFT + d -> paste
+
+CTRL + c  -> abort !!!
+CTRL + SHIFT + P   -> VS Code export as pdf (maybe needs a plugin)
+### some bash commands
+"mkdir newfolder" 
+"cd  newfolder"
+"pwd"  -> current folder
+"code ."   -> will open current directory with VS Code (. is current dir)
+"code 
+"whoami"  -> current user
+"ls -al"  -> lists all files and directories 
+"ifconfig -a"  -> network interfaces
+"curl http://site" -> execute http request
+"ps"  -> shows all running processes
+"cat file" -> shows file
+"rm xxxx" -> delete something (needs more params"
+"clear"  -> clears bash
+
+
+"docker ps"  -
+"docker search hackinghackinglab"
+"docker images" 
+"docker imaage prune -a"  remove dockers
+"docker pull hackinglab/alpine-ttyd" -> get
+"docker network ls" 
+"docker inspect hackinglab/alpin-ttyd | grep -i IPAddr"
+"docker inspect hackinglab/alpin-ttyd | grep Port"
+"docker run --rm -i -p 7681:7681 hackinglab/alpine-ttyd"
+
+### VPN
+top right corner -> VPN icon
+  (sometimes needed as OST network doesnt allow certain actions. Attention when analysing trafic via Wireshark: not all traffic is routed via VPN)
+When not working: log in to https://ost.hacking-lab.com/  (or log out and then log in again)
+
+
+### Markdown (*.md files)
+https://www.markdownguide.org/cheat-sheet/
+
+### Tools
+Wireshark -> right click follow http stream
+
+
+### Docker
+Dockerfile -> Dockerimage (almost like an image) -> run / docker-compose to run it (running dockerimage is called container)
+Dockerimage can be pushed to a Registry (docker registery)  -> can be pulled and run locally. 
+
+Some advantages: 
+- easier to distribute than VM's (docker files are way smaller than VM's)
+- works well with loadbalancers  (using labels in docker-compose.yaml file)
+
+
+### docker-compose.yaml file
+Dockerfile  docker-compose.yaml (contains all params to start. easier than "docker run x-params")
+
+### Docker commands
+"build dockerfileXXX" -> 
+"docker images"  -> list local dockers
+"docker ls" -> list
+"docker network ls"  -> list 
+"docker ps"  -> shows all docker process of running docker/container)
+"docker compose config" -> will parse docker-compose file and check syntax erros
+
+
+"docker exec" ->  jump into docker (have UI)
+"docker pull" get docker..
+"docker run --rm -i -p80:80 <name>"  -> --rm clear when stopping(image no longer available), p80:80 port forwarding on port 80
+
+
+
+####
+
+"dig dan.idocker.hacking-lab.com"   (dig is an alternative to nslookcup)
+"git clone https:///github.com/Hacking-Lab/alpine-ttyd-bash.git"
+
+	(build manually/create image): "docker build -t cas ."   -> build manually 
+	
+"docker images |grep cas"   -> shows
+"docker run --rm -i-t -cas"  -> run (but without port mapping)
+"docker run --rm -i-t -p7681:p7681 -cas 
+
+"docker-compose buil" -> TO CHECK.. does it work?? 
+
+"curl ivan.idocker.hacking-lab.com:7681"  (works whn port mapping is active)
+
+"docker exec -i -t 1f44fc93da2d bash" -> now we are in docker bash (1f444** is image identifier)
+
+ 
+"docker-compose up -d"  -> run image (assumes docker-compose.yaml file is present), (-d to return o bash)
+
+### Pyton 
+"python3 -m venv venv"   -> create virtual environment for python project
+"./venv/bin/activate"   -> go to virtual environment (leave with "deactivate")
+"phyton3 -m pip install bs4"  -> install bs4 libs
+"phyton3 -m pip install requests"  -> install requests libs
+
+
+
+### Cyber chef"
+Online tool to perform various helpful tasks 
+Example: 
+-- extract domains (extract domain)
+-- get all emails in a test 
+-- etc..
+https://gchq.github.io/CyberChef/
+
+
+
+### Reconnaissance  (security)
+means passive information gathering -> trying to get info without being detected (e.g. not generating lots of network traffic)
+
+...
+
+crt.sh ->  every public certificate provider has to add a fingerprint of the certificate to a database
+
+### TO CHECK
+BIT
+reverse proxy 
+dns -> mx records etc.
+DNS Sec (is not in place yet, probaly not important)
+Google dorks (use google to find logs for example: "access.log intitle:index of"  .. or something like this)
+etc. etc.
+
+
+### Assignments
+-> panda internet protocols  4 weeks. -> summary as md
+-> bear: uebungen -> 2 weeks.. 

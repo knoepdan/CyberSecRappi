@@ -1,0 +1,55 @@
+##########################################
+#### Access to portals or similar ########
+##########################################
+
+
+https://intranet.rj.ost.ch/login-form/
+daniel.knoepfel@ost.ch
+D***** *123
+
+
+https://outlook.office365.com/mail/   (probably not used much)
+daniel.knoepfel@ost.ch
+D***** *123   (same as for ost portal)
+
+
+Teams (for work or school)   (invite code which is probably no longer needed: e746sl8)
+daniel.knoepfel@ost.ch
+D***** *123
+
+WIFI Rappi  (of course only locally available)
+daniel.knoepfel@ost.ch
+D***** *123    (initial pw: DXxwxXPw9w4z  )
+
+Hackinglab
+https://ost.hacking-lab.com 
+https://livecd.hacking-lab.com/largefiles/livecd/daily/    (file browser view.. linux distribution)
+- linux os: username/pw:   hacker    compass
+Login: daniel.knoepfel@live.de
+D**** *123
+Username:  DanKnopf   (is just a nickname.. )
+
+
+Github
+https://github.com/knoepdan
+Username: normal mail (not ost)
+R******* *123
+https://github.com/ibuetler/cas-cyber-security-2022-2023
+https://github.com/ti-ng   (not sure what this is chezwicker)
+https://github.com/knoepdan/CyberSecRappi.git  (my notes)
+
+
+Google docs
+https://docs.google.com/spreadsheets/d/16RLr1Y6mSNwxqODwrXwjPndWZ-cubo6rAavxJidizlA/edit#gid=0
+
+
+
+
+##########################################################
+#### Other less relevant logins (probably not needed) ####
+##########################################################
+
+
+GMAIL
+danilson.knopfel@gmail.com 
+P: D****** [Pin]
