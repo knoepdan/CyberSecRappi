@@ -10,3 +10,4 @@
 - possiblity to edit/delete already submited solutions
     - ANSWER: is like a chat.. last solution usually counts
 - rename assignments to something like self learning??
+    - already got used to it :-)
