@@ -41,8 +41,8 @@ Layers a bit more detailed. Naming is a lot like in Wireshark (e.g. frame)
 
 ### Border Gateway Protocol (BGP)
 AS = Autonomous system. Part of the network (internet) that is under the same administrative domain (provider). An autonomous system has routers connecting it to another network. These routers usually implement the BGP protocol. (It is possible that there autonomous systems within an autonomous systems)
-  - ASN: AS-numbers
-    - Public AS -> are assigned a number: 1 - 64511
+  - ASN: AS-numbers (originally 2 bytes, extension to 4 bytes)
+    - Public AS -> are assigned a number: 1 - 64511 (2 bytes)
     - Private AS -> 64512 - 65535  (reserverd for private use, similar to private IP's)
 
 
@@ -56,6 +56,10 @@ Some terms
   - used to exchange routing info between ISP's (Internet service providers)
   - ASN = 
 BGP routers exchanging routing info via TCP connection (via Port 179) are called BPG peers (or neighbours). BGP uses various steps (11 steps) to determine best path. 
+
+Originaly, while internet was initially thought to be hierarchical, by now AS connected more or less randomly to other AS (via BGP)
+
+<div style="color: red">TODO go a bit deeper + add stuff about single-homed, dual homed etc. </div>
 
 
 
