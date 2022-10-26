@@ -32,6 +32,7 @@ Communication types 2
 ![Osi layers](OsiLayers1.png)
 
 ARP: allows to map IP to MAC addresses.
+ICMP: packages are sent within the data segment of an IP package. (as such they would belong to the same level as UPD/TCP). As it is so strongly connected to IP, it can be considered to be on the same level.
 
 
 ![Osi layers](OsiLayers2.png)
@@ -66,3 +67,44 @@ Originaly, while internet was initially thought to be hierarchical, by now AS co
 Links
 - https://de.wikipedia.org/wiki/Border_Gateway_Protocol
 - good video BGB: https://www.youtube.com/watch?v=LUmajjJEq24 
+
+
+### Ethernet (OSI layer 2, Network layer)
+- MAC address = "Media Access Control" addres
+- 6 byte -> represented as 12 digit hexadecimal number
+  - e.g.: "00:0D:88:3C:30:F9"
+  - is unique world wide
+  - sometimes called "LAN address", "Ethernet address"
+- Unicast: One to one 
+- Broadcast: to all participants (Broadcast address: "FFFF.FFFF.FFFF")
+
+### ARP Address resolution protocol
+To inform network about MAC-address/IP address pairs. 
+Possible flow: 
+1. Machine A: Broadcast ARP-Request "Who has IP "XX"
+2. Machine B with IP "XX" answers Unicast to "A": My IP "X", my MAC: "Z"
+  - Machine "A" knows now that MAC "Z" and IP "X" belong together
+  - Switch/Bridge between these machines usually learns the MAC-addreses and can now optimize network flow (attention: some switches do IP routing and not just pure switches on layer 2)
+
+
+### IP V4 (recap)
+
+| Ip address / with subnet) | Subnet         | Subnet (binary)                                       |
+| ------------------------- | -------------- | ----------------------------------------------------- |
+| 192.168.0.23/24           | 255.255.255	.0 | 11111111.11111111.11111111. 00000000 (host part is 0) |
+
+
+**ICMP**
+- Used to send information about network
+- ICMP messages don't (!) cause another ICMP message being sent (exception:  echo used in ping)
+- Example: 
+  - Type 3, code 1: target host not reachable
+  - Type 3, code 3: target port not reachable
+  - Type 5, code 1: redirect (target-host)
+
+**Varia IPV4**
+- private addresses: some address areas (10.0.0.0-10.255.25.255 or 192.168.0.0-192.168.255.255 and others ) are reserved for private IP Addresses.
+- Zeroconfig: private IP-Adresses are calculated via MAC-address (and random nr) and then advertised via ARP. Mechanisms to ensure uniqueness in places (sort out collisions).  
+- 127.0.0.0/8 (127.0.0.0-127.255.255.255) .> Loopback 
+  - 127.0.0.1 -> localhost (most commonly used)
+
