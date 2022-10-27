@@ -20,9 +20,14 @@ https://bamsoftware.com/software/dnstt/
 
 
 ## varia
-
 - tool proxychains -> can be used to proxy requests. (Using SOCKS5 proxy which can tunnel any TCP protocol)
 
-- 
+- curl via proxy
 -- "curl -x 10.4.204.2:8080 http://someDomain.ch/ -k -I"  -> proxy will have to make a dns request 
 -- "curl -x 10.4.204.2:8080 http://0x01.asdfasdfasdfsdf-dtt.csnc.ch/ -k -I"  -> will also make a dns request even though domain is nonsense
+
+
+## examens
+Recommendations for exam: 
+- use simple tools: DNS over enum  (maybe not Maltego as it returns too much) 
+...
