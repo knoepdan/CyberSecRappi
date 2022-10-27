@@ -1,0 +1,28 @@
+
+## DNS Stuff
+Zonentransfer: 
+Dump of all the hosts in a DNS (often not allowed)
+
+1. dig ns compass-security.com  (get nameserver)
+2. dig -t axfr  @ns1.compass-security.com  compass-security.com
+
+Root Nameserver -> hardcoded in nameserver
+
+## DNS over HTTP
+(in diagram: DOH = DNS over HTTP) 
+DNS tunneling is possible...
+
+DNS can be abuse as reverse shell.  (also works over DNS over HTTP)
+
+
+Example: 
+https://bamsoftware.com/software/dnstt/
+
+
+## varia
+
+- tool proxychains -> can be used to proxy requests. (Using SOCKS5 proxy which can tunnel any TCP protocol)
+
+- 
+-- "curl -x 10.4.204.2:8080 http://someDomain.ch/ -k -I"  -> proxy will have to make a dns request 
+-- "curl -x 10.4.204.2:8080 http://0x01.asdfasdfasdfsdf-dtt.csnc.ch/ -k -I"  -> will also make a dns request even though domain is nonsense
