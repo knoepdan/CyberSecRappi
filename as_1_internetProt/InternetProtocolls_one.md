@@ -188,14 +188,51 @@ Number of standards extending that extend DNS to ensure authenticy and integrity
 
 Each (authoritative) DNS zone has one or more key-pairs for signing. It will sign the entries so the reqeuster can verify the integrity and authenticity via public key (public key is accessible as DNSKEY resource record, signatures accessible as RRSIG resource record)
 
+<span style="color:red">TODO Check how keys are delegeated ??</span>
 
 Dig queries 
   -  `dig ds switch.ch +short` 
   -  `dig dnskey switch.ch +short` 
 
+Good link to analyze DNSSEC: https://dnssec-analyzer.verisignlabs.com
+
+**DNS fingerprinting**
+<span style="color:red">TODO Not fully clear? what is this</span>
+Examples 
+ `fpdns ost.ch`   (not installed on vm)
+
+**DNS Reverse Host name mapping**
+Allows identification and purpose of a target
+- `nmap -sL 146.136.105.24-55`
+
+<span style="color:red">TODO not fully clear</span>
+
+**DNS Name Brute-Forcing**
+- `fierce -dns ost.ch`  (does not work on VM, maybe incorrect statement)
+From my understanding, just getting all the info from a DNS. 
+Will first try a zone transfer (which probably fails) and afterwards trial and error. 
+
+**DNS Enumeration**
+Popular reconnaissance techniques to gather detecting and enumerating all possible DNS records from a domain name. 
+- Tools
+  - sublist3r
+  - `subfinder -d compass-security.com` (not installed on VM)
+  - `amass enum -d compass-security.com` (installed on VM, but seemed to have failed for some reason)
+
+  Link:  https://securitytrails.com/blog/dns-enumeration
+
+### DNS Attacks
+
+**Spoofed DHCP to DNS Update**
+Sceanario: Network consists of DHCP-Server + DNS Server. 
+Attack: Attacker sends DNS Update packages to DNS server faked (spoofed) source IP from DNS server
 
 
-
+**DNS man in the middle**
+Examples
+- Victim computer is using a rogue dns server
+- Vicitm computer is connected to a rogue wifi access point
+- provider is intercepting dns request/responses 
 
 
 
