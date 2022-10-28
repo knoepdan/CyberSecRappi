@@ -1,3 +1,4 @@
+
 # Internet protocolls
 
 ### Networking fundamentals
@@ -87,6 +88,8 @@ Possible flow:
   - Switch/Bridge between these machines usually learns the MAC-addreses and can now optimize network flow (attention: some switches do IP routing and not just pure switches on layer 2)
 
 
+
+
 ### IP V4 (recap)
 
 | Ip address / with subnet) | Subnet         | Subnet (binary)                                       |
@@ -107,4 +110,100 @@ Possible flow:
 - Zeroconfig: private IP-Adresses are calculated via MAC-address (and random nr) and then advertised via ARP. Mechanisms to ensure uniqueness in places (sort out collisions).  
 - 127.0.0.0/8 (127.0.0.0-127.255.255.255) .> Loopback 
   - 127.0.0.1 -> localhost (most commonly used)
+
+
+
+### DNS (Domain name system)
+
+1. Example: with "www.amazon.com"  (assuming no caching involved (first request))
+2. Client: asks 'his' provider DNS 
+   1. provider DNS will ask root server to find "com" DNS server
+   2. provider DNS will ask "com" DNS server to find amazon.com DNS Server
+   3. provider asks amazon.com DNS to get IP for "www.amazon.com"
+
+
+
+Types: 
+- Open Resolver DNS (OpenDNS)
+  - google's public DNS (8.8.8.8 and 8.8.4.4)
+- Closed Resolver DNS
+  - provider DNS (will reject requests from other networks)
+- Top-level domain servers (TLD)
+  - top level domains: "com", "org" and country domains: "ch", "uk" etc.
+- Root nameserver
+  - knows TLD servers
+  - are hardcoded
+- Authoritative DNS servers
+  - responsible for his own zone
+  - only answers to queries about domain names configured by admin
+- Local name server
+  - every ISP (internet service provider, + companies, universities..) has a local server "default name server"
+  - a host's DNS query will be sent to the local DNS which acts as proxy
+
+
+Good site:   https://www.whatsmydns.net  (lookups several dns servers worldwide, good to check if ip changes propagate)
+
+DNS records:
+- Type "NS"   (nameserver)
+  - name domain (e.g. 'foo.com'), value: hostname of authoritative ns
+- Type "A" (most common)
+  - name is hostname, value IP
+- Type "CNAME"  (alias)
+  - name is alias, value is 'real' name
+- Type "MX" (for mailservers)
+  - value is mailserver associated with name 
+
+
+Tools: 
+- nslookup
+- dig (linux tool)
+  - `dig www.ost.ch`  (using default, local ns)
+    - similar to `nslookup www.ost.ch`  (nslookup returns shorter answer) 
+  - `dig @8.8.8.8 www.ost.ch`  (using public google ns)
+  - `dig @8.8.8.8 www.ost.ch +short`  (+short reduces the visible response)
+  - `dig ns ost.ch`  (will return name server of ost.ch)
+  - `dig mx ost.ch`  (will return mail  server of ost.ch)
+  - `dig -x 146.136.105.52`  reverse lookup (IP to domain name)
+  - `dig -t axfr @dns01.ost.ch ost.ch`  DNS zone transfer (dum all the host in the dns (of ost.ch)
+    - usually not allowed
+  -  `dig ost.ch ANY +short +trace`  DNS request for any record
+     -  https://ns1.com/blog/using-dig-trace
+     - we will see all the recursive steps the local dns takes (a bit hard to distinguish though)
+
+**DoH: DNS over HTTPS**
+Goals: security as encryption provided by https, plus increased performance. 
+some servers: https://cloudflare.dns.com/dns-query or https://dns.google/dns-query
+
+
+Examples: 
+- `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
+  - query for record type 'A' (normal entries)
+- `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=NS' | jq .`
+  - query for Record type 'NS' (name server)
+  
+
+**DNSSEC**
+DNSSEC: Domain Name System Security Extensions
+Number of standards extending that extend DNS to ensure authenticy and integrity. DNSSEC does NOT encrypt messages.
+
+Each (authoritative) DNS zone has one or more key-pairs for signing. It will sign the entries so the reqeuster can verify the integrity and authenticity via public key (public key is accessible as DNSKEY resource record, signatures accessible as RRSIG resource record)
+
+
+Dig queries 
+  -  `dig ds switch.ch +short` 
+  -  `dig dnskey switch.ch +short` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
