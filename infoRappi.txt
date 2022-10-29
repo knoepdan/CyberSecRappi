@@ -39,6 +39,8 @@ https://github.com/ti-ng   (not sure what this is chezwicker)
 https://github.com/knoepdan/CyberSecRappi.git  (my notes)
 
 
+https://github.com/tmesi/CAS-Cyber-Security-2020-Docs (from Tom)
+
 Google docs
 https://docs.google.com/spreadsheets/d/16RLr1Y6mSNwxqODwrXwjPndWZ-cubo6rAavxJidizlA/edit#gid=0
 

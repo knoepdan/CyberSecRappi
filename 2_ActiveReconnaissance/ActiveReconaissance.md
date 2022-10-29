@@ -74,7 +74,7 @@ Is unreliable, especially when behind a firewall.
 
 ### Varia
 
-- ICMP -> what is that
+- ICMP -> protocol to support IP
 - get your TCP etc. knowledge up to date
 
 
