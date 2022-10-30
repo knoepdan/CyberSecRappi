@@ -68,7 +68,7 @@ Is unreliable, especially when behind a firewall.
 ###NMAP scripting
 - Lua is some kind of scripting language
 
-`nmap -n -sC -SV -iL hosts.txt -oA script_version_scan --min-rate=2000`  -> "-sC" check what
+`nmap -n -sC -SV -iL hosts.txt -oA script_version_scan --min-rate=2000`  -> "-sC" > equals to "--script=default"
 `nmap -n -Pn -p 443 --script ssl-heartbleed -sC 192.168.200.0/24`  -> will execute script ssl-heartbleed
 `nmap --script-help "*"` will show all the nmap scripts  (or instead of "*", set category such as "safe")
 

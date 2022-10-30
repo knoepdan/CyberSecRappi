@@ -24,6 +24,7 @@ For help add "--help". Examples:
 **Basic files and folders**
 `mkdir newfolder` 
 `ls -al`  -> lists all files and directories 
+`ls -alh`  -> lists all files and directories 
 `cd  newfolder`
 `cd  ..`
 `cd  ~` -> go to home directory of current user
@@ -97,6 +98,10 @@ Note
 -- search is not case insensitive (-i)
 
 https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
+
+**awk**
+more adcanced than grep
+
 
 **Pipes**
 Basically attaches the "stdout" (the result of a bash command) of one process directly to the "stdin" of the next. Errors ("stderr") are usually not piped. Return code is from the last command. 
