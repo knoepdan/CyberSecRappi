@@ -152,6 +152,8 @@ DNS records:
   - name is alias, value is 'real' name
 - Type "MX" (for mailservers)
   - value is mailserver associated with name 
+- Type "TXT" -> just text 
+  - can be any text (many nameservers have a size limit though)
 
 
 Tools: 

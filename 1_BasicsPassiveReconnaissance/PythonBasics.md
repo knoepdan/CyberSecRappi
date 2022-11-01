@@ -42,6 +42,13 @@ Example command.
 - https://packaging.python.org/en/latest/tutorials/installing-packages/#optionally-create-a-virtual-environment
 
 
+### Debugging in VS Code
+Simple with debugging extension. 
+
+Debugging with params: 
+1. Create launch.json file (VS Code helps with it)
+2. Add "args":  `"args": ["-d", "compass-security.com"]`   (array with key, value, key2, value2)
+https://stackoverflow.com/questions/51244223/visual-studio-code-how-debug-python-script-with-arguments 
 
 ### Varia
 **Virtual environment in python 2**
