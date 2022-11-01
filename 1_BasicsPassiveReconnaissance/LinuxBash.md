@@ -53,6 +53,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `code .`   -> will open current directory with VS Code (. is current dir)
 - `clear`  -> clears bash
 - `cat fileName` -> shows file
+- `sh bashScript.sh` -> runs bash script
 - `less fileName` -> shows file (one page at a time)
 - `echo "hello world"` -> prints "hello world
 - `openssl rand -hex 16` -> generate random hex (example as input for AES)
