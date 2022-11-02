@@ -48,6 +48,8 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
  `curl http://site ` -> execute http get request
 `nslookup compass-security.com`  -> get ip from domain name
 `dig compass-security.com`  -> alternative to nslookup (seems to provide a bit more info)
+`netstat -antp`  -> check port and interface of services
+
 
 **Varia**
 - `code .`   -> will open current directory with VS Code (. is current dir)
