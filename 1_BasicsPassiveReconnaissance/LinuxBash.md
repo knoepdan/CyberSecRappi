@@ -62,6 +62,9 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `sudo apt-get install softwareName"` -> install software package (e.g: "sudo apt-get install python3.10-venv")
     - runs as superuser
     - will be downloaded from online repository (configured in sources.list file)
+- `gzip -d someFile.gz` -> unzip gz file 
+- `tar -xvf spoofer-1.4.6.tar` -> unzip tar file 
+
 
 **Vi editor**
 `vi filename`   -> will open or create a file 
