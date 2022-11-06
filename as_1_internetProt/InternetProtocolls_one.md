@@ -96,8 +96,35 @@ Possible flow:
 | ------------------------- | -------------- | ----------------------------------------------------- |
 | 192.168.0.23/24           | 255.255.255	.0 | 11111111.11111111.11111111. 00000000 (host part is 0) |
 
+**TCP basics**
+Important Control Bits in TCP header 
+- SYN  -> for connection build up
+- ACK  ->  acknowledge field contains valid value
+- RST  -> reset connection (will neither accept nor recieve more data, abort connection)
+- FIN  -> no more data to send
+Remark: these are flags/bits. In the same header/package, more than one bit can be set (see connection build up)
 
-**ICMP**
+Establish connection (3 way handshake) 
+1. Clients sends SYN (initial sequence no )
+2. Servers responds SYN and ACK in ControlFlags (in ACK field: initial seq no + 1)
+3. Client acknowledges answer from server (ACK -> seq no of servers respnse + 1))
+Remark: anknowledge field returns the sequence no + 1 (could be interpreted as, this is the next seq that is expected)
+
+Terminate connection (normal)
+1. Clients (or server doesnt matter) sends FIN
+2. Server: Sends ACK (for initial FIN)
+3. Server: Sends FIN
+4. Client: Sends ACK (for FIN)
+
+Terminate connection with RSP (half open, error case)
+- Examples: 
+  - When a TCP non SYN package is received but no connection is open 
+  - When sequence numbers are not valid
+  - When SYN is recieved on a non open port
+
+
+
+**ICMP (helper protocol)**
 - Used to send information about network
 - ICMP messages don't (!) cause another ICMP message being sent (exception:  echo used in ping)
 - Example: 

@@ -130,14 +130,14 @@ WHEN happens this???
 **TCP basics**
 3 way handshake
 1. Clients sends SYN (initial sequence no )
-2. Servers responds SYN (in ACK field: initial seq no + 1)
+2. Servers responds SYN and ACK in ControlFlags (in ACK field: initial seq no + 1)
 3. Client acknowledges answer from server (ACK -> seq no of servers respnse + 1))
 Remark: anknowledge field returns the sequence no + 1 (could be interpreted as, this is the next seq that is expected)
 
 Important Control Bits in TCP header 
 - SYN  -> for connection build up
 - ACK  ->  acknowledge field contains valid value
-- RST  -> reset connection
+- RST  -> reset/abort connection
 - FIN  -> no more data to send
 Remark: these are flags/bits. In the same header/package, more than one bit can be set (see connection build up)
 
