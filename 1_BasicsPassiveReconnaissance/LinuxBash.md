@@ -64,6 +64,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
     - will be downloaded from online repository (configured in sources.list file)
 - `gzip -d someFile.gz` -> unzip gz file 
 - `tar -xvf spoofer-1.4.6.tar` -> unzip tar file 
+- `whereis google-chrome` -> find location of google chrome  (should/could be here: "/usr/bin/google-chrome-stable")
 
 
 **Vi editor**
@@ -107,6 +108,22 @@ https://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/
 
 **awk**
 more adcanced than grep
+
+**Environment variables (export etc)**
+- `export` ->  without args: list all environment variables (diff to set??)
+- `set` -> list all set variables  (diff to export??)
+- `echo $JAVA_HOME` -> display value of environment variable
+- `export NAME=VALUE` -> set an environment variable for the current session
+    - Attention: this is only active during the current session. Child proccesses of the current bash inherit it.
+- `export JAVA_HOME=/opt/openjdk11` -> set an environment variable JAVA_HOME
+    - Attention: this is only active during the current session
+- `unset JAVA_HOME` -> unset variable
+- Persisting environment variables
+    - for a user: export command must be saved in a ".bash_profile" file 
+    - globally: create a ".sh" file under "/etc/profile.d" with export command
+
+
+https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/#:~:text=To%20export%20a%20environment%20variable,command%20while%20setting%20the%20variable.&text=We%20can%20view%20a%20complete,export%20command%20without%20any%20arguments.&text=To%20view%20all%20exported%20variables,the%20%2Dp%20flag%20with%20export.
 
 
 **Pipes**

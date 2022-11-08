@@ -40,3 +40,9 @@
 
 ### NOTES (arbitrary)
 IP of my machine: 192.168.127.154/24 
+
+
+### Discussion
+
+Traceroute doesnt work well in VM ( in bridge mode it should work)
+Generally, traceroute works best if it runs on a machine directly connected to the internet

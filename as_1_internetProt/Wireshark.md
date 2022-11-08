@@ -69,6 +69,26 @@ Others aspects (just names, please have a look at the documentation):
 - etc. etc.
 
 
+### Follow a stream
+Often we are only interested in a particular exchange of packages. For example, we just want to follow a specific TCP connection. 
+To achieve this, right click on a package details, to make the context menu appear. There, choose follow and the protocol you want to follow (TCP, TLS etc.). This will set the display filter to the particular stream. Example: `tcp.stream eq 5`
+
+
+### Decrypt TLS
+
+
+**Using chrome**
+1. Open xfce4 terminal as non-root, vuia Usual Applications > System  (maybe normal bash also works)
+2. `export SSLKEYLOGFILE=/tmp/ssl.log`  -> set and export the SSLKEYLOGFILE variable (attention, this is from overall base folder "/")
+3. Start chrome `/usr/bin/google-chrome-stable`  (from same terminal)
+    - now there should be an ssl.log in configured folder
+4. Start wireshark and set the ssl.log file and then capture
+    - Preferences > Protocol > TLS > "(pre)-Master-Secret log filename > "/tmp/ssl.log"
+5. Browse https sites in chrome (e.g. "https://www.hacking-lab.com/events/")
+6. Check in Wireshark: Wireshark should now decrypt TLS
+
+Remark 1: also possible with FF developer edition
+Remark 2: see assignment Internet protocol 1/2 Task 1 (TLS - SSLKEYLOGFILE )
 
 
 ### Capture filters (less important)
