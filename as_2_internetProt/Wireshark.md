@@ -38,7 +38,8 @@ Also very similar to C# operators but also supports a character equivalent.
 - "!"  -> logical not (also "not")
 - "^^"  -> xor  (also "xor")
 - "in"  -> is in operator
-- "[...]" -> slice operator  -> see wireshark documentation
+- "[...]" -> slice operator. Take a slice/excerpt of a field 
+    - Example: `http.content_type[0:4] == "text"`
 - "({expression})" -> brackets work the same way as in arithmetic (or C# etc.)
 
 
@@ -54,6 +55,9 @@ Also very similar to C# operators but also supports a character equivalent.
 - `tcp.port eq 25 or icmp` -> show SMTP (port 25) and ICMP traffic
 - `http.request.method in{"HEAD", "GET"}` -> get http request with passed methods
 - `tcp.port in {80, 443, 8080}` -> tcp  ports 80, 443 and 8080
+- `http.location[0:12]=="http://pages"` -> http with location. indicates a redirection happens
+- `http.content_type[0:4] == "text"` -> filter for content type in http
+- `tcp.flags.syn == 0x02`-> display packets with a TCP syn flag
 
 **Advanced**
 Just the most important aspects of Wireshark are touched here. Whireshark offers mor advanced features (especially when it comes to filtering). 
@@ -73,6 +77,7 @@ Others aspects (just names, please have a look at the documentation):
 Often we are only interested in a particular exchange of packages. For example, we just want to follow a specific TCP connection. 
 To achieve this, right click on a package details, to make the context menu appear. There, choose follow and the protocol you want to follow (TCP, TLS etc.). This will set the display filter to the particular stream. Example: `tcp.stream eq 5`
 
+(CTRL+ALT+SHIFT+T)
 
 ### Decrypt TLS
 
@@ -108,6 +113,7 @@ https://wiki.wireshark.org/CaptureFilters
 - `ip` -> capture only IPv4 traffic (no lower level protocols like ARP)
 - `ip6` -> capture only IPv6 traffic (no lower level protocols like ARP)
 - `not broadcast and not multicast` -> capture only unicast traffic (get rid of noise)
+- `src portrange 2000-2500` -> capture packages with ports in the 2000-2500 range (UDP + TCP)
 -> in Wireshark click on "Capture" > "Capture Filters" to see some more examples
 
 
@@ -118,3 +124,16 @@ https://wiki.wireshark.org/CaptureFilters
 
 https://www.varonis.com/de/blog/verwendung-von-wireshark 
 https://man.archlinux.org/man/community/wireshark-cli/wireshark-filter.4.en
+
+**Beyond Wireshark**
+Other tools: 
+- Follow TCP stream 
+    - Tshark (bash tool)
+    - Tcpflow
+    - Pcapcat
+    - Tcpxtract
+- Findsmtpinfo.py (pyhton script -> see assignment powerpoint)
+- NetworkMiner (multi purpose tool)
+- specialized tools
+    - Oftcat
+    - smtpdump

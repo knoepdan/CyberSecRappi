@@ -49,6 +49,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 `nslookup compass-security.com`  -> get ip from domain name
 `dig compass-security.com`  -> alternative to nslookup (seems to provide a bit more info)
 `netstat -antp`  -> check port and interface of services
+`tshark -qn -z conv ,tcp -r evidence01.pcap` -> view packate conversations. (a bit like wireshark)
 
 
 **Varia**
