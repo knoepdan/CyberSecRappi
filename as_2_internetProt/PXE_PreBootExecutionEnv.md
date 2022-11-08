@@ -1,8 +1,8 @@
 # PXE (Pre-boot Execution Environment)
 
-PXE: Preboot eXecution Environment
+PXE Preboot eXecution Environment
 Standardized client-server environment that boots software (and OS??) from a network. 
-Common in modern data centers.
+Many companies have automated the installation of clients in the network. Often PXE is used for this purpose (also common in modern data centers)
 
 
 ### Basic workflow
