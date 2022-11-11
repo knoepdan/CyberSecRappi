@@ -82,7 +82,7 @@ To achieve this, right click on a package details, to make the context menu appe
 ### Decrypt TLS
 
 
-**Using chrome**
+**SSLKEYLOGFILE Using chrome**
 1. Open xfce4 terminal as non-root, vuia Usual Applications > System  (maybe normal bash also works)
 2. `export SSLKEYLOGFILE=/tmp/ssl.log`  -> set and export the SSLKEYLOGFILE variable (attention, this is from overall base folder "/")
 3. Start chrome `/usr/bin/google-chrome-stable`  (from same terminal)
@@ -94,6 +94,17 @@ To achieve this, right click on a package details, to make the context menu appe
 
 Remark 1: also possible with FF developer edition
 Remark 2: see assignment Internet protocol 1/2 Task 1 (TLS - SSLKEYLOGFILE )
+
+**Using private key file (*.pem)**
+Preconditions: 
+a) One must be in the possession of the private key (*.pem) that was used to establish the connection
+b) PFS (Perfect Forward Secrecy) may not have been active as key used to to establish connection cannot be reconstructed (even with the private key)
+Steps: 
+1. In Wireshark: load intercepted traffic file *.pcap 
+2. Configure private key
+    -  Preferences > Protocol > TLS > RSA key list -> register *.pem file for IP and Port
+
+Remark: probably by now, most TLS connection rely on PFS and this no longer works
 
 
 ### Capture filters (less important)
