@@ -66,6 +66,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
     - will be downloaded from online repository (configured in sources.list file)
 - `gzip -d someFile.gz` -> unzip gz file 
 - `tar -xvf spoofer-1.4.6.tar` -> unzip tar file 
+- `unzip someFile.zip ` > unzip
 - `whereis google-chrome` -> find location of google chrome  (should/could be here: "/usr/bin/google-chrome-stable")
 
 
