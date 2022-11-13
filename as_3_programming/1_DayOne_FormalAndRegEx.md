@@ -240,7 +240,49 @@ const factorialSum = calculateFactorial(calculatedSum);
 const userInput : number // assuming dataType is number (otherwise we would have to convert the user input)
 const factorialSum = calculateFactorial(userInput);
 
-
-
-
 ```
+
+
+## Regular expressions
+Remark: tested using PCRE2 from https://regex101.com/ 
+(Could be that sometimes the "/" as prefix and suffix is missing as this is not required by regex101)
+
+**3.1.1 Literal matching**
+Text: "This is nice little text"
+Search for "nice" using regex:  `/nice/`
+
+Problem: this would match false positives such as nicer or it would not match "Nice". We cannot use " " (`/ nice /`) cause we would not find all "nice" (for example when in brackets, end of sentence, line break etc.)
+
+**3.1.2 Alternatives**
+Regex:  `/if|then|else/`
+I didn't find any false positives (unwanted matches) with code from the formal languages chapter. However, regex would match words like "lift", "elsewhere" etc. 
+
+**3.1.3 Word boundaries**
+Regex:  `/\bif\b|\bthen\b|\belse\b/`
+
+**3.1.4 White space**
+`/\sif\s/` would not find an if at the beginning of a text
+
+**3.1.5 Character classes**
+Regex for nit, wit, kit, lit:  `/[nwkl]it/`  (or  `/\b[nwkl]it\b/` with  word boundaries)
+Regex for Aloof, aloof, AlooF, alooF:  `/[Aa]loo[fF]/`
+
+**3.1.6 Quantifiers**
+Task: "?", "+" "*" using between m and n notation
+
+- "?": `{0,1}`
+- "+": `{1,}`
+- "*": `{0,}`
+
+**3.1.7 Wildcard**
+`/\b[0-9]+\s.+\b/` -> matches: "23 pigs" or "3323 turtles"
+
+**3.1.8 Negation**
+`[^0-9]*` -> anything except lower case characters
+`[^a-z]*` -> anything except lower case characters
+
+Remark: in the concept the caret is outside of the brackets. Shouldnt it be inside?
+
+**3.1.9 Escaping characters**
+`true \/ false`
+`price \[EUR\]` 
