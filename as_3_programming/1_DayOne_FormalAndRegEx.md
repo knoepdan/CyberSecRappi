@@ -286,3 +286,14 @@ Remark: in the concept the caret is outside of the brackets. Shouldnt it be insi
 **3.1.9 Escaping characters**
 `true \/ false`
 `price \[EUR\]` 
+
+**3.1.10 Groups**
+Windows path: Starts with drive letter, followed by ":", each folder has a delimiter "/" and folder name a limited set of characters.
+Regex: `/[cCdDcE]:(?:[\\][0-9a-zA-Z-_]+){0,}[\\]?/`
+*(Some aspects like correct drive letters, "/" as delimiter or excact set of characters were ignored for the sake of simplicity)*
+
+
+Knock knock joke (starts with "knock knock",line 2: "who's there,  line 3: name, line 4 contains "{name}" again.)
+Regex: `Knock, knock!\nWho's there\?\n(.+).\n.*\1.*\n.*\1.*`
+*(Some aspects like upper/lower case or punctuation were just assumed for simplicity)*
+Regex with named groups: `Knock, knock!\nWho's there\?\n(?'name'.+).\n.*\g{name}.*\n.*\g{name}.*`
