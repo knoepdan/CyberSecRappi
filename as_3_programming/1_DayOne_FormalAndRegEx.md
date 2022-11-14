@@ -94,7 +94,7 @@ if(customer.hasKid){
             goldfish               |   
                                   hamster
 
-Decision tree has 2 laysers, which makes just one switch statement unsuiteable. Pseudo code reflects these 2 layers
+Decision tree has 2 layers, which makes just one switch statement unsuiteable. Pseudo code reflects these 2 layers
 ```
 switch(animal family)
     case(rodents){
@@ -117,7 +117,7 @@ switch(animal family)
 **2.2.1.3 Control structures loops**
 
 
-Diagram (maybe not the best decision to not use a drawing tool)
+Diagram *(maybe not the best decision to NOT use a drawing tool in hindsight)*
 
     Start loop
 
@@ -142,7 +142,7 @@ Diagram (maybe not the best decision to not use a drawing tool)
       |     _ _ _ _ /    
       /\  / 
      /  \/
-     \  / items left
+     \  / items left (if yes, go back to start)
       \/
 
      End loop
@@ -167,7 +167,7 @@ loop{
 Not sure i moved, I understood how to shorten code execution.
 Did the following things: 
 - moved the first multiplication in the variable assignments (would break edge case when input is 1)
-- skipped one loop round by already exiting the loop when counter is 2 (as multiplying with one makes no sense)
+- skipped one loop round by already exiting the loop when counter is 2 (as multiplying with 1 makes no sense) -> this might by what reduces the nof steps according to task)
 - reversed the counter order (decrementing instead of incrementing). Should have no influence
 ```
 var result= input * input-1;
@@ -212,7 +212,7 @@ End loop
 ```
 Usually, it is possible to iterate over the entries in a map/dic, but quite possible the idea was to access the map values explicitly via key. Example: `corners["Pentagon"]`
 
-- not sure if I understand the exercise at all:-( 
+- not sure if I understand the exercise at all :-( 
     - add the numbers INTO an array? (creating the array?...assuming it is not a fixed size array)
     - create the sum of the nof corners passed as an array (where is the map?)? 
     - where 
@@ -297,3 +297,18 @@ Knock knock joke (starts with "knock knock",line 2: "who's there,  line 3: name,
 Regex: `Knock, knock!\nWho's there\?\n(.+).\n.*\1.*\n.*\1.*`
 *(Some aspects like upper/lower case or punctuation were just assumed for simplicity)*
 Regex with named groups: `Knock, knock!\nWho's there\?\n(?'name'.+).\n.*\g{name}.*\n.*\g{name}.*`
+
+**3.1.11 Anchors and multiline**
+- `/^ | $/gm` matches any whitspace at the beginning (deliberatyl not using "\s" as we only want whitespace)
+- `^ +$/gm` matches lines only consisting of spaces
+
+<div style="color:orange">Could it be that the example in the concept (chapter 3.4.11) "$myself^" is incorrect and never matches anything. Shouldnt it be "^myself$"</div>
+
+
+**3.1.2 Lookahead/Lookbehind**
+ `(?=\s)|(?<=\s)` wordboundary (like "\b")
+ -> example: `/(?=\s)|(?<=\s)hello(?=\s)|(?<=\s)/gm` -> will find all "hello" in a text but only if hello starts/ends with a whitespace (or linebreak etc.)
+
+ **3.1.3 Delimiters**
+ `/(?:[\/][0-9a-zA-Z-_]+){0,}[\/]?/gm` Unix path with normal delimiter (similar to windows paths)
+ `%(?:[/][0-9a-zA-Z-_]+){0,}[/]?%` -> same thing but using % as delimiter
