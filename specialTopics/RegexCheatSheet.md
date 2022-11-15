@@ -47,7 +47,7 @@ String: "This image has a resolutoin of 1440x900 pixels"
 Regex: `/([0-9]+)x([0-9]+)/`
 - Match 1: "1440x900" 
     - Group 1: "1440"
-    -  Group 2: "900"
+    - Group 2: "900"
 
 
 **Backreferences and named groups**
@@ -101,7 +101,21 @@ Regex with named groups: `/First_Name: (?'firstname'\w+), Last_Name: (?'lastname
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Backreferences (good but not same syntax)
 https://pynative.com/python-regex-capturing-groups/
 
+### Replacing
+To replace a match, the replace value is to be added after the delimiter at the end (usually "/") of the regex. (and followed again by the delimiter)
+Example: `/foo/IReplaceFoo/g` -> match regex is "foo" and it will be replaced by "IReplaceFoo"
+It is also possible to apply some operations: toUppercase "\U", toLowerCase "\L" (and more)
 
+
+In some tools, the substitution string is not part of the regex string (we keep it this way in the example as it is easier to read) 
+- Example 1: take all urls and make https links out of them (*url regex is simplified*): 
+    - `/(((?<=http:\/\/)|(?<=https:\/\/))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,})/gm` -> substitution `<a href="https://$1">link to $1</a>`
+- Example 2: find conditional keywords and make them upper case: 
+    - `(\bif\b|\bthen\b|\belse\b|\bend\b)` -> substitution to uppercase ("\U"): `\U$1`
+
+
+
+*Some regex support conditional replacement. Not shown here as most implementations don't support this*
 
 ### More aspectes
 
@@ -124,6 +138,7 @@ Lookbehind "(?!={what to look ahead})"
 - It is possible to have a different delimiter
     - Example: `%(?:[/][0-9a-zA-Z-_]+){0,}[/]?%` (Regex is surounded by "%" instead of "/")
 - there are more flags (like "/g"). Example: "i" for case insensitive or "U" to make all quantifiers laze (not greedy)
+
 
 ### Links
 

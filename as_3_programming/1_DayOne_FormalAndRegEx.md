@@ -312,3 +312,16 @@ Regex with named groups: `Knock, knock!\nWho's there\?\n(?'name'.+).\n.*\g{name}
  **3.1.3 Delimiters**
  `/(?:[\/][0-9a-zA-Z-_]+){0,}[\/]?/gm` Unix path with normal delimiter (similar to windows paths)
  `%(?:[/][0-9a-zA-Z-_]+){0,}[/]?%` -> same thing but using % as delimiter
+
+ **3.2.1 Replacing**
+ `/(\bif.+then(?!=\b))|([^\n]+(?=else))|(else(?!=\b))|([^\n]+(?=end if))/gm` Replace: `$1$2$3$4\n`-> will format code with then/else and end if (there are probably more elegant solutions)
+ - same thing in one: `/(\bif.+then(?!=\b))|([^\n]+(?=else))|(else(?!=\b))|([^\n]+(?=end if))/$1$2$3$4\n/gm`
+
+Https url (*url regex is simplified for readability*
+`/(((?<=http:\/\/)|(?<=https:\/\/))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,})/gm` -> substitution `<a href="https://$1">link to $1</a>`
+
+
+ **3.2.2 Case Conversion**
+ Regex converting condition keywords uppercase: 
+
+ `/(\bif\b|\bthen\b|\belse\b|\bend\b)/\U$1/gmi`
