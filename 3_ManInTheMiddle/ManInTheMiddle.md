@@ -143,12 +143,16 @@ Only possible with username/Pw (can be deactiveted (PasswordAuthentication no"))
 
 Tool: "keygen" to generate private+public key (and then man in the middle won't be possible anymore client authenticates via public/key)
 
+**Offline phishing**
+Faking the website. User will often be directed to these fake websites by an email with a link to it. 
 
-**Online phising**
+*not really a man in the middle*
+
+
+**Online phishing**
 - man in the middle is between real website and client
     - attention: "man in the middle" has to do a lot to rewrite links, headers (even js). (like  WAF: Web application firewall)
 
-*Remark: offline phising is more or like just faking a website*
 
 
 ### Varia
