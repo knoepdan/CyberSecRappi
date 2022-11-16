@@ -5,6 +5,7 @@
 
 - BGP: forged BGP announcements
 - Wifi: Rogue access point (free WiFi ...)
+    - using a transparent proxy
 - Physical on network layer (mobile network) or with help ISP
     - must usually be cleared by law enforcement
 - ARP spoofing
@@ -103,6 +104,25 @@ Once you are "man in the middle", it is possible to
 
 
 
+**Certificate transparency log**
+CA are crucial for authentication via certificate. Because CA could also become untrustworthy or a CA wrongly issue a certificate and it would take the CA too long to do something about it, certificate transparency logs were introduced. 
+https://certificate.transparency.dev/
+
+
+- certificate is issued with a SCT
+    - SCT = Signed certificate timestamp  (something like hash and timestamp of the certificate)
+    - meaning, it can be found and checked in the log
+- Some browsers require SCT to be present (if issued after 2018). E.g: chrome will show a warning if not issued via SCT
+
+
+Facebook has a tool to query these logs: 
+https://developers.facebook.com/tools/ct 
+https://developers.facebook.com/docs/certificate-transparency/
+
+
+
+
+
 ###Some more details
 
 
@@ -131,39 +151,22 @@ Tool: "keygen" to generate private+public key (and then man in the middle won't 
 *Remark: offline phising is more or like just faking a website*
 
 
-### Tools
+### Varia
+
 **bettercap tool**
 Tool created to perform various types of MITM attacks against a network, manipulate HTTP, HTTPS and TCP traffic in realtime, sniff for credentials and more. "Man-in-the-middle" is possible.  (probably best tool right now)
 
 `bettercap -iface eth0`
 
 
-`net.prove on`  -> what is this?
-
-
-
-Public WIFI
-    - IP tables (TODO: check)
-
-
-**Certificate transparency log**
-
-Certificate is hashed and is stored with a timestamp.
-SCT = Signed certificate transparency
-
-CT logs  -> these are logs
-
-CA needs 
-
-<span style="color:red"> TODO<span>
-
-
-### Varia
-**Terms and varia**
+**Varia**
 - Cookie: Secure: only via encrypted connection
-- Transparent Proxy: ...?????
+- Transparent Proxy
+    - Cisco explanation: https://www.cisco.com/c/en/us/support/docs/security/web-security-appliance/117940-qa-wsa-00.html
 - WAF: Web application firewall 
     - man in the middle often has to be able to do what a WAF does. For example rewrite links and headers (and even JS)
+- "iptables" tool under linux to define rules for filtering and modifying packages (also see "netfilter")
+
 
 **Tipps for excercises/testing**
 - use virgin browsers (for some tests like HSTS): FF create new profile  (open browser with "-P", also see live cd VM)
