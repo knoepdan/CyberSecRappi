@@ -14,12 +14,19 @@ Key words:
 - DMARC: Domain-based Message Authentication, Reporting and Conformance   (Basically a policy on what to do when SPF or DKIM fails)
 
 
+**CHECK DKIM**
+1. In mail header look for DKIM-Signature. Look for s entry (Example: "s=hsr119). 
+2. dig query: `dig +short hsr1119._domainkey.hsr.ch txt`
+    - alternativly use DKIM loop via https://mxtoolbox.com/SuperTool.aspx (e.g.: "hsr.ch:hsr1119")
+3. With DKIM-Signature in mail and (public) key in DNS entry, it is possible to verify email 
+
+
+
 ###Varia
 
 **Opportunistic encryption**
-*was not part of the course*
 opportunistic encryption:  mail sending is encrypted but man in the middle is possible.
-Usually replaced by S/Mime.
+
 
 
 **S/Mime**
