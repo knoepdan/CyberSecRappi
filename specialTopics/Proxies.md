@@ -7,7 +7,7 @@
     - e.g: pc in company network access websites via proxy
 - reverse proxy
     - internt clients access machines on your network.
-    - used for security, load balancing... etc.
+    - used for security, load balancing... etc. (also for online phishing)
 
 Other terms
   - Socks7/5 proxy. Proxy will just forward anything
