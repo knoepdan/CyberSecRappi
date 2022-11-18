@@ -1,14 +1,13 @@
 
-1. solved
+1. solved Goship Mailcatcher
 2. solvable (parts)
 3. problems
-4. solved
+4. solved  (http and https via apache reverse proxy)
 5. bettercap: windows machine necessary (try later)
 	- ivan will check
-		
 		WebLogin: user pass
 6. solved (ssh) 
-7. Windows machine necessary
+7. solved: RDP Windows machine necessary
 
 -------
 
