@@ -27,6 +27,13 @@ Dockerfile  docker-compose.yaml (contains all params to start. easier than "dock
 `docker compose config`  -> will parse docker-compose file and check syntax erros
 
 
+### start bash in a running docker
+- `docker ps` -> see runnig docker processes (and also their id)
+- `docker exec -i -t ae8 bash` 
+      - starts bash within docker. 
+      - Params: "i": interactive, "t": allocate pseudo-TTY, "ae8": name/id of container we got from 'docker ps' (could be full id)
+
+also see: https://docs.docker.com/engine/reference/commandline/exec/
 
 ### Links
 

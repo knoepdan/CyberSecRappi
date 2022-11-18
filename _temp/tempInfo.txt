@@ -1,0 +1,18 @@
+
+1. solved
+2. solvable (parts)
+3. problems
+4. solved
+5. bettercap: windows machine necessary (try later)
+	- ivan will check
+		
+		WebLogin: user pass
+6. solved (ssh) 
+7. Windows machine necessary
+
+-------
+
+
+bettercap -> ui might not work (has to be compiled)
+
+-------

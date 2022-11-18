@@ -28,10 +28,12 @@ For help add "--help". Examples:
 `cd  newfolder`
 `cd  ..`
 `cd  ~` -> go to home directory of current user
-`rmdir  newfolder`
+`rmdir  folderToDelete` 
 `pwd`  -> shows current folder
-`rm newfolder` -> delete  file (might need more params)
-`cp source destination`  -> copy file (or filder??)
+`rm fileToDelete` -> delete  file (might need more params)
+`cp source destination`  -> copy file (or folder??)
+`chmod -v 777 someFile` -> changes permissions (-v verbose, 777 full permissions
+`touch file` -> creates an empty file (touch can also be used to change timestamps) 
 
 hidden files/dirs: names that start with a dot (".") are hidden (offent config files)
 
@@ -55,6 +57,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 
 **Varia**
 - `code .`   -> will open current directory with VS Code (. is current dir)
+- `code ./ --no-sandbox --user-data-dir "/home/hacker/tmp/dummy"` -> open as root (dummy dir should exist)
 - `clear`  -> clears bash
 - `cat fileName` -> shows file
 - `sh bashScript.sh` -> runs bash script
