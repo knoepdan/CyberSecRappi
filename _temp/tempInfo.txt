@@ -1,7 +1,7 @@
 
-1. solved Goship Mailcatcher
-2. solvable (parts)
-3. problems
+1. solved Mailsecurity: Goship Mailcatcher
+2. solved Mail analysis
+3. solved Mailsecurity postfix
 4. solved  (http and https via apache reverse proxy)
 5. bettercap: windows machine necessary (try later)
 	- ivan will check
