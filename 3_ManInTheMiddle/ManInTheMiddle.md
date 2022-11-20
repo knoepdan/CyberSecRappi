@@ -160,7 +160,7 @@ Faking the website. User will often be directed to these fake websites by an ema
 **bettercap tool**
 Tool created to perform various types of MITM attacks against a network, manipulate HTTP, HTTPS and TCP traffic in realtime, sniff for credentials and more. "Man-in-the-middle" is possible.  (probably best tool right now)
 
-`bettercap -iface eth0`
+`bettercap -iface eth0` > starts bettercap for interface eth0
 
 
 **Varia**
