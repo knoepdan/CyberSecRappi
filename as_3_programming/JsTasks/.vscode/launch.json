@@ -1,0 +1,13 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "JavaScript: Attach to node",
+			"address": "localhost",
+			"port": 9229,
+			"request": "attach",
+			"skipFiles": [],
+			"type": "pwa-node"
+		}
+	]
+}
