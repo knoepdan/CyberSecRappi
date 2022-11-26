@@ -31,7 +31,9 @@ Type of redirects (besides link clicks):
 - HTTP status 302 (url location is then in header)
     -  browser will then do a redirect and set Referer (for example to generate income for adds)
 - Response header: "Refresh: 0; URL=http://other-site/" (status code 200)
+    - Legacy.. (no longer done this way)
 - in page:  metatag: "Refresh"
+    - rarely used (e.g. news site that should refresh but may not rely no JS)
 - javascript in app: documentation.location=...
 
 ### Session

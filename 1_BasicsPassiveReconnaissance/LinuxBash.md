@@ -53,6 +53,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 `netstat -antp`  -> check port and interface of services
 `tshark -qn -z conv ,tcp -r evidence01.pcap` -> view packate conversations. (a bit like wireshark)
 `arp /a` -> MAC address - IP Addresses
+`while true; do cat http_response.txt | nc -l 8000; done` -> make a little webserver (returning content of http_response.txt)
 
 
 **Varia**
@@ -71,6 +72,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `tar -xvf spoofer-1.4.6.tar` -> unzip tar file 
 - `unzip someFile.zip ` > unzip
 - `whereis google-chrome` -> find location of google chrome  (should/could be here: "/usr/bin/google-chrome-stable")
+- `unix2dos filename` -> will convert unix file to dos
 
 
 **Vi editor**

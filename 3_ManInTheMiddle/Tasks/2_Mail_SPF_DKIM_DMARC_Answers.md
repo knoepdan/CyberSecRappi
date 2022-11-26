@@ -5,6 +5,7 @@
 
 - has opportunistic encryption being used?
     - Answer: Compass to HSR (not sure though... but it seems to me that am encrypted connection was used to send the mail but CA could not be verified) 
+        - Correct answer: everywhere where we had TLS (it was just encrypted but no authentication)
 - is the smtp communication using spf protection?
     - yes.. see excel
 - is the smtp communication using dkim protection?
