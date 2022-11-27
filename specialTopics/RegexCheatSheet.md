@@ -144,4 +144,4 @@ Lookbehind "(?!={what to look ahead})"
 
 https://regex101.com/  (attention: be careful not unintentionally change regex settings)
 
-https://€x
+https://cheatography.com/davechild/cheat-sheets/regular-expressions/

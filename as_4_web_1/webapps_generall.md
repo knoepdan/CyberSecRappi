@@ -78,5 +78,5 @@ WAF: Web application firewal: nows http protocol
 
 Tools to see https requests (via proxy)
 - Zap (Linux live CD)
-- Burp (Loinux Live CD)
+- Burp (Linux Live CD)
 - Fiddler (windows tool)
