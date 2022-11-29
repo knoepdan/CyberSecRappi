@@ -70,11 +70,13 @@ Server (common)
 - referer.log (refer: where is visitor coming from)
 Generally, Urls end up in logs, so no sensitive data should be in url (never use GET for sensitive data, sensitive data must be body (e.g. in a POST request))
 
+
 ### Notes varia
 
 Network firewall: mainly checks (and allows) ports and maybe protocols
 WAF: Web application firewal: nows http protocol
 
+IFRAMES: not all sites can be included in an IFRAME: X-frame-options Header
 
 Tools to see https requests (via proxy)
 - Zap (Linux live CD)

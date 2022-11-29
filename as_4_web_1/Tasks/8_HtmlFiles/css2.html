@@ -1,0 +1,72 @@
+<html>
+
+<!--
+The goal of this exercise is to create a special crafted web site
+to trick a user clicking on a button or a link in another web site.
+This is called a clickjacking attack.
+
+Note that the target web site could be an online banking system where the
+user is logged-in and the link could trigger a transaction.
+
+<!-- Step 1.
+Replace "yyyy" with a URL to a foreign website which will
+then be included into this page using an iframe.
+
+Note that most web sites today can not be included in an iframe, 
+because they are protected to do so. We will show later how
+this protection meachanism works (X-frame-options Header).
+
+A web site which should work here is for example https://www.w3.org
+-->
+
+<!-- Step 2.
+Replace "xxxx" with a nice picture. The picture is used to trick a user
+visiting this web page to click on it.
+
+Example picture: https://www.ischi.net/ost/misc/bunny-1149060_960_720.jpg
+
+-->
+
+<!-- Step 3
+Try to click on a link in the target website "trough" the picture. Does it work? ANSWER: yes (cause iFrame is placed on top via z-index)
+
+What happens when you reduce the CSS parameter opacity? What the purpose of this property?
+Your answer: opacity defines the transparency. Set to 0, we can't see through the image, set to 1 and we don't see the image at all. 
+
+Whats the purpose of the two CSS properties z-index?
+Your answer: z-index defines how (overlapping) html elements are stacked on top of each other. The user only sees the html on top (aka having the highest z-index) unless 
+opacity is defined. 
+
+In this example: we want the user to click on a link in the iFrame site (here https://www.w3.org). The site itself is placed on "top" via z-index but made transparent so we can see "our" html that lures the user into clicking on a certain link in the iframe
+-->
+
+<body>
+<style>
+#target_website {
+    /* iFrame -> placed on top of decoy website */
+    position:relative;
+    width:1000px;
+    height:1800px;
+    opacity:0.2;  /* I didnt make it completly transparent so it is a bit easier to see what is going on. (after all its just an exercise) */ 
+    z-index:2;
+    }
+#decoy_website {
+    /* html with img and link */
+    position:absolute;
+    width:1000px;
+    height:800px;
+    z-index:1;
+    }
+</style>
+
+<body>
+  <div id="decoy_website">
+    <h1>Click me</h1>
+    <img src="https://www.ischi.net/ost/misc/bunny-1149060_960_720.jpg">
+  </div>
+
+  <iframe id="target_website" src="https://www.w3.org">
+  </iframe>
+
+</body>
+</html>

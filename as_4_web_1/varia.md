@@ -7,6 +7,11 @@ Check errors in terminal:
 `tail /config/log/nginx/error.log`
 
 
+Example how Theia is used in the hacking lab: 
+
+IDE: https://4d58e319-c098-42af-8957-7302d3726104.idocker.vuln.land/theia/#/home/theia/workspace.theia-workspace
+Site developed in IDE: https://4d58e319-c098-42af-8957-7302d3726104.idocker.vuln.land/basics.php
+
 ### Browser tools + extensions
 
 CTRL+Shift+R -> clear browser cache
