@@ -53,3 +53,7 @@ https://stackoverflow.com/questions/51244223/visual-studio-code-how-debug-python
 ### Varia
 **Virtual environment in python 2**
 Python 2 doesn't support virtual environments out of the box. One has to install third-party libraries (e.g. virtualenv) to create and manage such environments. 
+
+Python supports: 
+- json
+- pickle -> like json but will also serialize functions (can be used for an exploit as during deserialization some code is executed)
