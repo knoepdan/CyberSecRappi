@@ -24,7 +24,7 @@ is allowed. Problem: scripts are from a different origin and can do anything.
 img.src does not apply same origin
 
 **Cookies**
-Cookies do enforce same origin by hostname(domain) but not by port or protocol.
+Cookies do enforce same origin by hostname(domain) but not by port.  (previously also not on protocol but this has changed).
 Secure cookie flag helps as it will only send the cookie via https (encrypted)
 
 
@@ -53,10 +53,27 @@ myFunc({"name": "John", "age":30});
 ```
 Not secure as we reference script that is not under our control.
 
-**CORS**
+### Bypass with CORS0
 
+**Simple or complex (with preflight)**
+Simple requests: don't trigger preflight
+Complex requests: trigger preflight
+
+Simple request is: 
+- either "GET", "HEAD", "POST"
+- only contains the following headers: "Accept", "Accept-Language", "Content-Language", "Content-Type"  and headers set by the user aggent (Connection, User-Agent etc. see link) 
+  - also check: https://fetch.spec.whatwg.org/#forbidden-header-name 
+- Content-Type may only contain: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain"
+- no event listeners 
+
+more details see:  https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS   
+
+**varia**
 
 Special case: with iFrame and Null origin. 
+
+
+Header Origin -> is set by browser (basically which page request is coming from)
 
 
  ### Questions

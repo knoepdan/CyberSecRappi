@@ -12,6 +12,9 @@ Cookie configuration per key/value pair to be interpreted by the browser:
 - Domain
   - Default (when empty): only to originating server.
   - only subdomain can be configured (cross domain NOT possible)
+  - Example 1: Domain=mozilla.org -> allows "xx.mozilla.org" (setting it is less restrictive than omitting it)
+  - Example 2: "foo.xx.ch" -> cookie is sent: "xx.ch" and "foo.xx.ch" but NOT to "bar.xx.ch" or "baz.foo.xx.ch"
+  - https://datacadamia.com/web/http/cookie_domain 
 - Path
   - similar to Domain but for path (attention all subpaths are valid)
   - `path=/` -> all paths and subpaths
@@ -40,9 +43,7 @@ secure: set
 httpOnly: set for sessionId (for other stuff it might not a good idea to set)
 sameSite: strict
 
-### Varia
+### Preefixes
 
 There are prefixes for cookies: **Secure or **Host which require secure to be set. \_\_Host must have a path of / and may not have domain set (_remark: seems very strange and never heard of it_)
 https://www.sjoerdlangkemper.nl/2017/02/09/cookie-prefixes/
-
-<div style="color:red">Ask if prefixes are still relevant these days </div>
