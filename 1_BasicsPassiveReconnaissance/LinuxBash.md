@@ -34,6 +34,7 @@ For help add "--help". Examples:
 `cp source destination`  -> copy file (or folder??)
 `chmod -v 777 someFile` -> changes permissions (-v verbose, 777 full permissions
 `touch file` -> creates an empty file (touch can also be used to change timestamps) 
+- `unix2dos filename` -> will convert unix file to dos
 
 hidden files/dirs: names that start with a dot (".") are hidden (offent config files)
 
@@ -72,7 +73,9 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `tar -xvf spoofer-1.4.6.tar` -> unzip tar file 
 - `unzip someFile.zip ` > unzip
 - `whereis google-chrome` -> find location of google chrome  (should/could be here: "/usr/bin/google-chrome-stable")
-- `unix2dos filename` -> will convert unix file to dos
+- `echo "Hello"  | base64` -> base64 encode and print "Hello"
+    -  `echo "SGVsbG8K"  | base64 --decode` -> decode
+
 
 
 **Vi editor**
