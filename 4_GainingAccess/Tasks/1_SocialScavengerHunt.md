@@ -24,4 +24,10 @@ imprint@hermann-consulting.ch  -> on donwloadable pdf, author: "j.steiner@herman
 Result: k.hermann@hermann-consulting.ch
 
 
-###Step 5 find info in social media
+###Step 7-12 find info in social media
+use fb etc to find the info to reset password  (see task description in hacking lab)
+
+
+###Step 12 reset pw
+with the information in previous steps, password can be reset and we gain access 
+:-)
