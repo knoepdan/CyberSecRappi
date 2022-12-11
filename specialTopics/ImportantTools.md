@@ -25,6 +25,11 @@ https://docs.metasploit.com
 > see separate file
 
 
+### Debugging etc.
+- GDB GNU Project Debugger (https://www.sourceware.org/gdb/)
+    - GEf extension to GDB https://github.com/hugsy/gef  
+
+
 
 ### important/helpful websites
 
