@@ -40,3 +40,8 @@ From the Nessus scan i know that iloveshells.vm.vuln.land has a critical vulnera
         - with this exploit (vsftpd) a shell is now open (other exploits will provide different feedback) and we can now run commands on this shell which are executed on iloveshells.vm.vuln.land
 
 (taken from video: https://www.youtube.com/watch?v=oBAC5UfalC8   )
+
+
+### Varia/Leftovers
+
+Heartbleed bug: metasploit is less reliable than "Heartleech" -> so dont use Metasploit for this
