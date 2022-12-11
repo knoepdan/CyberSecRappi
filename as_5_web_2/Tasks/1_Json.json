@@ -1,0 +1,8 @@
+{
+  "firstname": "John",
+  "lastname": "Doo",
+  "studentId": 123,
+  "valid": true,
+  "phonenumbers": ["5551234", "5558822"],
+  "books": [{ "id": 22, "name": "Be a JSON expert" }, { "name": "Back\\Slash" }]
+}
