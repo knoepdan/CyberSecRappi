@@ -20,12 +20,13 @@ Dockerfile  docker-compose.yaml (contains all params to start. easier than "dock
 `docker-compose down`   stop docker
 `docker-compose up --build` -> building and starting docker in one step
 
+
 ### helpful docker commands
 `docker images`  -> list local dockers
 `docker ps`  -> shows all docker process of running docker/container)
 `docker network ls`  -> list network
 `docker compose config`  -> will parse docker-compose file and check syntax erros
-
+`docker stop <CONTAINER ID>`  -> stop docker (container id can be retrieved via "docker ps")
 
 ### start bash in a running docker
 - `docker ps` -> see runnig docker processes (and also their id)
