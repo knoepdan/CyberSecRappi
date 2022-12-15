@@ -38,7 +38,16 @@ Sometimes used in combination with serialization: https://www.base64decode.org/
 
 ### HTTP 2
 
+Some of the main features  (see wikipdia): 
+    - data compression of HTTP headers
+    - HTTP/2 Server Push
+    - prioritization of requests
+    - multiplexing multiple requests over a single TCP connection (fixing the head-of-line blocking problem in HTTP 1.x)
+
 https://http2-explained.haxx.se/
+
+https://blog.cloudflare.com/hpack-the-silent-killer-feature-of-http-2/  (header compression)
+
 
 ### Varia (unrelated but maybe interesting)
 https://search.censys.io/search?resource=hosts 

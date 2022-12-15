@@ -82,7 +82,7 @@ To achieve this, right click on a package details, to make the context menu appe
 ### Decrypt TLS
 
 
-**SSLKEYLOGFILE Using chrome**
+**SSLKEYLOGFILE Using chrome Variant 1**
 1. Open xfce4 terminal as non-root, vuia Usual Applications > System  (maybe normal bash also works)
 2. `export SSLKEYLOGFILE=/tmp/ssl.log`  -> set and export the SSLKEYLOGFILE variable (attention, this is from overall base folder "/")
 3. Start chrome `/usr/bin/google-chrome-stable`  (from same terminal)
@@ -95,15 +95,14 @@ To achieve this, right click on a package details, to make the context menu appe
 Remark 1: also possible with FF developer edition
 Remark 2: see assignment Internet protocol 1/2 Task 1 (TLS - SSLKEYLOGFILE )
 
-**SSLKEYLOGFILE Using chrome: generate pcap file**
+**SSLKEYLOGFILE Using chrome Variant 2 (TCP dump and start Wireshark with Key)**
 1. In root shell: `tcpdump -i eth0 host www.ischi.net -w /home/hacker/h2test/h1.pcap`
     - will write pcap fikle "h1.pcap" which can later be opened in Wireshark
 2. In user shell: `SSLKEYLOGFILE=/home/hacker/h2test/h1.keys google-chrome --disable-http2 https://www.ischi.net/ost/h2.php`
     - will start chrome and browse past website + write key file "h1.keys"
-3. Start Wireshark and open pcap file ("h1.pcap")
-    - TLS traffic is still encrpyted
-4. In Wireshark: Preferences > Protocol > TLS > "(pre)-Master-Secret log filename > "h1.key" (file previously created)
-    - now TLS traffic should be decrypted
+3. Start Wireshark with pcap and key file: `wireshark -o ssl.keylog_file:/home/hacker/h2test/h1.keys /home/hacker/h2test/h1.pcap`
+    - Alternativly, we coud start wireshark, open the pcap file manually and set master key file in Preferences > Protocol > TLS > "(pre)-Master-Secret log filename >
+
 
 **Using private key file (*.pem)**
 Preconditions: 
