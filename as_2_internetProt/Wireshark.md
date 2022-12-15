@@ -95,6 +95,16 @@ To achieve this, right click on a package details, to make the context menu appe
 Remark 1: also possible with FF developer edition
 Remark 2: see assignment Internet protocol 1/2 Task 1 (TLS - SSLKEYLOGFILE )
 
+**SSLKEYLOGFILE Using chrome: generate pcap file**
+1. In root shell: `tcpdump -i eth0 host www.ischi.net -w /home/hacker/h2test/h1.pcap`
+    - will write pcap fikle "h1.pcap" which can later be opened in Wireshark
+2. In user shell: `SSLKEYLOGFILE=/home/hacker/h2test/h1.keys google-chrome --disable-http2 https://www.ischi.net/ost/h2.php`
+    - will start chrome and browse past website + write key file "h1.keys"
+3. Start Wireshark and open pcap file ("h1.pcap")
+    - TLS traffic is still encrpyted
+4. In Wireshark: Preferences > Protocol > TLS > "(pre)-Master-Secret log filename > "h1.key" (file previously created)
+    - now TLS traffic should be decrypted
+
 **Using private key file (*.pem)**
 Preconditions: 
 a) One must be in the possession of the private key (*.pem) that was used to establish the connection
