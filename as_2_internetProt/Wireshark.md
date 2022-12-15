@@ -88,7 +88,7 @@ To achieve this, right click on a package details, to make the context menu appe
 3. Start chrome `/usr/bin/google-chrome-stable`  (from same terminal)
     - now there should be an ssl.log in configured folder
 4. Start wireshark and set the ssl.log file and then capture
-    - Preferences > Protocol > TLS > "(pre)-Master-Secret log filename > "/tmp/ssl.log"
+    - Preferences > Protocol > TLS > "(pre)-Master-Secret log filename > "/tmp/ssl.log" (in some exercises file is called "h1.key")
 5. Browse https sites in chrome (e.g. "https://www.hacking-lab.com/events/")
 6. Check in Wireshark: Wireshark should now decrypt TLS
 

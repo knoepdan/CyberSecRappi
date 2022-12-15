@@ -33,9 +33,12 @@ Java Web-IDE:
 
 
 
-**general**
-https://www.base64decode.org/
+Sometimes used in combination with serialization: https://www.base64decode.org/
 
+
+### HTTP 2
+
+https://http2-explained.haxx.se/
 
 ### Varia (unrelated but maybe interesting)
 https://search.censys.io/search?resource=hosts 
