@@ -1,4 +1,6 @@
-# Gaining Access
+# Gaining Access (day one)
+
+<span style="color: orange">not yet finalized</span>
 
 ### Anatomy of a Cyber Attack
 
