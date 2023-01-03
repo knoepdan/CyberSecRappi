@@ -31,6 +31,7 @@ Cypers
 - Stream cyphers
 
 **Terms/etc.**
+- Nonce -> arbitrary number that can be used just once  (often random or pseudo random)
 - A5 Security
     - <span style="color:orange">???</span>
 - Key stream repetition
@@ -45,3 +46,4 @@ Cypers
 - CRC (Cyclic redundancy check)
     - usually used to detect transmission errors. Sometimes used as a hash function (not really secure though) 
 - CIA triad: confidentiality, integrity, availability
+
