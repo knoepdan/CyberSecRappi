@@ -62,7 +62,7 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `code ./ --no-sandbox --user-data-dir "/home/hacker/tmp/dummy"` -> open as root (dummy dir should exist)
 - `clear`  -> clears bash
 - `cat fileName` -> shows file
-- `sh bashScript.sh` -> runs bash script
+- `bash bashScript.sh` -> runs bash script   ("running "sh bashScript.sh" would run it as dash with slightly different behavior)
 - `less fileName` -> shows file (one page at a time)
 - `echo "hello world"` -> prints "hello world
 - `openssl rand -hex 16` -> generate random hex (example as input for AES)
