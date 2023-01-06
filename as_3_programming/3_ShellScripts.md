@@ -1,10 +1,5 @@
-# Javascript
+# Shellscript
 
 ***Basics***
-- Ensure "CodeRunner" extension is installed
-- Ensure NodeJs (`node -V` -> 16.xxx)
+- `bash bashScript.sh` -> runs bash script   ("running "sh bashScript.sh" would run it as dash with slightly different behavior)
 
-**Exersices**
-see javascriptDanKnopf.zip
-- setup + debugging see:.vscode folder, debug.js and ide.js 
-- rest: "exercises.js"  (should all execute) 

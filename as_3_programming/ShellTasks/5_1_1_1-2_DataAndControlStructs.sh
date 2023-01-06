@@ -11,7 +11,7 @@ then
 elif [ $x -lt 5 ] # compare by numbers (smaller than)
 then
     echo "I don't understand why you would enter a number below 5"
-elif [ $x = "z" -o $x = "y" ]  #  -o stands for or. "-a" -> would be and
+elif [ $x = "z" -o $x = "y" ]  #  -o stands for or. "-a" -> would be and  (alternative would be like: 	if [ $x = "z" ] || [ $x = "y" ] -> "||" means always execute next statement
 then
     echo "I love that topic"
 elif [ ($x < "15") ]  #  -o stands for or. "-a" -> would be and
