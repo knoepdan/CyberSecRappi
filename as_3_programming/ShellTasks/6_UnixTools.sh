@@ -63,10 +63,14 @@ echo "running find and show some errors but not all"
 echo "ddd@.bla.ch xx@jabadaba.com ooo@kk.ch" | awk 'BEGIN{print "<html><body>"}{for(i=1;i<=NF;++i)print "<a href=\""$i"\">"$i"</a>"}END{print "</body></html"}'  > ~/tmpEx/awkTestDeleteMe.html
 
 # 6.3.5 sed
-sed -n /^[a].*z$/p /usr/share/dict/words   # prints all lines starting with a and ending with z
+#sed -n /^[a].*z$/p /usr/share/dict/words   # prints all lines starting with a and ending with z
 
-# 6.4.1 seq
+# 6.4.1 seq number 3-99 which can be divided by 3 but not by seven
+#seq 3 3 99  | awk '{for(i=1;i<=NF && i<999;++i){if ($i%7!=0){print $i}}}' ## not sur if this counts as not using a for loop
 
+# 6.4.2 curl
+## call url, redirect sdtout, reduce lines, make one line, pick the columns and print them (possible because position is deterministic)
+curl https://nzz.ch -silent -i -I -4 -v 2>&1 | grep -i -E -e '^\* Connected to|^HTTP/2' | sed ':a;N;$!ba;s/\n/ /g' | awk '{print $5":"$7 " -> " $10}'
 
 
 # cleanup
