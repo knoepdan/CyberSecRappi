@@ -22,8 +22,8 @@ done
 
 
 # 6.2.2 tail
-## not sure i understand
-
+## didnt come up with a solution ( & to run it in the background, > redirect output to a file.. but haven't found sound usage of tail ..)
+# find / -mmin -$60 2> /dev/null | tail -2 > ~/tmpEx/tmpFileDeleteMe2.txt  &   
 
 # 6.2.3 column
 if test -f ~/tmp/some.csv
@@ -58,7 +58,7 @@ echo "running find and show some errors but not all"
 # cat /etc/passwd  | rev | cut -c 1-4 | rev    # showing last for characters
 
 # 6.3.4 awk
-# -> kill processes .. not sure
+ps -l | sed '1d' | awk '{print $4}' | xargs echo # remark: instead of echo would be kill (Using echo as all my programms will still run :-)
 # cat /etc/passwd | awk -F ':' ' {print $3 " " $1}'   # shows id and username
 echo "ddd@.bla.ch xx@jabadaba.com ooo@kk.ch" | awk 'BEGIN{print "<html><body>"}{for(i=1;i<=NF;++i)print "<a href=\""$i"\">"$i"</a>"}END{print "</body></html"}'  > ~/tmpEx/awkTestDeleteMe.html
 
@@ -70,8 +70,9 @@ echo "ddd@.bla.ch xx@jabadaba.com ooo@kk.ch" | awk 'BEGIN{print "<html><body>"}{
 
 # 6.4.2 curl
 ## call url, redirect sdtout, reduce lines, make one line, pick the columns and print them (possible because position is deterministic)
-curl https://nzz.ch -silent -i -I -4 -v 2>&1 | grep -i -E -e '^\* Connected to|^HTTP/2' | sed ':a;N;$!ba;s/\n/ /g' | awk '{print $5":"$7 " -> " $10}'
+#curl https://nzz.ch -silent -i -I -4 -v 2>&1 | grep -i -E -e '^\* Connected to|^HTTP/2' | sed ':a;N;$!ba;s/\n/ /g' | awk '{print $5":"$7 " -> " $10}'
 
 
 # cleanup
 rm ~/tmpEx/tmpFileDeleteMe.txt
+rm ~/tmpEx/tmpFileDeleteMe2.txt
