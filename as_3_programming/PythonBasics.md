@@ -1,10 +1,32 @@
 # Python
 
-### Python basics
+## Python basics
+
+https://wiki.python.org/moin/BeginnersGuide/Download
 
 `python3 --version` -> shows the current version
+`which -a python  | xargs -I % bash -c "echo -n %: && % --version"` -> phyton runner file
+`which -a python3 | xargs -I % bash -c "echo -n %: && % --version"` -> phyton3 runner file
+
 `python scriptName.py ` -> runs a python script
 `python -m pip install bs4 requests` -> pip is the program to install/upgrade and remove packages. (see package manager)
+
+## VS Code
+
+
+To configure code runner to execute the correct version of python, adapt .vscode/settings.json to reflect the executeable you found (aliased $python below) with bash statment mentioned above: "which -a python3 |..... "
+{
+  "code-runner.executorMap": { "python": "$python -u" }
+}
+
+
+### Debugging in VS Code
+Simple with debugging extension. 
+
+Debugging with params: 
+1. Create launch.json file (VS Code helps with it)
+2. Add "args":  `"args": ["-d", "compass-security.com"]`   (array with key, value, key2, value2)
+https://stackoverflow.com/questions/51244223/visual-studio-code-how-debug-python-script-with-arguments 
 
 ### Virtual environment (venv)
 A self-contained directory tree that contains a Python installation for a particular version of Python, plus a number of additional packages.
@@ -42,13 +64,7 @@ Example command.
 - https://packaging.python.org/en/latest/tutorials/installing-packages/#optionally-create-a-virtual-environment
 
 
-### Debugging in VS Code
-Simple with debugging extension. 
 
-Debugging with params: 
-1. Create launch.json file (VS Code helps with it)
-2. Add "args":  `"args": ["-d", "compass-security.com"]`   (array with key, value, key2, value2)
-https://stackoverflow.com/questions/51244223/visual-studio-code-how-debug-python-script-with-arguments 
 
 ### Varia
 **Virtual environment in python 2**
