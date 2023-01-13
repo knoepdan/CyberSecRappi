@@ -1,7 +1,7 @@
-from enum import Enum
-# 7.2.5 Classes
+# 7.2.5 Classes and 7.2.6 Docstring  (Documenation via """doc comment""")
 
 class LogEntry():
+    """LogEntry writes log messages to console or file"""
 
     # some parts are probably a) more about playing with the language b) too complicated/unelegant
 
@@ -26,9 +26,11 @@ class LogEntry():
                 self._file = filename[f]
 
     def getMsg(self):
+        """returns the formatted message"""
         return LogEntry.levels[self._levelIndex] + ": " + self._message
 
     def log(self):
+        """logs to console or file"""
         logMsg = self.getMsg()
         if(not self._file is None):
             logfile = open(self._file, "a")
@@ -44,4 +46,4 @@ errorEntry = LogEntry("Error: testMsg")
 infoEntry = LogEntry("INFO: im some infoMsg", file = "logfileTest.txt")
 print(errorEntry)
 print(infoEntry)
-#infoEntry.log()
+# infoEntry.log()
