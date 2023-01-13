@@ -1,4 +1,5 @@
 from functools import reduce
+from datetime import datetime, timedelta
 
 # 7.4 Builtin 
 
@@ -15,4 +16,7 @@ def favorites(arr):
 
 # favorites(["tea", "coffee", "water", "soda"])
 
-# 7.4.2 datetime
+# 7.4.2 datetime -> integration in log class see "7.2.5-8_LanguageFeatruesD_ClassesEtc.."
+now = datetime.now()
+print(now)
+print(now.strftime("%Y-%m-%d %H:%M:%S.%f")) # same as just print

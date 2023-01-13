@@ -1,5 +1,7 @@
+from datetime import datetime
 # 7.2.5 Classes and 7.2.6 Docstring  (Documenation via """doc comment""")
 # 7.2.7 Exceptions and 7.2.8 operator overloading
+# 7.4.2 datetime (also see 7.4_Buil...)
 
 class LogEntry():
     """LogEntry writes log messages to console or file"""
@@ -13,6 +15,7 @@ class LogEntry():
         self._levelIndex = 0
         self._message = msg
         self._file = None
+        self._timestamp = datetime.now()
         # parse/analyze msg
         try:
             parts = msg.split(":")
@@ -33,7 +36,7 @@ class LogEntry():
 
     def getMsg(self):
         """returns the formatted message"""
-        return LogEntry.levels[self._levelIndex] + ": " + self._message
+        return self._timestamp +" - " + LogEntry.levels[self._levelIndex] + ": " + self._message
 
     def log(self):
         """logs to console or file"""
