@@ -28,6 +28,7 @@ def pnd(number):
 # list/array: x = [1, 3, 4]
 # dic/map: d = {"a": 2, "b": 33}
 # sets: s = {"a", "b"}   ## values must be unique
+# tuple: t = (1, 3, 5) ## cannot be changed
 
 def gcpf(arrOne):
     allFactors = None
