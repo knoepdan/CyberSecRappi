@@ -2,6 +2,7 @@ from functools import reduce
 from datetime import datetime
 import json
 import os
+import re
 
 # 7.4 Builtin 
 
@@ -35,3 +36,15 @@ couple["spouse"] = {"name": "bob"}
 print(json.dumps(couple))
 print(json.dumps(alice))
 print(str(os.getuid()), " ", os.getlogin())
+
+
+# 7.4.4 re (not 100% sure how this would have to be integrated in LogEntry class)
+## playing around with regex (examples)
+# pattern = re.compile(r"\bspam\b", re.I)
+# for match in pattern.finditer(("Spam. spam. spam. spam. spam!")):
+#     print(match.start(), end=" ")  # no linebreaks du to 'end=" "'
+
+possibleLogMsgOne = "2023-01-13 15:26:58.092892 : {kkkk}" # harder to match because ":" is also used in dateTime
+matchDateTimePlusCharacter = re.search(r'\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d*\s:\s', possibleLogMsgOne)
+print(matchDateTimePlusCharacter)
+print(f"start match: {matchDateTimePlusCharacter.start()} end match: {matchDateTimePlusCharacter.end()}")
