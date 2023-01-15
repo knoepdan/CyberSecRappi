@@ -92,7 +92,7 @@ Usually, at first malware initially runs in the context of a normal user.
 - UAC Bypass
     - UAC as in short: by default: process is started without admin privileges. If to run as admin: popup will appear. So user has to actively click and depending on configuration even enter pw. There are some ways to bypass UAC  
 - Some misconfigurations
-    - AlwaysInstallElevated: AD Group policies which set to true.. makes the msi's run as admin. 
+    - AlwaysInstallElevated: AD Group policies which set to true.. makes the msi's run as admin. (even if user is not yet admin) 
     - Unattended Installation files (sometimes pw can be found in them)
     - Service binaries that one has write access and will be executed as admin
         - or generally any file that is executed with another user. (would be privilege escalation to another user)
