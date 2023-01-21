@@ -50,6 +50,10 @@ see:
 
 ## Assembly with Kali linux
 
+**Precondition**
+NASM must be installed  https://www.nasm.us/  (intended for x86 on 64bit)
+-> already installed on live CD
+
 
 
 https://filippo.io/linux-syscall-table/  > Linux system calls table (and in which register you have to load it)
