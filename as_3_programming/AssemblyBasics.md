@@ -48,15 +48,37 @@ see:
 - https://en.wikipedia.org/wiki/X86-64
 - https://de.wikipedia.org/wiki/X64
 
+Good links
+- https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
+- https://resources.infosecinstitute.com/topic/registers/  (registers.. only 32 bit)
+- https://resources.infosecinstitute.com/topic/instructions/ (instructions, probably only 32bit)
+- https://www.assemblylanguagetuts.com/x86-assembly-registers-explained/  (register, simple + good)
+- https://www.cs.virginia.edu/~evans/cs216/guides/x86.html  (good NASM assembler)
+- 
+
 ## Assembly with Kali linux
 
-**Precondition**
-NASM must be installed  https://www.nasm.us/  (intended for x86 on 64bit)
--> already installed on live CD
+**Compile and run assembly code with NASM**
+1. Precondition: NASM  must be installed
+    - https://www.nasm.us/  (intended for x86 on 64bit)
+    - already installed on live CD
+2. `nasm -f elf64 {prog.asm} -o {outputfile.o}`
+   - e.g. "nasm -f elf64 helloTest.asm -o helloTest.o"
+   - compiling: translates assembly to object code
+3. `gcc {outputfile.o} -o {targetExecutable}`
+    - e.g. "gcc helloTest.o -o helloTest"
+    - linking: creates a single executable
+4. Run the file: `./{targetExecutable}`   (e.g. "./helloTest")
 
+*remark: on a different system/os, steps are/can be different*
 
+**VS code**
+Extension: "x86 and x86_64 Assembly" 
 
 https://filippo.io/linux-syscall-table/  > Linux system calls table (and in which register you have to load it)
+
+
+**
 
 ## Random info 8086 assembler
 
