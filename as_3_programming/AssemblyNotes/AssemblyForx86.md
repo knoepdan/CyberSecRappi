@@ -27,7 +27,7 @@ Numerous registers exists (source wikipedia):
 Some special registers: 
     - RBP Stack base pointer (base pointer)
     - RSP Current base pointer (to the end)
-    - Instruction pointer: There has to be some kind of register that points to the next instruction (jump instructions like ja, jl etc. will change the pointer value in this register). Probably named IP (not visible in integer register). Maybe not possible to access directly.
+    - Instruction pointer: There has to be some kind of register that points to the next instruction (jump instructions like jmp, ja, jl etc. will change the pointer value in this register). Probably named IP (not visible in integer register). Probable not possible to access directly.
 
 
 
@@ -88,7 +88,7 @@ In assembler the command line arguments work similarly in Linux:
 **Calling conventions**
 When we call a function (external code) there is a convention no how to pass arguments and recieve the return value. The convention is based on the OS, here we only look at Linux. The first arguments are passed via registers: RDI, RSI, RDX, RCX R8, R9 (in this order). If there are more arguments, they are pushed on the stack (first arg not on the stack is pushed last so it can be access first.. thats how a stack works)
 
-Calling conventions are used for system calls (instruction "syscall") and external code assuming the external code adheres to the calling convention (and other cases???)
+Calling conventions are used for system calls (instruction "syscall"), our own methods and external code assuming the external code adheres to the calling convention (probably no other cases???)
 
 
 
