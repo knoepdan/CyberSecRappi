@@ -43,7 +43,7 @@ Basically all registers were extended to 32bit (exception: segment registers)
 - BP/EBP/RBP: Stapelsegment (Anfangsadresse)
 - IP/EIP/RIP: Befehlszeiger
 
-**x64 (64 bit)**
+
 see: 
 - https://en.wikipedia.org/wiki/X86-64
 - https://de.wikipedia.org/wiki/X64
@@ -55,6 +55,9 @@ Good links
 - https://www.assemblylanguagetuts.com/x86-assembly-registers-explained/  (register, simple + good)
 - https://www.cs.virginia.edu/~evans/cs216/guides/x86.html  (good NASM assembler)
 - 
+
+**64 bit**
+https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf 
 
 ## Assembly with Kali linux
 
@@ -91,3 +94,5 @@ Examples instructions
 ## leftovers
 - WORD: word is the natural unit of data used by a particular processor design
     - https://en.wikipedia.org/wiki/Word_(computer_architecture)
+
+
