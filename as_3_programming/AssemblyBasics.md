@@ -73,6 +73,11 @@ https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
     - linking: creates a single executable
 4. Run the file: `./{targetExecutable}`   (e.g. "./helloTest")
 
+
+Step 2-4 can be combined (example)
+- `nasm factorial.asm -f elf64 -o factorial.o && gcc factorial.o -o factorial && ./factorial 5` 
+
+
 *remark: on a different system/os, steps are/can be different*
 
 **VS code**
