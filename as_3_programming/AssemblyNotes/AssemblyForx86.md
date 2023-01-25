@@ -10,6 +10,7 @@ x86 64 bit assembler
 NASM (Netwide assembler) on linux
 - https://www.nasm.us/ NASM
 - https://filippo.io/linux-syscall-table/ (System calls on linux)
+- https://en.wikipedia.org/wiki/X86_instruction_listings instructions
 
 
 ## Registers
