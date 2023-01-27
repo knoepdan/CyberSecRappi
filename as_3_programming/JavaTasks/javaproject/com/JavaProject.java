@@ -1,6 +1,10 @@
-package ClassesAndInheritance;
+package javaproject.com;
 
-public class ClassesAndInheritance {
+import javaproject.com.shapes.Parallelogram;
+import javaproject.com.shapes.Shape;
+import javaproject.com.shapes.Triangle;
+
+public class JavaProject {
 	public static void main(String[] args) {
 
 		Shape tri = new Triangle(15, 15, 60);

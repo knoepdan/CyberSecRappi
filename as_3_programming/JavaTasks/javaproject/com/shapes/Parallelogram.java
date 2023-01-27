@@ -1,4 +1,4 @@
-package ClassesAndInheritance;
+package javaproject.com.shapes;
 
 public class Parallelogram implements Shape {
 
