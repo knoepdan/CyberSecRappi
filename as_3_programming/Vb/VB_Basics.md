@@ -50,4 +50,9 @@ In the Macro editor (which opens when you click on "Visual Basic" in developer t
 
 
 ## Tips and tricks
-'Debug.Print("I will write to immediate window')` > immediate window can be configured to be visible
+- 'Debug.Print("I will write to immediate window')` > immediate window can be configured to be visible
+- Type `Variant` can take any type. Example: `Dim x As Variant`
+    - https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/variant-data-type
+- `Dim myVarType = VarType(variableX) As VbVarType`
+    - will return the type of a variable (helpful for debugging or when working with Variant). Attention: returns a number
+        - mapping https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/vartype-function
