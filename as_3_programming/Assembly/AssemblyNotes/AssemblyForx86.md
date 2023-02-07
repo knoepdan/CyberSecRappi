@@ -161,6 +161,10 @@ In regards to examples and concept pdf.
    -> why? I understand why they both point to the same location (no more args) but
       shouldn't the stack become smaller again?
 
+Answer and notes: (more or less)
+- RBP + RSP are set again when code in a method calls another method (and value is safed on stack as well I believe) 
+- threading: each thread has is own stack (is virtualized anyway)
+
 
 **Question constants (verification)**
 9.5.5.1 Constants and variables
@@ -170,6 +174,8 @@ In regards to examples and concept pdf.
 ``` 
 "db" byte  (8bit)  
 I assume that means each character takes 8 bit (ASCI)
+Anwer: yes.. each character takes 8 bit
+
 
 **Question 3 .bss section**
 9.5.5.1 Constants and variables
@@ -179,4 +185,4 @@ section     .bss
         resb    10
 ``` 
 What does resb mean?
-
+Answer: "resb" reserves the memory (a bit like malloc)
