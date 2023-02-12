@@ -56,7 +56,13 @@ https://docs.metasploit.com
 - MFTECmd.exe  (Windows, Zimmermann Tools)
     - can create a csv file (fro TimelineExplorer) from a $MFT file 
     `.\MFTECmd.exe -f 'C:\Cases\Timestomping\$MFT' --csv 'C:\Cases\Timestomping\'`
-
+- "sigcheck" (Windows)
+    - check signatures of dll's and exe files (signed not signed)
+    - https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck
+- "DensitiyScout"  (Windows | Linux) -> calculates density (entropy) of files
+    - https://www.cert.at/en/downloads/software/software-densityscout
+    - e.g: `.\densityscout.exe -p 0.1 -o C:\Temp\results.txt C:\pathTo\System32`
+        - suspicious files are on top (below 0.1 is suspicious for a system32 folder, see website)
 
 
 ### Debugging etc.
