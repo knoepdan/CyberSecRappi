@@ -42,6 +42,10 @@ https://docs.metasploit.com
 - Mount image file (e.g. *.dd)
     - Linux: `mount ....`  (not a tool just a built in command)
     - Windows: Arsenal image mounter (see bitlocker decyryption)
+- "testdisk" Analyze images (e.g. USB stick with FAT32 filesystem)
+    - Install Testdisk: `sudo apt -y install testdisk`
+    - run testdisk: `sudo testdisk usbstick.dd`  
+        - interactive application
 
 
 ### Debugging etc.
