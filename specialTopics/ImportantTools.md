@@ -41,11 +41,22 @@ https://docs.metasploit.com
     -  `tsk_recover image.dd sleuth_data` > recover deleted files from image 
 - Mount image file (e.g. *.dd)
     - Linux: `mount ....`  (not a tool just a built in command)
-    - Windows: Arsenal image mounter (see bitlocker decyryption)
+    - Arsenal image mounter (Windows): https://arsenalrecon.com/downloads/  (see bitlocker decyryption)
+    - FTK Imager (Windows, used in Timestomping exercise)
+        - downloaded via https://www.exterro.com/ftk-imager
+        - Allows to export files like $MFT to local file system
+    - 7-Zip: just open (not possible to see file system files such as "$MFT" etc. )
 - "testdisk" Analyze images (e.g. USB stick with FAT32 filesystem)
     - Install Testdisk: `sudo apt -y install testdisk`
     - run testdisk: `sudo testdisk usbstick.dd`  
         - interactive application
+- TimelineExplorer (Windows, Zimmermann Tools)
+    - Points out anomalies on files
+        - reads in a csv file which can be created via "MFTECmd.exe" and "$MFT" table (also Zimmermann tool)
+- MFTECmd.exe  (Windows, Zimmermann Tools)
+    - can create a csv file (fro TimelineExplorer) from a $MFT file 
+    `.\MFTECmd.exe -f 'C:\Cases\Timestomping\$MFT' --csv 'C:\Cases\Timestomping\'`
+
 
 
 ### Debugging etc.
