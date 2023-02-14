@@ -63,6 +63,10 @@ https://docs.metasploit.com
     - https://www.cert.at/en/downloads/software/software-densityscout
     - e.g: `.\densityscout.exe -p 0.1 -o C:\Temp\results.txt C:\pathTo\System32`
         - suspicious files are on top (below 0.1 is suspicious for a system32 folder, see website)
+- "PECmd.exe" > (Windows, Zimmerman Tools)
+    - Analyzes the "Prefetcher" and spits out a csv file that can be analyzed. 
+        - Prefetcher is windows component that optimizes startup time and program starts. It keeps a log of which programs are started.
+    - example `.\PECmd.exe -d "C:\PrefetchDir" --csv OutputDirHere -q`
 
 
 ### Debugging etc.
