@@ -67,7 +67,10 @@ https://docs.metasploit.com
     - Analyzes the "Prefetcher" and spits out a csv file that can be analyzed. 
         - Prefetcher is windows component that optimizes startup time and program starts. It keeps a log of which programs are started.
     - example `.\PECmd.exe -d "C:\PrefetchDir" --csv OutputDirHere -q`
-
+- "AmcacheParser.exe" > (Windows, Zimmerman Tools)
+    - Analyzes the Amcache.hve file and generates a csv file that can be analyzed
+        - Amcache.hve is a file/log from windows that contains info about installed and executed programs 
+    - `.\AmcacheParser.exe -f "C:\Path\Amcache.hve" -i --csv OutputDirHere`
 
 ### Debugging etc.
 - GDB GNU Project Debugger (https://www.sourceware.org/gdb/)
