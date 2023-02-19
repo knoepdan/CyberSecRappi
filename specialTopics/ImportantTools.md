@@ -71,6 +71,18 @@ https://docs.metasploit.com
     - Analyzes the Amcache.hve file and generates a csv file that can be analyzed
         - Amcache.hve is a file/log from windows that contains info about installed and executed programs 
     - `.\AmcacheParser.exe -f "C:\Path\Amcache.hve" -i --csv OutputDirHere`
+- Plaso  (Linux)
+    - Collects all kind of events from a disk (from log files, registry etc.) and stores them into a plaso file
+        - which then can be analyzes vie Timesketch (webtool)
+    - commmand to start plaso: `log2timeline.py windows-81.plaso /dev/sda` (example not tried myself)
+- Timesketch (Webtool to read Plaso files)
+    - used in execersice
+    - https://github.com/google/timesketch/blob/master/docs/guides/user/basic-concepts.md
+    - https://timesketch.org/guides/user/basic-concepts/ (for same tool????)
+    - Query example: "filename:*.exe AND message:NTFS*"
+        - will return all entries for exe files which have a column message that starts with NTFS
+
+
 
 ### Debugging etc.
 - GDB GNU Project Debugger (https://www.sourceware.org/gdb/)

@@ -181,6 +181,10 @@ HSM: hardware security module
 Tool "Lolbas"
 - Can be used to use streams (example: run a cmd.exe with data from streams)
 - https://lolbas-project.github.io/
+- collection of tools that can be used to run my own stuff (normal windows programs that can be abused)
+    - examples: 
+        - Certutil.exe
+        - Cmd.exe 
 
 Tool "Velociraptor"
 - see Powerpoint
