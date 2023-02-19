@@ -29,5 +29,15 @@ What script does (my understanding as of now)
 3. Run the file
 
 
+## Deobfuscation with PSDecode
+
+1. Step one: install PSDecode + cut internet connection in VM
+2. Create file PowerShellinput.ps1 which contains the base64 encoded part of "PowerShellInput.txt" (the actual powershell part)
+3. Run `PSDecode .\PowerShellInput.ps1` 
+
+Output of 
+![Output PSDecode](PSDecodeOutput.png)
+(also see PSDecodedOutput.txt)
+
 ## Notes/Varia
 https://www.csnp.org/post/cyberchef-data-decoding-made-easy
