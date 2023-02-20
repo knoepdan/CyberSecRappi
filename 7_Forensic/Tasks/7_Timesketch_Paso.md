@@ -51,7 +51,7 @@
 There is a hidden secret message in this challenge. Maybe you can find it if you follow the traces further!
     -> not found :-(   I imagine the message could be found via https://pastebin.com/mqSBfL3u  but not sure what the pw is
 
-### timeline
+### timeline (19.11.2020)
 02:16:48 startup
 02:16:49 logon IEUser
 02:17:40 disabling if servises
@@ -59,8 +59,12 @@ There is a hidden secret message in this challenge. Maybe you can find it if you
 02:18:24 starting diskloader
 - Afterwards (in no specific order)
     - registry entries changed
+        -  HKEY_CURRENT_USER\Software\sxqs13     (2020-11-19T02:18:26)
+            - lrS9ky0xdrx19PLkDUSmmor09mtGTrOp
     - cmd.exe
 02:19:59  https://pastebin.com/mqSBfL3u
+             -> can be unlocked with entry in registry
+            Flag: HL{exfiltrate_all_the_files}
 
 ## Varia notes
 evtx_gap analysis in Timesketch: analyzes event viewer files (*.evtx)
