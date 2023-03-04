@@ -152,16 +152,19 @@ Response Headers that
 - Referer-Policy Header
     - Referrer-Header -> contains url of website that triggered request
         - Can sometimes contain sensitive info (example OAUTH one time token)
-    - `Referrer-Policy: no-referer`  (or "same-origin", or "strict-origin-when-cross-origin" (default for modern browsers.. will only send domain for cross origin))
+    - `Referrer-Policy: no-referrer`  (or "same-origin", or "strict-origin-when-cross-origin" (default for modern browsers.. will only send domain for cross origin))
     - Recommendation: set to no-referer (if not used)
-- Permission-Policy  (state 2023: no full browser support, chrome should be ok
+- Permission-Policy  (state 2023: no full browser support, chrome should be ok.. syntax has changed a bit)
     - allows to control what is allowed in the browser
-    - Example: `Permission-Policy: microphone 'none'; geolocation 'none'`  (many more directives)
+    - Example: `"Permissions-Policy:  geolocation=(none), fullscreen=(none)`  (many more directives, common values are: "*", "self", "none", "{url}")
+        - for IFrames the policy can be set in the allow attribute (not 100% sure how the attribute relates to the Permissions-Policy. It seems you have to allow the permission in the attribute but it is still possible to control is via header from the parent page)
+    - https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy 
     - Recommendation: disable stuff that is not needed
+
 
 Links: 
 - https://securityheaders.com
-- ...
+- https://wiki.owasp.org/index.php/OWASP_Secure_Headers_Project  (project )
 
 
 ### SQL Injection
