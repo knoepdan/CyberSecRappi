@@ -108,9 +108,12 @@ Allows granular control over resources. CSP Can control almost any resource Type
 - etc.
 -> there is a monitor mode which doesn't block but just reports violations. 
 
-Example configuration againt XSS (from me)
+Example configuration against XSS: 
 - don't allow inline-scripts (will prevent XSS coming from data)
 - only from known sources (usually 'self')
+-> `content-security-policy: default-src 'self'; object-src 'none';`   (will not allow inline scripts, not sure if object-src is needed as we have default)
+
+![CSP examples-access](CSP_Examples.png)
 
 **Common problem: not possible to get rid of inline scripts**
 - Hashes (quite cumbersome to implemnet as hash changes when script changes)
@@ -126,6 +129,7 @@ Example configuration againt XSS (from me)
 
 Links: 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+- https://content-security-policy.com/
 
 
 Considerations: 
