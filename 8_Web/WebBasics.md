@@ -130,6 +130,7 @@ Example configuration against XSS:
 Links: 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 - https://content-security-policy.com/
+- https://csp-evaluator.withgoogle.com/  (tool to check CSP rules)
 
 
 Considerations: 
