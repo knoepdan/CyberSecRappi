@@ -35,8 +35,9 @@ https://github.com/knoepdan
 Username: normal mail (not ost)
 R******* *123
 https://github.com/ibuetler/cas-cyber-security-2022-2023
-https://github.com/ti-ng/code-programming-languages-an-introduction   (not sure what this is chezwicker)
+https://github.com/ti-ng/code-programming-languages-an-introduction 
 https://github.com/knoepdan/CyberSecRappi.git  (my notes)
+https://github.com/ti-ng/re-deobfuscation  (ATTENTION: virus scanner will probably detect and quarentine files)
 
 
 https://github.com/tmesi/CAS-Cyber-Security-2020-Docs (from Tom)

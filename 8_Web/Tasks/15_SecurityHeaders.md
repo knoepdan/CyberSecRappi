@@ -24,7 +24,11 @@ Allow attribute for iFrame (unchanged)
 ```
     <iframe src="https://www.ischi.net/ost/sechdr/permission.php" allow="fullscreen;camera;geolocation"></iframe>
 ```
-Unfortunately, this does not work, the IFrame cannot use gelocation :-(   (played around quite a bit but didnt find a working solution)
+Important note: in the iFrame the union of the allow attribute and the permission policy is allowed (also see remark below, it was not possible to allow geolocation in iframe when parent/main disabled it)
+
+
+Unfortunately, this does not work, the IFrame cannot use gelocation :-(   (played around quite a bit but didnt find a working solution) : 
+*Remark1: seems only to work when paren/main page allows it (could be that browsers/specification changes in the future)* 
 
 ## 3 Referrer policy
 referrer header for image request: "referer: https://{UID}.idocker.vuln.land/referrer.php"
