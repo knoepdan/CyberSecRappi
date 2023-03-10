@@ -1,0 +1,75 @@
+<html>
+
+<body>
+    Test page to execute some obfuscated js
+    <div id="info">
+    </div>
+<script>
+
+function show(val){
+    console.log('show: ' + val);
+    const node = document.createElement('div');
+    node.innerText = val;
+    document.getElementById("info").appendChild(node);
+}
+
+var stringArray = ['120430XXVIfh', '278099EkyzbF', 'Content-Type', 'length', 'charAt', 'quit', 'specialfolders', 'MSXML2.SerTTTTTTTTverXMLHTTP', '624145xRuAmy', 'savetofile', 'ExpandEnvironmentStrings', 'Microsoft.XMLTTTTTTHTTP', 'RegTTTTTTTTTDelete', 'fromCharCode', 'startup', '340843SSemfJ', 'scriptname', 'getTime', '|JS', 'deletefile', '224534NDdNec', '%USERNAME%', 'REG_SZ', 'wscriTTTTTTpt.shell', '997048hdfOCk', 'RegWrite', 'responseText', 'replace', 'split', 'random', 'expandenvironmentstrings', 'send', '427228dSLRBw', 'substr', 'HKCU\x5cSoftware\x5cbolt\x5cGUID', '://', 'indexOf', 'httpTTTTTTT://voubucleonteriTTTTTTTTTT.xyz/dimpan/gate.php', 'RegRead', 'copyfile', 'HKCU\x5csoftware\x5cmicrosoft\x5cwindows\x5ccurrentversion\x5crun\x5c', 'setRequestHeader', 'open', 'floor', 'regdelete', 'User-Agent', '%APPDATA%', 'application/x-www-form-urlencoded', 'wscriTTTTTTTpt.exe\x20//B\x20', 'scriptfullname', 'regwrite', 'type', 'files/'];
+
+function funcOne(arrayA, inputB) {
+    var locFunc = chooseStringFunc;
+    while (true) {
+        try {
+            var localVariableB = parseInt(locFunc(481)) + -parseInt(locFunc(0x1da)) + parseInt(locFunc(0x1d2)) 
+            + -parseInt(locFunc(0x1d3)) + -parseInt(locFunc(0x1f2)) 
+            + parseInt(locFunc(0x1e6)) + parseInt(locFunc(0x1ea));
+            if (localVariableB === inputB) {
+                // only place get out of the 
+                break;
+            } else {
+                arrayA.push(arrayA.shift());  // removes first element and add (push) it again. 
+            }
+        } catch (ex) {
+            arrayA.push(arrayA.shift());
+        }
+    }
+}
+
+
+var chooseStringFunc = function (inputInt) {
+    inputInt = inputInt - 448;
+    var choosenString = stringArray[inputInt]; 
+    return choosenString;
+};
+funcOne(stringArray, 353383);
+
+show(chooseStringFunc(500));
+show(chooseStringFunc(489));
+show(chooseStringFunc(0x1c5));
+
+show(chooseStringFunc(0x1c2));// gate
+
+show(chooseStringFunc(0x1d8));
+show(chooseStringFunc(0x1e0));
+show(chooseStringFunc(0x1f0));
+show(chooseStringFunc(0x1cb));
+
+show(chooseStringFunc(0x1c3));
+show(chooseStringFunc(0x1d9));
+
+
+show(chooseStringFunc(0x1ec));
+show(chooseStringFunc(0x1ee));
+
+show(chooseStringFunc(0x1eb));
+
+
+show(chooseStringFunc(0x1c7));
+
+show(chooseStringFunc(0x1cd));
+
+// minor test to be sure 
+if(1 < 0) var x = (console.log("Hi"), "Alice"); console.log(x);
+</script>
+</body>
+
+</html>
