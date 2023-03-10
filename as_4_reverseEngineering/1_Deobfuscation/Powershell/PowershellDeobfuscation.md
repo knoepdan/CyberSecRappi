@@ -16,8 +16,8 @@ Steps done with Cyberchef
 Other techniques used which were not solved with cybechef  (these steps I would solve manuall one by one)
 - string formatting:  [type]("{2}{3}{5}{0}{4}{1}" -f 're','ry','sy','ste','cto','m.io.di')
 - string changes (replace with values from array)
-- null assignments 
-- meaningless variable names. Exampler:  ;$xap1lma
+- Identity operations: complicated stuff that actually does nothing 
+- meaningless variable names. Example:  ;$xap1lma
 - unnecessary language characters (e.g. brackets)
 - run code in string (dynamic code, or at least thats how i interpret the code in strings)
 - dead code
