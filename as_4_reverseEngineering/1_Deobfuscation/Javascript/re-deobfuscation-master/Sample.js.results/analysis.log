@@ -1,0 +1,15 @@
+[info] Script read environment variable appdata
+[info] Script read environment variable temp
+[info] IOC: The script wrote to a registry key
+[info] Setting registry key HKCU\software\microsoft\windows\currentversion\run\0 to wscript.exe //B "C:\Users\User\AppData\Roaming\0.2638666.jse" of type REG_SZ
+[info] IOC: The script copied a file.
+[info] Copying C:Users\Sysop12\AppData\Roaming\Microsoft\Templates\0.2638666.jse to C:\Users\User\AppData\Roaming\0.2638666.jse
+[info] IOC: The script wrote a file.
+[info] IOC: The script read a registry key
+[warn] Unknown registry key HKCU\Software\bolt\GUID!
+[info] Header set for http://voubucleonteri.xyz/dimpan/gate.php:
+[info] Header set for http://voubucleonteri.xyz/dimpan/gate.php:
+[info] Script read environment variable username
+[info] Data sent to http://voubucleonteri.xyz/dimpan/gate.php:
+[info] POST http://voubucleonteri.xyz/dimpan/gate.php
+[info] IOC: The script fetched an URL.

