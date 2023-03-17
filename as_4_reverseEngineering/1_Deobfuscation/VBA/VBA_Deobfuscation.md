@@ -31,7 +31,7 @@
         - it creates a winmgmts:win32_process object which in turn creates another object
           - It passes some treated form of Tvh1u8793dltn9.Content but was not able determine what the value of this is
           - It seems to create/start and object (process)
-            - with ViberMonkey it becomes clear that a powershell script is started (the Parameter is further obfuscated (basce64 etc.... it looks similar to the one in the next exercise))
+            - with ViberMonkey it becomes clear that a) a messge to the user is shown and b) a powershell script is started (the Parameter is further obfuscated (basce64 etc.... it looks similar to the one in the next exercise))
   
   
 **Running olevba to extract and analze vb code in doc file**
