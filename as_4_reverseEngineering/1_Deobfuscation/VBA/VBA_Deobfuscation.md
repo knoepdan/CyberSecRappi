@@ -13,10 +13,15 @@
    2. What obfuscation techniques have been used?
      - Answer: 
        - Name mangling (meaningless names)
+       - Control flow Rerouting -> lots of labels and Goto statements to make it harder to follow execution flow
        - Encode parts to make it unreadable (Base64 encoding)
-       - Control flow Rerouting -> Goto statements to make it harder to follow execution flow
+
 3. See how far you get with manual deobfuscation of the code.
    1. Describe the steps you took.
+        - Starting from the initially executed function, i started to rename labels, functions, variables by type (e.g. labelAA, inputString) etc. 
+        - Merged some string initialization
+        - Removed (or outcommented) unnecessary code, like unnecessary label jumps
+          - especially in the first method
    2. Any idea what the VBA part of this malware does?
 
 
@@ -30,3 +35,7 @@ Create environment
 - run `pipenv install oletools`
 - copy "Sample.doc" into ~/reversing/oletools"  (doc file from https://github.com/ti-ng/re-deobfuscation not checked as a) dangerous b) virus scanner might cause trouble)
 - run `pipenv run olevba ./Sample.doc` to analzye and get malicious doc file -> copy code to a file for analysis
+
+## VBA notes
+
+- " _ " means statement continues on the next line. Example: `skuwd = Ga63a6ozyok1lu + Tvh1u8793dltn9 _`  
