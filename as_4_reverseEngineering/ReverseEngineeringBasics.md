@@ -31,6 +31,6 @@ strings often provide helpful info:
 
 
 
-**Toolo Ghidra**
+**Tool Ghidra**
 Software reverse engineering tool (developed by NASA)
 https://ghidra-sre.org/  (follow download link to github: https://github.com/NationalSecurityAgency/ghidra/releases)

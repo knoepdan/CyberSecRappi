@@ -15,7 +15,7 @@ Assuming C compile gcc is present (usually preinstalled on linux) to create an e
 
 Main Extensions
 - C/C++
-- C/C++ Extension Pack
+- C/C++ Extension Pack  (this one alone is enough)
 
 Other extensions
 - C/C++ Themes
