@@ -56,11 +56,21 @@ Example main function: `int main(int argc, char *argv[]) `
 4. If you have time left (or you find this interesting ;-)), compare the two versions (Windows and
 MacOS).
     - What differences do you notice?
+        - Answers: 
+            - entry directly points to the main function. (no superflouos parameters, different data types)
+            - No wrapper function for printf 
+            - structure logic slightly different (e.g. in windows version we have an if/else whereas the else is missing in the mac version due to a different code flow, it was unnecessary )
+            - constants strings is directly compiled into the main method  ("%s" was correctly recognized as a string)
+            - Generally, it seems the mac version is easier to interpret
     - By comparing the two, you’ll easily see what the currently unknown function is.
         - Change its signature as well to clean up a bit more.  
-        – Note that it’s a function which accepts a variable number of parameters. Check the “varargs”
+        – Note that it’s a function which accepts a variable number of parameters. Check the “varargs”  
+            - Answer: not sure what is meant by varargs? (param_2? -> often called argv in C?)
 function attribute.
     - After editing, what differences are still left?
+        - code flow is slightly different
+        - call to printF
+        - otherwise looks similar to my "improved" win version
 
 **3.2.4.2 Overriding Call Signatures**
 **3.2.4.3 Rename & Retype variables**
@@ -108,6 +118,10 @@ bool FUN_Main_140001060(int argc,char **argv,undefined8 param_3,undefined8 param
 }
 ```
 
+2. Analyze ex2-*
+- Which version did you choose? Why?  
+    - Answer: "ex2-macOS" because the results seemed to be better for mac for the first file (string constants, main method, library functions)
+     
 
 
 
