@@ -1,0 +1,159 @@
+# Static analys Ghidra
+
+
+## Exercises
+
+**3.3.3.1  Strings**
+The strings that are clearly specific to the actual program (e.g: "You didn't give me your guess", "secrect", etc. ) give a) indications what the program might do b) help us find the most relevant pieces of code
+
+1. Double click on interesting string in "Defined String": we jump to the string definition in "Listing"
+2. right click > References > Show References To Address:  we can jump to functions where string is used
+3. check these functions in the decompiled C code: We are likely in a relevant function 
+
+**3.3.3.2  Symbols**
+
+Starting from a custom string ("You didn't..."), I go up the calling tree of the functions using the string, and at some point I end up at the entry symbol. One of the functions has to be the main function.  
+
+
+Example (I slightly renamed the functions)
+```
+entry symbol
+    ..
+    FUN_Init_14001328
+        FUN_Main_140001060
+             "You didn't give me your guess!"
+```
+
+**3.2.3.3 Decompile & AST Control Flow**
+
+1. AST Control flow -> decision diagram of the control function. Selecting a box/item, marks the corresponding code green
+2. Code of entry function FUN_14001328
+    - Any idea where this codde came from?
+        - Compile probably has to generate some setup code so our code interacts properly with the OS and the environment (e.g. retrieve the arguments for the main function)
+    - How did it get here
+        - compiler generates compiles it into exe file 
+3. Try to identitfy the main function
+    - What's the function name / label:   "FUN_14001060"  ( I renamed it to FUN_Main_140001060)
+    - How did you find it?
+        - From a custom string "You didn't...", I found the custom code and from there I could jump up the function call tree to find the top function. Top function was entry point, but the one before had to be the main. 
+            - also see 3.3.3.2 Symbols 
+            - Also see "Function Call Graph"
+
+
+**3.2.4.1 Program analysis editin func signatures**
+Example main function: `int main(int argc, char *argv[]) ` 
+
+1. The type of the second parameter seems strange, doesn’t it?
+    - What should it actually be?
+        - Answer: a pointer to a char array: "char *arg[]
+    - Why doesn’t it make a difference on a lower level? 
+        - Answer: On a 64bit system longlong and a pointer both use 64bit
+2. Edit the function signature to correctly define the function.  (basically followed the instruction in the concept document)
+3. What changes happen in the function code due to the adjustment of the signature?
+    - Answer: 
+        - works like a refactor in an IDE. Will 
+        - Pointer handling is simplified: `strcmp(*(char) **) Param_2 + 8, s_secret_1400..)` -> changes to `strcmp(argv[1], s_secret_140...)`
+4. If you have time left (or you find this interesting ;-)), compare the two versions (Windows and
+MacOS).
+    - What differences do you notice?
+    - By comparing the two, you’ll easily see what the currently unknown function is.
+        - Change its signature as well to clean up a bit more.  
+        – Note that it’s a function which accepts a variable number of parameters. Check the “varargs”
+function attribute.
+    - After editing, what differences are still left?
+
+**3.2.4.2 Overriding Call Signatures**
+**3.2.4.3 Rename & Retype variables**
+done according to the concept
+
+**3.2.4.4* Rename & Retype variables**
+`FUN_PrintF_140001120(&DAT_140003038,responseMessage);`
+
+Changed Data "DAT_140003038" int a string (via Data > string). Label name changes to "s_%s_140003038". It is clear that is called as follows: 
+`printf("%s", responseMessage);`
+
+How many bytes do you have to select? Why?
+Answer (guess): Ghidra did automatically. However, I guess that since I changed the data into a string, I had to select all bytes untill the first "00" as this marks the end of a string. In this particular case it was 3 bytes (2 characters and the "end" byte)
+
+**3.2.4.5 Putting it all together**
+
+1. Run ex1-win.exe 
+
+Calling "ex1-win secret" > output "Yay ;-)
+
+```
+bool FUN_Main_140001060(int argc,char **argv,undefined8 param_3,undefined8 param_4)
+
+{
+  int compareResult;
+  bool isIncorrect;
+  char *responseMessage;
+  
+  if (argc < 2) {
+    FUN_PrintF_140001120(s_You_didn't_give_me_your_guess!_140003000,argv);
+    isIncorrect = true;
+  }
+  else {
+    compareResult = strcmp(argv[1],s_secret_140003020);
+    isIncorrect = compareResult != 0;
+    if (isIncorrect) {
+      responseMessage = s_Nay_;-(_140003030;
+    }
+    else {
+      responseMessage = s_Yay_;-)_140003028;
+    }
+    FUN_PrintF_140001120(s_%s_140003038,responseMessage);
+  }
+  return isIncorrect;
+}
+```
+
+
+
+
+
+
+## FROM VIDEO
+
+
+**3.2.4.5  ex2-**
+
+
+
+
+### Functions explained
+
+**Function graph**
+diagram of a function with with if else
+
+
+
+
+
+### Tips and tricks
+
+- finding main method (for windows prog)
+    1. Symbol Tree > Exports > entry
+    2. Double click to see decompiled C function -> probably we see a simple function calling another function
+    3. Double click on that function to get to a bigger function which contains
+        - a lot of setup code (can be more or less ignored)
+        - call to actual main function
+- rename variable and func (recommendations)
+    - `varAA` -> change to  `newName_varAA`  (basically keep the old name after the "_")
+
+- it is possible to change the assembly code but not the C code  (patch code)
+
+- possible changes to C stuff
+    - renames 
+    - change datatypes (undefined to .. )
+    - change signature (??? how)
+
+
+- Function Call Graph
+    - Graph that shows how functions call each other
+    - good to find main function
+
+- Graph Control Flow  (AST Control flow)
+    - shows a diagram for the decompiled function (if a box is selected, the corresponding code is marked)
+    - to be triggered from C Windows -> top right menu of window
+
