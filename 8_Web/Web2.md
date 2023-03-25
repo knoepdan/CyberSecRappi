@@ -7,11 +7,10 @@ Script gadget is a piece of legitimate JavaScript code, that can be triggered vi
 Can be used to circumvent CSP (see example in pdf, which uses Vue and and the framework/code)
 
 ```
-
+<div data-role="button" data-text="Hello"></div>
 <script>
-var buttons = $('data-role-button');
-buttons.html(buttons.attr("data-text""));  // data is elevated to code !!
-
+    var buttons = $('data-role-button');
+    buttons.html(buttons.attr("data-text""));  // data is elevated to code !!
 </script>
 
 ```
@@ -25,6 +24,10 @@ Mitigation:
 - CSP policy `trusted-types` > prevents innerHTML property 
     - check pdf how it is still possible to set html (with sanitizer)
 
+
+
+Github repo with some known script gadgets for common frameworks: 
+https://github.com/google/security-research-pocs/tree/master/script-gadgets 
 
 
 ### Mass Assignment
