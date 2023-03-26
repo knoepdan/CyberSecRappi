@@ -6,7 +6,7 @@
         - some requests resulted in failure (around 6%) so there is an error margin
         - some results might be flawed 
 2. Your program code
-    - see pdf or relevant snipped below (.Net 7 code)
+    - see zip or relevant snipped below (.Net 7 code)
 3. How many websites could you test? How could you further improve the speed of your program?
     - run requests in parallel using multiple threats. Easily possible as order is not important
 4. Did you make any special overservations?
