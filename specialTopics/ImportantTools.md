@@ -1,5 +1,12 @@
 # Important tools
 
+
+## Network general
+- netcat
+    - network tool for tcp/udp connections (can be used for reverse shells)
+    - https://www.kali.org/tools/netcat/
+    - https://www.varonis.com/blog/netcat-commands 
+
 ### NMAP
 Port scanner (and a little more)
 
