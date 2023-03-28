@@ -1,5 +1,8 @@
 # Insecure Serialization
 
+
+
+
 ## Answers
 
 
@@ -23,4 +26,7 @@ Reverse shell credentials
 username: hacker
 password: Lxs0yj4tefam
 
-<span style="color:red">creating exploit not working.. java installation problem :-(    </span>
+<span style="color:red">creating exploit not working.. java installation problem
+    
+    TODO check messages: docker file has to be adapted manually 
+       </span>
