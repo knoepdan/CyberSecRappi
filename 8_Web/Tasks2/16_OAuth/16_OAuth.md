@@ -1,12 +1,20 @@
 # OAuth
 
-## TODO Plan
-
-1. Page that POSTS to mypix/authorize request with params but a different redirect_url -> that url should be my page from which I can get the token.
+## Attack
 
 
+1. Make sure user is logged in to https://mypix.compass-demo.com/
+2. Go to landing page (landing.html)
+  - click on button which triggers a redirect to 'https://mypix.compass-demo.com/authorize?responseType..... ' -> redirect url is the landing page again
+  - User (browser) is redirected to mypix but since we are already authorizsed, we are immediatly redirected back to the url we passed in the "redirect_url" query string param
 
 
+![Attack success](LandingPageSuccessWithAccessToken.png)
+*works in chrome and FF*
+
+## How to fix vulnerability
+Problem is that the redirect_url is not checked. The url should either be whitelisted or not be passed at all when the Auth Server already knows the redirect_url (from the clientId) 
+ *(not sure what follows the standard, I believe you have to pass it)*
 
 
 
