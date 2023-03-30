@@ -98,3 +98,7 @@ Program code (C# .Net 7)
 
 ## Notes/varia
 HTTPS: HTTP Strict Transport Security is a web security policy mechanism that helps to protect websites against man-in-the-middle attacks such as protocol downgrade attacks.
+
+**HSTS can be preloaded**
+-> see other resources
+https://hstspreload.org

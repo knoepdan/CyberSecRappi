@@ -142,8 +142,9 @@ Basically attaches the "stdout" (the result of a bash command) of one process di
 Examples: 
 `ls -all | grep test` -> the output of ls is filtered by grep and then displayed on screen (using coloring as grep is writing it to the screen)
 `ls -all | grep test | cat`  similer but the output from grep is forwared to cat which then outputs it to the screen (with no coloring)
-`echo -n "Super Hacker" | base64`  encode string with base64
-` echo -n "Super Hacker" |  md5sum`  get md5 sum
+`echo -n "Super Hacker" | base64`  encode string with base64 (will have line breaks)
+`echo -n "Super Hacker" | base64 -w 0`  encode string with base64 (without line breaks)
+`echo -n "Super Hacker" |  md5sum`  get md5 sum
 `echo '{ "foo": 123, "bar": 456 }' | jq '.foo'` -> jq is a json command and outputs "123" (value of foo)
 
 https://stackoverflow.com/questions/9834086/what-is-a-simple-explanation-for-how-pipes-work-in-bash
