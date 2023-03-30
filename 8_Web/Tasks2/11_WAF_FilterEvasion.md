@@ -39,12 +39,12 @@ or just  (without javascript)
 ```
 
 **Level 9**
-:-(  not succesful 
+`<a href="javascri&#112t:alert(1)" >hello</a>`  
 
+(generates a link to be clicked, maybe not what was meant)
 
 **Level 10**
-:-(  not succesful 
-
+no succes :-(
 
 ## Notes
 https://www.volkis.com.au/blog/bypass-xss-in-wafs/ 
