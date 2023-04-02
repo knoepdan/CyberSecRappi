@@ -14,7 +14,6 @@ Assuming C compile gcc is present (usually preinstalled on linux) to create an e
 *VS Code on was preinstalled with a few extension for C and C++. These are just listed here. *
 
 Main Extensions
-- C/C++
 - C/C++ Extension Pack  (this one alone is enough)
 
 Other extensions
