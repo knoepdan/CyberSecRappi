@@ -39,8 +39,17 @@ Using Ghidra some points:
     - start debugging: right click debugger node and selecte "Exec"
     - shows us the different debugger sessions and lists the processes / threads
 - Interpreter
+    - shows info about what debugger is doing
+    - possible to set commands (much like console for browser tab, see video)
+        - example: `dq 14fff0` -> shows content of memory  (quad, attention big endian)
+        - example: `ed 14fff0 01` -> edits content of memory (quad)
+        - example: `eb 14fff0 01` -> edits content of memory (byte)
+        - example: `db 14fff0` -> show content of memory (byte)
+        - example: `dd 14fff0` -> show content of memory (double word)
+        - seeing memory values should also work in "Watches" (see pdf, might not always work)
     - might open upon starting a debugger session
         - otherwise just go to Windows > Interpreter (along with all other windows)
+    
 - Modules
     - allows mapping virtual memory address to the program (and used libraries)
     - **Important: only when mapped can we relate addresses in e.g. listing component and set breakpoints**
@@ -56,8 +65,11 @@ Using Ghidra some points:
 - Listing components
     - Dynamic > debugger equivalient to "static" listing component
         - Sometimes doesn't show instructions -> right click and disassemble
-    - Dynamic can be configured to always go to control flow
-        - Track Location: Stack or instruction pointer
+        - Always possible to add a new one via Window > Debugger > 
+    - Dynamic can be configured to always go to control flow (recommended to have 2 windows)
+        - Track Location: 
+            - Stack or instruction pointer ("Track Program Counter")$
+            - Stack pointer RSP ("Track Stack Pointer")  
 - Registers -> CPU registers
 - Watches -> watch memory location
     - has a special syntax for pointers:   `*:8 RSP` watches 8 bytes the register RSP points to
@@ -69,7 +81,18 @@ Using Ghidra some points:
 
 
 
+Start debugging 
+- preconditions: windows etc. are setup
+1. "Debugger Targets" > Connect > choose correct debugger (dbgen for windows, "IN-VM" or via "local agent")
+2. Objects:
+    - start debugging: right click debugger node and selecte "Exec"
+    - shows us the different debugger sessions and lists the processes / threads
+2. Modules:  right click module (there should only be one) and "Map to $prog"
+
 
 ## Tool Ghidra
 Software reverse engineering tool (developed by NASA) for static and dynamic analyis
 https://ghidra-sre.org/  (follow download link to github: https://github.com/NationalSecurityAgency/ghidra/releases)
+
+
+## Varia 

@@ -144,8 +144,11 @@ Examples instructions
     - "dq" -> QUADWORD (QWORD) -> eight-byte integer (64bit)
         - The size of a register (e.g. "RDI")
 - Values in memory are in little endian format. 
-    - first value last 
-
+    - Example hex number: 4F52 
+        - little endian:  52 4F
+            - 52 at addresse 1000, 4f at address 1001
+            - used by x86 CPU's
+        - big endian (intuitive):  4F 52
 
 
 *Remark: Theoretically the size of a word could depend on the unit the processor could process in one step or in some cases (programming languages) on the context. * 
