@@ -132,7 +132,7 @@ Examples instructions
 - `MOV dst src` -> moves data from source to destiation
     - src can be pointers to memory, registers, constants
     - dst can be pointers to memory + registers (some registers are excluded)
-- `LEA rsi [someLabel]` -> moves/loads the memory address into rsi   
+- `LEA rsi [rel someLabel]` -> moves/loads the memory address into rsi   
 
 
 ## Leftovers
