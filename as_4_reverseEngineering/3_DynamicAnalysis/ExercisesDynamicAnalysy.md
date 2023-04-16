@@ -29,13 +29,27 @@ Main function: `FUN_140001060` renamed to `FUN_MAIN_140001060`
 
 1. How do the “Dynamic Listing” and the static “Listing” components present now? Why is it different
 from before?
-    - In the dynamic listings, I follow the Programm counter (instruction pointer) and the stack (RSP) so they jump to corresponding places. 
+    - dynamic listings
+        - I mainly just see the actual assembly code
+        - I see the registers actually being used: `MOV qword ptr [RSP + 0x10], RDX`
+    - static listing:
+            - I get some additional information regarding parameters, function, stack values (local_res)
+        -  I see label names, argument names etc:  `MOV qword ptr [RSP + local_res10], param_2`
+    - Conclusion: it is best to have both, static and dynamic listing open at the same time as they complement each other
 2. How is the “Stack” component changed? What happens if you click on the different lines presented
 there?
-    - In the dynamic listing (tracking the program counter) i jump to the corresponding place
+    - The stack components shows the different stack frames. For ex3-win.exe 4 stack frames are shown, the last 2 can be mapped to a function (last is current main function)
+    - Upon clicking on a line, we jump to the dynamic listing (tracking the program counter) and the static listing jump to the corresponding code (not the address in the stack). The register only show values for the current stack frame (or better current execution) as they values for the previous states are lost/overwritten. 
 3. Where can you find the values for argc / argv? What are these? Can you find the argument you
 passed based on these?
+    - In my example, I passed one string argument so in a C program I end up with 2 arguments: "program name", "customValue". (argc is 2)
+    - Using the static listing (and to a lesser degree the compiled C code), i quickly find the assembly code that uses or references the arguments. Once I found these places, i check the corresponding code lines in the dynamic listing and find the registers or memory addresses these values should be. 
+        - argc (in C) -> param_1 in static listing -> register RCX in dynamic listing -> value "2"
+        - param_2 (char array in C) > pointer in RDX to (534fa0) -> in Interpreter i can see the memory values 
 4. How do you go about finding the actual text values passed to the program?
+    - in Interpreter `db 534fa0`  (534fa0 being the address in register RDX)
+        - since a char is only 1 byte, "db" is the correct keyword to query the memory here. 
+
 
 
 ## Input from Sprechstunde

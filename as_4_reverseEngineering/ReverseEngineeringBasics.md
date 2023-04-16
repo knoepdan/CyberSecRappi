@@ -74,6 +74,7 @@ Using Ghidra some points:
 - Watches -> watch memory location
     - has a special syntax for pointers:   `*:8 RSP` watches 8 bytes the register RSP points to
 - Stack 
+    - shows stack frames
     - each "CALL" instruction will create a new stack frame (cleared by later "RET" instruction)
     - Click will update "Registers" and "Dynamic Listing" (why registers?)
     - possible to add comments (double click)
