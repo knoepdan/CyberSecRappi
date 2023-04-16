@@ -42,7 +42,7 @@ there?
     - Upon clicking on a line, we jump to the dynamic listing (tracking the program counter) and the static listing jump to the corresponding code (not the address in the stack). The register only show values for the current stack frame (or better current execution) as they values for the previous states are lost/overwritten. 
 3. Where can you find the values for argc / argv? What are these? Can you find the argument you
 passed based on these?
-    - In my example, I passed one string argument so in a C program I end up with 2 arguments: "program name", "customValue". (argc is 2)
+    - In my example, I passed one string argument so in a C program I end up with 2 arguments: argc and a char array with 2 entries ("program name" and "customValue").
     - Using the static listing (and to a lesser degree the compiled C code), i quickly find the assembly code that uses or references the arguments. Once I found these places, i check the corresponding code lines in the dynamic listing and find the registers or memory addresses these values should be. 
         - argc (in C) -> param_1 in static listing -> register RCX in dynamic listing -> value "2"
         - param_2 (char array in C) > pointer in RDX to (534fa0) -> in Interpreter i can see the memory values 
@@ -51,6 +51,21 @@ passed based on these?
         - since a char is only 1 byte, "db" is the correct keyword to query the memory here. 
 
 
+**4.2.2 Stepping**
+Advancing program to method comparing eky
+1. How would you go about finding the expected value (without modifying program state - we only
+learn about that later ;-))?
+    - Firstly, I would statically analyze the code, especially the decompiled C code rename some variables (static analysis)
+        - it seems that we have to find a string and that there has been some obfuscation
+        - there is one crucial if statement which defines whether we got the right character or not
+    - Secondly, I try to find the crucial if statement in assembly (CMP statement) and I set a breakpoint there: `CMP        EAX,param_1`
+        - In the register EAX has to be the value for the character that is compared to my input, so I can use the register value to find out a valid input. I set a breakpoint exactly at this point. 
+    - I work in rounds now: I start debugging with a certain input string, continue untill my breakpoint at the compare statement is hit and read the correct value from the register EAX to get the first valid character. I restart debugging - round 2 - but this time I make sure my input string starts with the first valid character (value from EAX as ASCI string) I again continue till I hit the breakpoint, but this time i continue again to hit the same breakpoint again (second loop in while) so I get the second character. I do another round to get the third character.
+2. Get the first three correct characters.
+    - Value in register EAX when comparing: "Thi"
+        - [1]  -> 54  -> "T"
+        - [2]  -> 68  -> "h"
+        - [3]  -> 69  -> "i"
 
 ## Input from Sprechstunde
 
