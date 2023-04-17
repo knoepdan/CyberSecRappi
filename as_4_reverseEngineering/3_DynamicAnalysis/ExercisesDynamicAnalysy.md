@@ -67,6 +67,24 @@ learn about that later ;-))?
         - [2]  -> 68  -> "h"
         - [3]  -> 69  -> "i"
 
+**4.2.3 Modifying Register Values**
+
+1. Using this new way of “tricking” the program, how can you go about finding the entire expected
+value?
+    - I (probably) find the key by just using the approach used in 4.2.2 with restarting the program each time we found another valid character. However, it is probably much faster if we just change the register values aka register flag while debugging, so we can find the entire key in one debugging session.
+        ```
+        CMP EAX, param_1        ;  actual assembly:  CMP RAX, RCX
+        JZ  LAB_140001236       ; -> will jump if zero (so will jump if RAX and RCX are the same)
+        ```
+    - I set the break point to the jump instruction and each time we get there, I write down the value in RAX (EAX) and I make sure that the value in RCX matches the one in RAX - by modifying the register in Ghidra - in order to get to the next "round" when i click on "Resume" debugging.
+    - *Remark: i tried to modify the ZF flag register as I thought RAX might be used at some point later and by just modifying the flag register, we reduce such a chance. However, this didn't work and ZF is usually greyed out, which probably means not the correct value is shown anyway. (Maybe it would be possible to change the zf value by modifying the "flags" but I didnt try this.)*
+
+2. Do it! What’s the key?
+    - Using the approach described above: i get the following numbers: 
+        - 54,68,69,73,5f
+        - These result in the following string: "This_" 
+
+
 ## Input from Sprechstunde
 
 - layouting: splitting windows -> by drag & drop
