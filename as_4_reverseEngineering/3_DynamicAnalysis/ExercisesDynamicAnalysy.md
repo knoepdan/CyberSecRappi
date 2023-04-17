@@ -120,6 +120,24 @@ Info/Examples on how to use interpreter to read/modify memory
     - example: `dd 14fff0` -> show content of memory (double word)
 
 
+**4.3 Patching Programs**
+Making the program accept any input. 
+
+Original instructions 
+```
+ CMP EAX, param_1        ;  actual assembly:  CMP RAX, RCX
+ JZ  LAB_140001236       ; -> will jump if zero (so will jump if RAX and RCX are the same)
+```
+By replacing the "JZ" instruction which will only jump when the zero flag is set with "JMP", which will always jump, our program will acceppt any input. 
+
+```
+ CMP EAX, param_1        ;  no changes
+ JMP  LAB_140001236       ; will always jump to address
+```
+
+To test: 
+Export file via “File” > “Export Program”, selecting “Format”: “Binary”  (exported filename ends with ".bin"). Run as an exe (remove .bin extension) it and it will acceppt any input. :-) 
+
 
 ## Input from Sprechstunde
 
