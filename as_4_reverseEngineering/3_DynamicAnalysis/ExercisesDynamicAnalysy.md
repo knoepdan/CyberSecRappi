@@ -84,6 +84,42 @@ value?
         - 54,68,69,73,5f
         - These result in the following string: "This_" 
 
+**4.2.4 Modifying Memory**
+From the decompiled code (and fastcall convention) we get that the memory address of the passed string is to be found in the register RCX (464ff9). We can query this memory address via `db 464ff9` (see screenshot below). However, this doesn't help us much as we don't want to change the entered arguments but we want the program to trick into accepting them so we find out the accepted value.
+![Memory of passed param](GhidraCheckingMemory.png)
+
+
+Having a look at the generated assembly we find the statement that fills the RAX register with the value from the stack
+        ```
+        MOVSX  RAX, byte ptr [RSP + 0x20] ; this is the statement that moves value from stack into RAX which is later used for comparison
+        .... ; some other code
+        CMP RAX, RCX         ;  actual assembly:  CMP RAX, RCX  in static listing:  "CMP EAX, param_1"     
+        JZ  LAB_140001236       ; -> will jump if zero (so will jump if RAX and RCX are the same)
+        ```
+By executing `db 14fe80` (mem address calculated via value in RSP + 0x20) we see the that the byte at the corresponding position that we have to manipulate as it will be later loaded into the register RAX and used for comparison. 
+Example:  `eb 14fe80 41` I set the value to 41 (in ASCI 'A') to the corresponding memory address. So by alligning this with what I have passed as an argument, i can pass the check and go to the next round. 
+
+So what I have to with this approach is:
+1. set a breakpoint 'MOVSX' statement and wait till breakpoint is hit
+2. read value from stack (RSP + 0x20) that respresents the character: `db 14fe80`. Remember this value as this is the valid character.
+3. overwrite this value with the character at this index which I have passed as Input. Example: `eb 14fe80 41`  (I have passed "Ablablabla" and we are in the first round so I have to set the character "A", which is 41 in HEX)
+4. resume debugging and repeat the steps untill we have the keyword
+
+*Remark: for this particular case, I found overwriting the registers as in step 4.2.3 more efficient* 
+
+
+Info about MOVSX instruction (mainly just reading one byte and loading it into register): 
+    - https://en.wikipedia.org/wiki/X86_instruction_listings
+    - https://stackoverflow.com/questions/33268906/how-does-movsx-assembly-instruction-work (more detailed)
+
+Info/Examples on how to use interpreter to read/modify memory
+    - example: `dq 14fff0` -> shows content of memory  (quad, attention big endian)
+    - example: `ed 14fff0 01` -> edits content of memory (quad)
+    - example: `eb 14fff0 01` -> edits content of memory (byte)
+    - example: `db 14fff0` -> show content of memory (byte)
+    - example: `dd 14fff0` -> show content of memory (double word)
+
+
 
 ## Input from Sprechstunde
 
