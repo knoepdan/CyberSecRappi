@@ -1,7 +1,7 @@
 # Dynamic analysis 
 
 
-## First stepss
+## Exercises
 
 **4.2 Running a programm**
 
@@ -10,7 +10,6 @@
     - Dynamic Listing:        7ffa700e2680 48 83 ec 78     SUB        RSP,0x78   (Address of register RIP)
     - Answer: static listing shows the beginnning of the mapped memory addresses, basically where the actual file starts, whereas the dynamic listing shows the first code that is executed (see register RIP). 
 
-<span style="color:red">What are the registers EIP, and or IP ??? Are these 32 bit subsets?</span>
 
 2. Have a look at the “Registers” component. Where are the instruction pointer and stack pointer pointing? Where can you find these memory locations?
     - RIP (instruction pointer): 7ff700e2680 -> points to where we jumped to in the dynamic listing
@@ -139,14 +138,16 @@ To test:
 Export file via “File” > “Export Program”, selecting “Format”: “Binary”  (exported filename ends with ".bin"). Run as an exe (remove .bin extension) it and it will acceppt any input. :-) 
 
 
-## Input from Sprechstunde
+## Varia
 
+**Input from Sprechstunde**
 - layouting: splitting windows -> by drag & drop
 - bind dynamic listing to stack?`(check video beginning .. 6:50)
 - explanation about pointer to pointer ...
 
 - Stack register RBP 
     - RBP is usually (always?) set by hand so it's ok if it is initially 0
+        - *Comment dk: it seems its always 0.. maybe a bug in Ghidra?*
     - RBP is (can be) used to save RSP 
         - per convention: first thing to do is save RSP to RBP so when function call is finished we can just reset value 
         - however: compiler might do things differently and also possible that compile optimizes stuff so we don't see this
