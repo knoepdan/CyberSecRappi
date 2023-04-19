@@ -7,6 +7,16 @@
     - https://www.kali.org/tools/netcat/
     - https://www.varonis.com/blog/netcat-commands 
 
+
+### Bettercap
+Tool that can be used for Man in the middle attacks.
+https://www.bettercap.org/
+https://www.cyberpunk.rs/install-mitm-attack-framework-bettercap (and follow up articles)
+https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
+
+<span style="color:red">TODO / Improve</span>
+
+
 ### NMAP
 Port scanner (and a little more)
 
@@ -21,6 +31,9 @@ https://www.youtube.com/watch?v=sfT_qEw3Fcs
 
 
 <span style="color:red">Improve</span>
+
+
+
 
 ### Metaxploit
 metasploit can be used to: 
