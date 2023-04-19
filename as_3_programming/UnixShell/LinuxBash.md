@@ -15,11 +15,17 @@
 
 ## Bash
 
+**Important**
+- `bash bashScript.sh` -> runs bash script   ("running "sh bashScript.sh" would run it as dash with slightly different behavior)
+
+
 **Basic basics**
 For help add "--help". Examples: 
-
 - `bash --help`  
 - `ls --help`
+
+
+
 
 **Basic files and folders**
 `mkdir newfolder` 
