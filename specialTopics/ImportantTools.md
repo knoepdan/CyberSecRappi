@@ -90,6 +90,14 @@ https://docs.metasploit.com
         - will return all entries for exe files which have a column message that starts with NTFS
 
 
+### Reverse engineering
+- Ghidra https://ghidra-sre.org/  > decompiles to assembly and C
+    - github: https://github.com/NationalSecurityAgency/ghidra/releases
+- ViperMonkey    > for VBA  (best run in VM)
+- PSDecode > for Powershell  (best run in VM)
+- box-js  > for Javascript
+
+
 
 ### Debugging etc.
 - GDB GNU Project Debugger (https://www.sourceware.org/gdb/)
