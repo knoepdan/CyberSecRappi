@@ -1,13 +1,40 @@
 # Reverse engineering basics
 
-Main technics
-
+**Main technics**
 - Deobfuscation
 - Static analysis (basically just looking at the code)
 - Dynamic analysis (also run the code.. potentially dangerous)
 
 
 ## Deobfuscation
+
+Some techniques to obfuscate the code: 
+- Name mangling
+    - choose arbitrary names
+- Data transformation & distribution
+    - examples: string formatting (decomposition), use hex, asci or some other encoding (possibly also use some math), unnecessary characters, encryption, ett. etc.
+- Code bloating
+    - dead code insertion
+    - identity operations
+        - basically code that does nothing in the end (comparison with math: 0 for additive operations)
+- Control flow rerouting
+    - inlining functions
+    - flattening control flow:  unnecessary switch or goto
+- Dynamically exectued code
+    - strings that are viewed as code and are executed...
+
+
+Languages covered:
+- VBA
+    - Tool: ViperMonkey  
+- Powershell
+    - Tool: PSDecode
+- Javascript
+   - Tool: box-js  
+
+Recommendation: 
+    - manual deobfuscation: use a git repo, and autoformat code first
+    - using tools that also execute the code: always in a VM (that is NOT connected)
 
 
 ## Static analysis
@@ -29,66 +56,13 @@ Sites to check known malware by file hash
 strings often provide helpful info: 
 - `strings /someFolder/file.exe` -> will print the strings found (linux, for the same on windows check concept)
 
+
+**Ghidra**
+important tool for static (and dynamic) analysis. 
+
 ## Dynamic analysis
-Using Ghidra some points: 
-- Debugger tools have to be configured
-- Debugger targets: how to connect (in theory should lead to same results but in practise this isn't the case)
-    - in VM 
-    - via TCP 
-- Objects:
-    - start debugging: right click debugger node and selecte "Exec"
-    - shows us the different debugger sessions and lists the processes / threads
-- Interpreter
-    - shows info about what debugger is doing
-    - possible to set commands (much like console for browser tab, see video)
-        - example: `dq 14fff0` -> shows content of memory  (quad, attention big endian)
-        - example: `ed 14fff0 01` -> edits content of memory (quad)
-        - example: `eb 14fff0 01` -> edits content of memory (byte)
-        - example: `db 14fff0` -> show content of memory (byte)
-        - example: `dd 14fff0` -> show content of memory (double word)
-        - seeing memory values should also work in "Watches" (see pdf, might not always work)
-    - might open upon starting a debugger session
-        - otherwise just go to Windows > Interpreter (along with all other windows)
-    
-- Modules
-    - allows mapping virtual memory address to the program (and used libraries)
-    - **Important: only when mapped can we relate addresses in e.g. listing component and set breakpoints**
-        - to map after starting debug session: right click module (there should only be one) and "Map to $prog"
-        - Static mappings window should show mappings (window may has to be opened via Window..)
-- Breakpoints
-    - 2 types
-        - Software breakpoints (have to change source as otherwise it would not be possible)
-        - Hardware breakpoints
-            - use dedicated CPU registers (by now, hardware usually has this)
-    - Can be set from "Listing" component
-        - different type of breakpoints.. (accessing memory, SW Execute, HW Execute....)
-- Listing components
-    - Dynamic > debugger equivalient to "static" listing component
-        - Sometimes doesn't show instructions -> right click and disassemble
-        - Always possible to add a new one via Window > Debugger > 
-    - Dynamic can be configured to always go to control flow (recommended to have 2 windows)
-        - Track Location: 
-            - Stack or instruction pointer ("Track Program Counter")$
-            - Stack pointer RSP ("Track Stack Pointer")  
-- Registers -> CPU registers
-- Watches -> watch memory location
-    - has a special syntax for pointers:   `*:8 RSP` watches 8 bytes the register RSP points to
-- Stack 
-    - shows stack frames
-    - each "CALL" instruction will create a new stack frame (cleared by later "RET" instruction)
-    - Click will update "Registers" and "Dynamic Listing" (why registers?)
-    - possible to add comments (double click)
-    - more see concept **quite important**
 
 
-
-Start debugging 
-- preconditions: windows etc. are setup
-1. "Debugger Targets" > Connect > choose correct debugger (dbgen for windows, "IN-VM" or via "local agent")
-2. Objects:
-    - start debugging: right click debugger node and selecte "Exec"
-    - shows us the different debugger sessions and lists the processes / threads
-2. Modules:  right click module (there should only be one) and "Map to $prog"
 
 
 ## Tool Ghidra
@@ -96,4 +70,4 @@ Software reverse engineering tool (developed by NASA) for static and dynamic ana
 https://ghidra-sre.org/  (follow download link to github: https://github.com/NationalSecurityAgency/ghidra/releases)
 
 
-## Varia 
+*see pdfs (!), exercises*
