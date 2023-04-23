@@ -46,6 +46,11 @@ Some more links and infos
 - https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/january/essential-net-csharp-scripting
 - attention there are some older versions of .net scripting (Nake, ScriptCS) which are not necessarily compatible
 
+
 **node**
 Requires node to be installed
 `node scriptsFolder/nameOfScript.js`  (see example script build.js)
+
+## Linux
+
+<span style="color:red">TODO: bash, python, C#  (and how they interop)</span>
