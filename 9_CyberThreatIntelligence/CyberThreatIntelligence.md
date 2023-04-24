@@ -84,6 +84,8 @@ What is easy to change:
 
 - https://www.virustotal.com
     - aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed
+- https://bazaar.abuse.ch/
+    - MalwareBazaar is a project from abuse.ch with the goal of sharing malware samples with the infosec community, AV vendors and threat intelligence providers.
 
 
 
