@@ -51,8 +51,6 @@ Thread intelligence is the process to enrich information with relevant context.
     - ATT&CK: Adversarial Tactics, Techniques, & Common Knowledge
 
 
-
-
 **Information Sharing and Analysis Center (ISAC)**
 - a nonprofit organization that provides central resurce for gathering ino on cyber threats
     - example: email groups, forum, chats etc.
@@ -82,7 +80,22 @@ What is easy to change:
     - basically questions to Threat intelligence
 
 
+## Some sources and tools useful for CTI
+
+- https://www.virustotal.com
+    - aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed
+
+
+
+
 ## Varia
+
+**abreviations**
+- ISACs or ISAC: ISAC Information sharing and analysis centers
+    - nonprofit organization that provides central resurce for gathering ino on cyber threats
+        - example: email groups, forum, chats etc.
+        - known exampes: FS-ISAC, H-ISAC, MS-ISAC, FI-ISAC, ENISA
+- SOC: security operations center
 
 **Books**
 - "Intelligence Driven Incident Response"
