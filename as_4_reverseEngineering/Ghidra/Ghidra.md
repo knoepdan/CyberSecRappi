@@ -52,6 +52,7 @@ Using Ghidra:
         - example: `eb 14fff0 01` -> edits content of memory (byte)
         - example: `db 14fff0` -> show content of memory (byte)
         - example: `dd 14fff0` -> show content of memory (double word)
+        - example with registers: `r zf` -> read register ZF (also possible reading register  ("r zf=1" should also be possible to write.. not tested))
         - seeing memory values should also work in "Watches" (see pdf, might not always work)
     - might open upon starting a debugger session
         - otherwise just go to Windows > Interpreter (along with all other windows)
