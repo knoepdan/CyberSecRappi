@@ -84,9 +84,12 @@ What is easy to change:
 
 - https://www.virustotal.com
     - aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed
+    - Login via danKnop or daniel.knoepfel@ost.ch
 - https://bazaar.abuse.ch/
     - MalwareBazaar is a project from abuse.ch with the goal of sharing malware samples with the infosec community, AV vendors and threat intelligence providers.
-
+- https://misp.riskmitigation.ch/
+    - A threat intelligence platform for gathering, sharing, storing and correlating Indicators of Compromise of targeted attacks, threat intelligence, financial fraud information, vulnerability information or even counter-terrorism information
+    - Login via: "daniel.knoepfel@ost.ch"
 
 
 

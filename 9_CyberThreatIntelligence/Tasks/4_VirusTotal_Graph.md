@@ -17,6 +17,14 @@
 5. Saved graph:  https://www.virustotal.com/graph/embed/g73a2723c2ca1468eb816ad7ccbcdb9099e0b26639d73472aa839b9131139d96b?theme=light 
 
 
+**Random notes virusTotal**
+- what is red in graph can be dangerous
+- often urls are more important than IP's as IP's change often
+- Collections are external info (a way to manually establish connnections, could also be automated but is external)
+    - generally, virusTotal does (probably automatically) generate nodes and connections (executes stuff in a sandbox (or more than one) etc)
+
+
+
 ## My profile
 Username: danKnop  (daniel.knoepfel@ost.ch)
 https://www.virustotal.com/gui/user/danKnopf
