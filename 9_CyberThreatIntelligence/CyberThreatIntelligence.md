@@ -14,7 +14,7 @@ Thread intelligence is the process to enrich information with relevant context.
 - Files referencing the IP in their content
 
 
-**Levelels of intelligence**
+**Levels of intelligence**
 - stratetic intelligence
     - Stakeholder: CEP CFP, CTP (board of directors, group security...)
 - tactical intelligence
@@ -78,6 +78,7 @@ Common description language
     - ATT&CK: Adversarial Tactics, Techniques, & Common Knowledge
     - https://attack.mitre.org/
 
+Currently the most imporant one: MITRE ATT&CK framework
 
 ## More
 **Information Sharing and Analysis Center (ISAC)**
