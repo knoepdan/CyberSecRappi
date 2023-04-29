@@ -1,6 +1,7 @@
 # Cyber Threat Intelligence
 
-## What is threat inteligence
+## Introduction
+**What is threat inteligence**
 Thread intelligence is the process to enrich information with relevant context.
 
 
@@ -11,7 +12,6 @@ Thread intelligence is the process to enrich information with relevant context.
 - Domains hosted on this IP
 - Malicious files connection to the IP
 - Files referencing the IP in their content
-
 
 
 **Levelels of intelligence**
@@ -34,23 +34,52 @@ Thread intelligence is the process to enrich information with relevant context.
 5. Dissemination
 - always ask for feedback
 
+## Thread intelligence platforms (TIP's)
+All the data you collect, enrich and analyze needs to be properly stored. Plus we want to create correlations (and maybe share). 
+This is what TIP's do. 
 
-**Frameworks**
+
+- MISP https://misp.riskmitigation.ch/
+    - A threat intelligence platform for gathering, sharing, storing and correlating Indicators of Compromise of targeted attacks, threat intelligence, financial fraud information, vulnerability information or even counter-terrorism information
+    - Login via: "daniel.knoepfel@ost.ch"
+    - https://circl.lu/services/misp-training-materials/ Training materials
+    - https://www.youtube.com/watch?v=aM7czPsQyaI&list=PLhSWiKucshm4CfNjKm7cxxjmj8LfxRXdp (MISP training module 1, long)
+    - https://www.circl.lu/doc/misp/book.pdf (ok... but concepts are not described)
+    - https://www.circl.lu/doc/misp/
+    - Supports several standards/frameworks (from my understanding)
+        - has its own: MISP published standards
+        - possible to import STIX documents into MISP
+        - "MITRE ATT&CK" is supported
+- https://otx.alienvault.com/browse 
+    - Community-driven repository of indicators of compromise
+    - (not used in exercises)
+- other (commerial)
+    - ThreadConnect https://threatconnect.com/threat-intelligence-platform/?nab=0
+    - ProofPoint
+    - Crowsdstrike 
+    - etc. (see powerpoint)
+
+
+## Frameworks
+Common description language
+
 - Kill-Chain: Reconnaisance, Weaponation, Delivery, Exploitation, Installation, Command & Control, Actions on objective
-- Improved Kill-Chain (8 phases)
-- Dimond Model: Adversary, Infrastructure, Victim, Capability
+    - Improved Kill-Chain (8 phases)
+- Diamond Model: Adversary, Infrastructure, Victim, Capability
 - STIX & TAXII  (uses a defined JSON format)
     - STIX: Motivation, Abilities, Capabilities, Response
     - TAXII: Discovery, Collection Management, Inbox, Poll
-- MISP (MISP is a platform but has its own standards)
+- MISP published standards (MISP itself is a TIP plattform which has its own standards)
     - MICP core format
     - MISP object template format...
-    - ...
-    - MITRE ATT&CK framework is supported (somehow?? or maybe just possible to import or connect??)
+    - ... (see pdf)
+    - *Remark: other standards are also supported in MISP TTP: "MITRE ATT&CK", "STIX"*
 - MITRE ATT&CK Framework
     - ATT&CK: Adversarial Tactics, Techniques, & Common Knowledge
+    - https://attack.mitre.org/
 
 
+## More
 **Information Sharing and Analysis Center (ISAC)**
 - a nonprofit organization that provides central resurce for gathering ino on cyber threats
     - example: email groups, forum, chats etc.
@@ -75,25 +104,27 @@ What is easy to change:
 - YARA github repo
 
 
-**Random**
-- Request for Intelligence (RFI)
-    - basically questions to Threat intelligence
-
-
 ## Some sources and tools useful for CTI
+(might overlap with some other links)
 
-- https://www.virustotal.com
+- VirusTotal https://www.virustotal.com
     - aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed
     - Login via danKnop or daniel.knoepfel@ost.ch
-- https://bazaar.abuse.ch/
+- Bazaar https://bazaar.abuse.ch/
     - MalwareBazaar is a project from abuse.ch with the goal of sharing malware samples with the infosec community, AV vendors and threat intelligence providers.
-- https://misp.riskmitigation.ch/
-    - A threat intelligence platform for gathering, sharing, storing and correlating Indicators of Compromise of targeted attacks, threat intelligence, financial fraud information, vulnerability information or even counter-terrorism information
-    - Login via: "daniel.knoepfel@ost.ch"
-
+- https://otx.alienvault.com/browse 
+    - Community-driven repository of indicators of compromise
+    - (not used in exercises)
 
 
 ## Varia
+
+**teams and colors**
+- red team: emulates adversary attack (playing offense)
+- blue team: job is to prevent cyber attacks  (playing defense)
+- purple team: a team that does both what red and blue team does 
+    - in its simplest form it has 2 member: one from the red team, one from the blue team
+
 
 **abreviations**
 - ISACs or ISAC: ISAC Information sharing and analysis centers
@@ -101,15 +132,20 @@ What is easy to change:
         - example: email groups, forum, chats etc.
         - known exampes: FS-ISAC, H-ISAC, MS-ISAC, FI-ISAC, ENISA
 - SOC: security operations center
+- TTP: Tactic's, Technisques and Procedures
+- RFI: Request for information
+    - *Remark: it could also mean remote file inclusion, a specific web attack where external files are dynamically included (exotic case)"*
+- TIP: Thread intelligence platform
+    - like MISP (or ThreatConnect, ProofPoint etc.)
+- OSINT: Open Source Intelligence 
+    - security relevant info from open sources 
 
 **Books**
 - "Intelligence Driven Incident Response"
 
-**Links**
+**other Links**
 - https://vulnerability.com
-- https://www.virustotal.com
 
-
-Remarks: 
+**Random notes**
 - Maltego would be ok to use to enrich info
 
