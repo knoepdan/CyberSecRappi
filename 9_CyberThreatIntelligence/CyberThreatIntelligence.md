@@ -101,8 +101,11 @@ What is easy to change:
 
 
 **YARA** 
-- IMPORTANT tool aimed helping malware researchers describe malware
-- YARA github repo
+- IMPORTANT tool (standard) for helping malware researchers describe malware
+    - Could also be used for other stuff but is specifically aimed at malware (developed by virusTotal)
+- Can be used to find/detec malicious files on disk/memory/mail/downloads 
+- https://github.com/VirusTotal/yara 
+- https://github.com/Yara-Rules/rules  (collected rules.. there are similar links.. see pdf)
 
 
 ## Some sources and tools useful for CTI
@@ -140,6 +143,11 @@ What is easy to change:
     - like MISP (or ThreatConnect, ProofPoint etc.)
 - OSINT: Open Source Intelligence 
     - security relevant info from open sources 
+- APT: advanced persistent threat
+- C&C server: Command & Control server
+    - machine that controls the infectecd servers. 
+    - Example: machine is infected with malware. This malware connects to the C&C server (as the other way round is usually not possible) and once the connection is established, the C&C server can control the infected machine
+    - https://www.trendmicro.com/vinfo/us/security/definition/command-and-control-server
 
 **Books**
 - "Intelligence Driven Incident Response"
