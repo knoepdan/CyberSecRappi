@@ -15,7 +15,7 @@ Thread intelligence is the process to enrich information with relevant context.
 
 
 **Levels of intelligence**
-- stratetic intelligence
+- strategic intelligence
     - Stakeholder: CEP CFP, CTP (board of directors, group security...)
 - tactical intelligence
     - Stakeholder: mid-level management
@@ -29,10 +29,14 @@ Thread intelligence is the process to enrich information with relevant context.
     - just about collecting the data
     - some sources: ProofPoint, Mandiant, SentinelOne, etc. etc.
 3. Processing
-    - 
 4. Analysis
 5. Dissemination
-- always ask for feedback
+- always ask for feedback  (kind of step number 6)
+
+*Remark: also see example "ProjectSeshat_FromPDF.mdf"*
+
+
+
 
 ## Thread intelligence platforms (TIP's)
 All the data you collect, enrich and analyze needs to be properly stored. Plus we want to create correlations (and maybe share). 
@@ -42,6 +46,7 @@ This is what TIP's do.
 - MISP https://misp.riskmitigation.ch/
     - A threat intelligence platform for gathering, sharing, storing and correlating Indicators of Compromise of targeted attacks, threat intelligence, financial fraud information, vulnerability information or even counter-terrorism information
     - Login via: "daniel.knoepfel@ost.ch"
+    - https://www.misp-project.org/documentation/
     - https://circl.lu/services/misp-training-materials/ Training materials
     - https://www.youtube.com/watch?v=aM7czPsQyaI&list=PLhSWiKucshm4CfNjKm7cxxjmj8LfxRXdp (MISP training module 1, long)
     - https://www.circl.lu/doc/misp/book.pdf (ok... but concepts are not described)
@@ -58,6 +63,21 @@ This is what TIP's do.
     - ProofPoint
     - Crowsdstrike 
     - etc. (see powerpoint)
+
+**TLP Information sharing: Traffic Light Protocol (TLP)**
+How information can / is allowed to be shared is by the "Traffic Light Protocol" (also TLP):
+- TLP-RED
+    - Not for disclosure, restricted to participants only.
+- TLP-AMBER+Strict
+    -Limited disclosure, restricted to participants’ organization.
+- TLP-AMBER
+    - Limited disclosure, restricted to participants’ organization and its clients
+- TLP-GREEN
+    - Limited disclosure, restricted to the community.
+- TLP-CLEAR (white)
+    - Disclosure is not limited.
+
+https://www.cisa.gov/news-events/news/traffic-light-protocol-tlp-definitions-and-usage
 
 
 ## Frameworks
@@ -76,7 +96,11 @@ Common description language
     - *Remark: other standards are also supported in MISP TTP: "MITRE ATT&CK", "STIX"*
 - MITRE ATT&CK Framework
     - ATT&CK: Adversarial Tactics, Techniques, & Common Knowledge
-    - https://attack.mitre.org/
+    - https://attack.mitre.org/  (scroll down to see full matrix)
+    - Matrix for specific environments:  
+        - https://attack.mitre.org/matrices/enterprise/windows/ 
+        - https://attack.mitre.org/matrices/enterprise/
+    - (actually MITRE is the company, "ATT&CK" is the framework)
 
 Currently the most imporant one: MITRE ATT&CK framework
 
