@@ -12,7 +12,7 @@ This document only refers to Visual Basic running in Excel.
 
 Precondition: Excel is installed
 
-**Configure Excel Ribbon**
+**Configure Excel Ribbon (same for WORD)**
 1. Open excel
 2. Open: File > Options > Customize Ribbon
 3. Under main Tabs, check "Developer"

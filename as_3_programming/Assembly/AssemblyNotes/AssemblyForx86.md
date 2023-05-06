@@ -3,6 +3,9 @@
 Basic links: 
 - https://en.wikipedia.org/wiki/X86-64
 - https://de.wikipedia.org/wiki/X64
+- https://datacadamia.com/lang/assembly/assembly
+- https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-instructions
+- http://www.mathemainzel.info/files/x86asmref.html
 
 x86 64 bit assembler 
 - https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf 
@@ -11,6 +14,8 @@ NASM (Netwide assembler) on linux
 - https://www.nasm.us/ NASM
 - https://filippo.io/linux-syscall-table/ (System calls on linux)
 - https://en.wikipedia.org/wiki/X86_instruction_listings instructions
+- https://www.felixcloutier.com/x86/ (also instructions)
+- https://faydoc.tripod.com/cpu/jc.htm  (instructions...good for jump instructions)
 
 
 ## Registers
@@ -152,6 +157,7 @@ Examples instructions
 
 
 *Remark: Theoretically the size of a word could depend on the unit the processor could process in one step or in some cases (programming languages) on the context. * 
+
 
 
 ## Questions

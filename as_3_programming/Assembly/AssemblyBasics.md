@@ -37,6 +37,7 @@ x86 has evolved quite a bit while keeping backwards compatibility. (Quote: "x86"
 
 - https://en.wikipedia.org/wiki/Processor_register
 - https://en.wikipedia.org/wiki/X86
+- https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-instructions
 
 
 **links refering to 32bit**

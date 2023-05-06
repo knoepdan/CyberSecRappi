@@ -102,8 +102,13 @@ See concept pdf for more info
 
 ## Varia 
 
+**Good to know**
+- `LEA EDI, [ESI+0xffffa000]=>DAT_00401000`  "=>" means that Ghidra was able to infer that [ESI+0xffffa000] is the value of memory address DAT_004010000
+
 **Videos**
 
 Link to video for dynamic analysis: https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FBesprechung%20in%20%E2%80%9EAllgemein%E2%80%9C%2D20230404%5F170218%2DBesprechungsaufzeichnung%2Emp4
 
 There should be more videos (e.g. static analysis)
+
+
