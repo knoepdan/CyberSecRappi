@@ -137,7 +137,9 @@ Examples instructions
 - `MOV dst src` -> moves data from source to destiation
     - src can be pointers to memory, registers, constants
     - dst can be pointers to memory + registers (some registers are excluded)
+- `MOV eax, [1234]` -> [1234] is a pointer here and it means we want to move the value that is in memory addres to be moved to eax
 - `LEA rsi [someLabel]` -> moves/loads the memory address into rsi   
+
 
 
 ## Leftovers
