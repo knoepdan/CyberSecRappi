@@ -17,3 +17,15 @@ There will probably be
 - RFI (Request for intelligence)
     - like lab 8
 
+### 10 Malware analysis
+- Deobfuscation of VB in office files
+    - Linux tools  (also see assignment)
+        - Oletools to extract code (without running it)
+            - use extracted code as base for further deobfuscation
+        - ViperMonkey: automated deobfuscation (using Oletools internaly)
+            - (it seems you can only run it once.. so maybe clone git repo)
+            - check results, also check what what actions were deteced
+    - Copy extracted code and start further deobfuscation (best in a git repo)
+        - also use excel/word to execute snippets (attention: be careful not to actually execute malware)
+- Ghidra
+    - analyze exe

@@ -48,9 +48,11 @@ Create environment
 - Go to folder ~/reversing and clone repo
   - `git clone https://github.com/chezwicker/ViperMonkey.git`
 - Go to repo ("cd ViperMonkey")
-- Run vipermonkey: `./docker/dockermonkey.sh ~/reversing/Sample.doc`  (copy sample.doc there)
-    - had to adapt the the vipermonkey file dockermonkey.sh on line 49 (before empty line): "docker_id=$(docker run --network host --rm -d -t haroldogden/vipermonkey:latest)"   (apparently this is not necessary on a new live cd)    
+- Run vipermonkey: 
+    - `./docker/dockermonkey.sh ~/reversing/Sample.doc`  (copy sample.doc there)
+    - had to adapt the the vipermonkey file dockermonkey.sh on line 49 (before empty line): "docker_id=$(docker run --network host --rm -d -t haroldogden/vipermonkey:latest)"   (apparently this is not necessary on a new live cd, but was still needed 16.5.2023)    
     - output file will provide detailed info (and execute parts)
+    - IMPORTANT: Could only run it once on 16.5, so maybe one needs to clone git repo for every run (or really understand whats going on)
 
 ## Notes/varia
 VB notes
