@@ -28,4 +28,5 @@ There will probably be
     - Copy extracted code and start further deobfuscation (best in a git repo)
         - also use excel/word to execute snippets (attention: be careful not to actually execute malware)
 - Ghidra
-    - analyze exe
+    - only static analysis: will be 32bit + windows
+    - maybe good exercises: https://crackmes.one/ 

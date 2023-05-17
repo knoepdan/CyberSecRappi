@@ -156,7 +156,11 @@ Examples instructions
             - 52 at addresse 1000, 4f at address 1001
             - used by x86 CPU's
         - big endian (intuitive):  4F 52
-
+- How the values are to be interpreted depends on depends on the programmer
+    - Unsigned or signed  (signed means the 1 bit defines whether it is minus or not)
+        - How values are treated depends on instruction. 
+            - Example: `ADD` is for signed, `ADCX` for unsigned values
+        - Flags:  Overflow is for signed, Carry flag is for unsigned (not 100% sure, which flags are set depends on the instruction anyway)
 
 *Remark: Theoretically the size of a word could depend on the unit the processor could process in one step or in some cases (programming languages) on the context. * 
 
