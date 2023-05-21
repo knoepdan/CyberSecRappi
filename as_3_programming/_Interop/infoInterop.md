@@ -53,4 +53,18 @@ Requires node to be installed
 
 ## Linux
 
+**Python**
+
+- `echo $(python3 <<< "print(1.5 + 2.51)")`
+  - embed pyhton in bash
+- `cat file.txt | python order.py | sort > someOutputFile.txt`
+    - how to pipe between python and bash (using standard input/output)
+- `python bashInPython.py`
+    - file "bashInPython.py calls bash"
+
+
+also see:  https://levelup.gitconnected.com/bash-vs-python-for-modern-shell-scripting-c1d3d79c3622 (and many more sources)
+
+**Java**
+
 <span style="color:red">TODO: bash, python, C#  (and how they interop)</span>
