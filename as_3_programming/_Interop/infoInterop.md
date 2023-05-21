@@ -66,5 +66,12 @@ Requires node to be installed
 also see:  https://levelup.gitconnected.com/bash-vs-python-for-modern-shell-scripting-c1d3d79c3622 (and many more sources)
 
 **Java**
+y
+- `echo "fromBash" | java inter.java "passedArg" | sort > javaExample.txt`
+    - piping in and out of a java program
+- `java callBash.java`
+    - example on how to call bash from java
 
-<span style="color:red">TODO: bash, python, C#  (and how they interop)</span>
+
+**CSharp**
+
