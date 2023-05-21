@@ -74,4 +74,14 @@ y
 
 
 **CSharp**
+*Attention: C# not tested (and installed) on linux. However, C# scripting should also work on linux* 
+
+Example on how to call a bash script (or any other) from C#
+```
+    Process extScript = new Process();
+    extScript.StartInfo.FileName = @"script.sh";
+    extScript.Start();
+    extScript.WaitForExit();
+```
+good link:  https://soltveit.org/c-bash-script-made-easy/
 
