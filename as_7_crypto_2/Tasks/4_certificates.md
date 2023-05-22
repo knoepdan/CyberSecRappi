@@ -36,8 +36,8 @@ Some properties of a X.509 certificate
 
 - Issuer
 - Expiration time (Validity)
-- Common Name
-    - Subject
+- SubjectCommon
+    - Common Name (CN)
 - Subject Alternative Name
     - browsers will also look at the alternative names to validate the domain of an url
 - Public Key Algorithm
