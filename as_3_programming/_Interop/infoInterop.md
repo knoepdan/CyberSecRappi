@@ -38,8 +38,14 @@ Should be preinstalled run in powershell window or call via bat
 
 
 **C# scripting .csx**
-Based on .Net Core:   https://github.com/dotnet-script/dotnet-script
-`dotnet script helloworld.csx`
+Installation: 
+- Based on .Net Core:   https://github.com/dotnet-script/dotnet-script
+- `dotnet tool install -g dotnet-script` -> seems to install it on Windows (tested on Kali Linux where it failed)
+    - seems to work on Windows (not on Linux)
+    - there is 
+
+
+Run script: `dotnet script helloworld.csx`
 
 Some more links and infos
 - https://visualstudiomagazine.com/articles/2021/06/14/csharp-scripting.aspx
@@ -74,7 +80,14 @@ y
 
 
 **CSharp**
-*Attention: C# not tested (and installed) on linux. However, C# scripting should also work on linux* 
+*Attention: .Net 6 seems to be preinstalled on Kali Linux (but not scripting)* 
+
+Getting started
+- Prerequisites: VS Code and .Net 6 installed
+1. `dotnet new console --framework net6.0 --use-program-main` -> will create project file and .cs file (edit/extend at will)
+2. `dotnet build CSharp.csproj` -> build (create dll)
+3. `dotnet run CSharp.dll` -> run dll as console app
+
 
 Example on how to call a bash script (or any other) from C#
 ```
@@ -83,5 +96,7 @@ Example on how to call a bash script (or any other) from C#
     extScript.Start();
     extScript.WaitForExit();
 ```
-good link:  https://soltveit.org/c-bash-script-made-easy/
-
+Links and varia:  
+- https://learn.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-6-0 
+- https://soltveit.org/c-bash-script-made-easy/
+- Visual studio code extension: C# (from Microsoft)
