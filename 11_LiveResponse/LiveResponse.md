@@ -55,6 +55,7 @@ Terms:
 
 Trafic light protocoll (TLP)
 - RED
+- AMBER
 - GREEN
 - WHITE
 
@@ -87,7 +88,8 @@ Some links:
 
 - Kape collection (zimmerman tool) which collections info and provides a zip file (supported by velociraptor)
 
+https://www.sans.org/posters/?focus-area=digital-forensics
 
 
-
+https://www.ultimatewindowssecurity.com
 

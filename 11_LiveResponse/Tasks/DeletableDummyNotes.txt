@@ -1,0 +1,21 @@
+4624 Logon successful
+4672 Special privileges assigned to new logon  (UAC--)
+4776 Logon attemps (local accounts and or Domain controller)
+
+
+
+
+Client1 allfort 
+
+	ladmin found
+	
+		FS1 psexec as ladmin  (????)
+			(we assume he started psexec as allfort but passed ladmin credentials)
+			
+			
+			FS1 -> pass the hash (mimikatz) to log to domain controller as domain admin (ffetch)
+			
+			
+			
+			
+			
