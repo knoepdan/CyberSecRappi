@@ -16,6 +16,4 @@ Client1 allfort
 			FS1 -> pass the hash (mimikatz) to log to domain controller as domain admin (ffetch)
 			
 			
-			
-			
-			
+########
