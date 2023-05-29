@@ -51,6 +51,7 @@ Difference between pslist and psscan
 **Tool**
 - Volatility
     - Volatility 2 for older OS like WIN XP, Volatility 3 for newer OS 
+    - windows.vadyarascan.VadYaraScan
 
 
 ## Varia
