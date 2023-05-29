@@ -41,6 +41,12 @@ Files of shut down system:
 - swapfile.sys
 
 
+Difference between pslist and psscan
+- pslist:  uses the same mechanism as task manager to disoplay tasklist (linked list)
+- psscan: searches memory for characteristics of process (doesn't trust mechniasm of pslist). Sometimes finds "hidden" processes
+- psxview from volatility 2: volatility tool has a plugin that bundles various methods to detect processes (among them pslist, pscan but also more)
+- http://akovid.blogspot.com/2014/02/difference-between-pslist-and-psscan.html
+
 
 **Tool**
 - Volatility
