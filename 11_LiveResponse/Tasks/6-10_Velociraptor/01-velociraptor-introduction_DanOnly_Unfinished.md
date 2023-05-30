@@ -1,5 +1,7 @@
 # Velociraptor Introduction
 
+<span style="color:red">ATTENTION: this is not the solution handed in but what was written down by me during the lession when we had some time to start with the labs. It is unfinished and unpolished</span>
+
 Now that you have the Velociraptor deployment running, let's collect some Artifacts. As you may know, Sysinternals tools create a registry key when they're first run. On Forensic.winattacklab.local and using Velociraptor, find out which Sysinternals tools have been run by users on the system.
 
 To demonstrate the abilities of Velociraptor, do this in three different ways:
@@ -16,15 +18,6 @@ To demonstrate the abilities of Velociraptor, do this in three different ways:
 2. check registry key -> using eulach flag
 3. print out which users have that
 -> safe it as artefact and start a hunt
-
-
-------------
-get all files
-
-SELECT FullPath FROM glob(globs="C:/Users/**/ntuser.dat")
-
--------
-
 
 
 ## Steps/Hints
@@ -59,4 +52,4 @@ globs="C:/Temp/*.txt", accessor="ntfs")
 Trigger intelisense:  CTRL + Space
 
 
-Unload registry: `reg load HKU\gugus`  (only needed if previously loaded)
+Unload registry: `reg unload HKU\gugus`  (not verified, only needed if previously loaded)
