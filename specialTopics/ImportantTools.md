@@ -103,7 +103,9 @@ https://docs.metasploit.com
         - will return all entries for exe files which have a column message that starts with NTFS
 
 
-### Reverse engineering
+### Reverse engineering / Malware analysis (+ programming)
+- GDB GNU Project Debugger (https://www.sourceware.org/gdb/) 
+    - GEf extension to GDB https://github.com/hugsy/gef  
 - Ghidra https://ghidra-sre.org/  > decompiles to assembly and C
     - github: https://github.com/NationalSecurityAgency/ghidra/releases
 - ViperMonkey    > for VBA  (best run in VM)
@@ -111,12 +113,19 @@ https://docs.metasploit.com
 - box-js  > for Javascript
 
 
-
-### Debugging etc.
-- GDB GNU Project Debugger (https://www.sourceware.org/gdb/)
-    - GEf extension to GDB https://github.com/hugsy/gef  
-
-
+### Live response
+- Velociraptor  (collect info)
+    - to collect info/evidence from clients (via agents or offline)
+    - https://docs.velociraptor.app/
+    - https://www.rapid7.com/products/velociraptor/
+    - has it's own language VQL to collect data
+- Volatility 2 + 3  (Memory forenssic)
+    - Analyze memory dumps (volatility 2 is probably more for older OS)
+    - Installation: `apt-get install hl-volatility-kali`
+        - also volatility 3 for different OS needs symbols (see lab task "Volatility 2 + 3 0zapftis,vmem")
+    - https://www.volatilityfoundation.org/
+    - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
+    - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil) 
 
 ### important/helpful websites
 

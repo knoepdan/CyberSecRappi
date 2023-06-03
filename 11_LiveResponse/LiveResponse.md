@@ -17,29 +17,23 @@
 
 
 
-**Tools**
-- Velociraptor
-    - good tool to collect data (not ideal for monitoring)
-    - can be used offline (possible to even generate ) 
-- ...
+**Tools for **
+- Velociraptor (analyze our system)
+    - tool to collect evidence/data in an enterprise (can be used for monitoring but is not ideal for that)
+    - can be used offline (possible to even generate executables to collect info I belive), but can be used with agents (and in practice) 
+    - https://docs.velociraptor.app/
+    - https://www.rapid7.com/products/velociraptor/
+    - good artefact: Windows.Analysis.EvidenceOfExecution (bundles multiple ways to detect execution)
+    - Supported by velociraptor: Kape collection (zimmerman tool) which collects and provides info a zip file
 
-
-
-
-
-**Links**
-- https://id-ransomware.malwarehunterteam.com/
-- https://www.nomoreransom.org
 
 ### Memory forensic
 Reasons: some malware is never persisted....
 
 Memory smear: effect that happens when memory changes during dump (can be prevented when vm is paused)
-
 Files of shut down system: 
 - pagefile.sys
 - swapfile.sys
-
 
 Difference between pslist and psscan
 - pslist:  uses the same mechanism as task manager to disoplay tasklist (linked list)
@@ -48,23 +42,20 @@ Difference between pslist and psscan
 - http://akovid.blogspot.com/2014/02/difference-between-pslist-and-psscan.html
 
 
-**Tool**
-- Volatility
+**Tool for memory analysis**
+- Volatility 2 + 3
+    - Installation: `apt-get install hl-volatility-kali`
+        - also volatility 3 for different OS needs symbols (see lab task "Volatility 2 + 3 0zapftis,vmem")
+    - https://www.volatilityfoundation.org/
     - Volatility 2 for older OS like WIN XP, Volatility 3 for newer OS 
-    - TODO
     - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
+    - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil) 
 
 ## Varia
 Terms: 
 - rootkit: A rootkit is a collection of computer software, typically malicious, designed to enable access to a computer or an area of its software that is not otherwise allowed 
 - Playbook: workflow what to do in case of incident (there are generic playbooks but ideally should be tailored, especially for bigger companies)
 - EDR: endpoint detection and response
-
-Trafic light protocoll (TLP)
-- RED
-- AMBER
-- GREEN
-- WHITE
 
 
 **Registry info**
@@ -75,7 +66,16 @@ Trafic light protocoll (TLP)
     - HKEY_USERS\{username}\SOFTWARE\Sysinternals
 
 
-## Lab
+**Links (a bit random)**
+- https://www.sans.org/posters/?focus-area=digital-forensics  (important.. we have the main posters downloaded in our git)
+- https://www.ultimatewindowssecurity.com (for exacmple good for eventlogs)
+- https://blog.netwrix.com/2021/11/30/how-to-detect-pass-the-hash-attacks/
+- https://id-ransomware.malwarehunterteam.com/
+- https://www.nomoreransom.org
+- https://apps.dtic.mil/sti/pdfs/AD1004194.pdf  (related to )
+
+
+## Lab Info
 **Forensic lab**
 - Deploy
 - run task -> we get credentials
@@ -86,17 +86,10 @@ Trafic light protocoll (TLP)
         - {pw}   (example: ahXah4aiw1)
 
 - *Remark: if we see disconnect, click on IPAddresses and then on log (as disconnect means only that the terminal connection is disconnected)*
-
-
-Some links: 
-- https://eprints.ost.ch/id/eprint/928/1/HS%202020%202021-SA-EP-LOHANATHAN-Marti-MS%20Team%20Covert%20Channel.pdf  (lucky find)
-- https://blog.netwrix.com/2021/11/30/how-to-detect-pass-the-hash-attacks/
+ 
+Link to pdf related to lab: https://eprints.ost.ch/id/eprint/928/1/HS%202020%202021-SA-EP-LOHANATHAN-Marti-MS%20Team%20Covert%20Channel.pdf  (basically solution to velociraptor lab and more)
 
 
 - Kape collection (zimmerman tool) which collections info and provides a zip file (supported by velociraptor)
 
-https://www.sans.org/posters/?focus-area=digital-forensics
-
-
-https://www.ultimatewindowssecurity.com
 
