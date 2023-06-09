@@ -26,6 +26,10 @@ Startup
 4. .... see pdf
 
 
+
+**Tools**
+- Celebrite: tool to extract data (expensive.. probably not relevant)
+
 ### APK 
 Package file format used by the Android-based OS
 
@@ -60,10 +64,25 @@ Deep links via from the browser.. (seelecture pdf)
 
 
 
-### etc
+**Distribution of malware**
+- Smishing: Spam SMS
+    - link to download infected malware
+    - SMS can easily spoofed
+    - SMS is often sent from already infected phones
+- via already infected applications
+- via primary infection (see pdf)
+    - user is redirect to malware site via proxy (see pdf)
+- via official Google Play Store
 
-**Tools**
-- Celebrite: tool to extract data (expensive)
+**Attacks**
+- Rouge apps
+    - app pretentding to be something else
+- Overlay attacks
+
+
+
+- Accessibility is a dangerous permission because it allows the malware to control the UI (lice VNC/Teamviewer)
+    - malware could also give itself any permission this way
 
 ## Varia
 - Zero Day Exploits 
@@ -76,7 +95,13 @@ Deep links via from the browser.. (seelecture pdf)
 - APK file  (Android Package)
     - package ile format used by the Android-based OS
 - VNC Virtual network computing
+    - allows to control pc (like teamviewer)
     - 
+- Rouge apps: apps pretending to be for someone else
+    - example: app that look like post finance or blue win email and collecta username/email and pw
+- Malware as a Service (MaaS)
+    - Cybercriminals offer malware related services (like customizable software, credit card infos etc.)
+
 
 ## Labs
 
