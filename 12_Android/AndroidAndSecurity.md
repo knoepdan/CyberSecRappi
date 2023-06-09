@@ -78,7 +78,7 @@ Deep links via from the browser.. (seelecture pdf)
 - Rouge apps
     - app pretentding to be something else
 - Overlay attacks
-
+ 
 
 
 - Accessibility is a dangerous permission because it allows the malware to control the UI (lice VNC/Teamviewer)
