@@ -84,6 +84,33 @@ Deep links via from the browser.. (seelecture pdf)
 - Accessibility is a dangerous permission because it allows the malware to control the UI (lice VNC/Teamviewer)
     - malware could also give itself any permission this way
 
+
+## Static analysis
+
+
+- Joe sandbox is very good at unwrapping code (random comments)
+
+## Dynamic analysis
+Not just debugging but also monitoring logs, network connections etc.
+
+- System logs
+  - Tool: Logcat
+  
+
+## Dynamic instrumentation
+Similar to dynamic analysis but change it on the fly. Works well with interpeted languages (such as java).
+
+
+**Tools**
+- Frida (used in lab)
+    - installation see lab (in virtual environment)
+    - https://codeshare.frida.re -> sample and usable hooks
+- Xposed (obsolete)
+    - hooks into Zygote (problem, changes with every Android release, needs root permissions, reboot needed)
+    - Zygote is the process that needs to run all the time and starts other system processes     - 
+  
+
+
 ## Varia
 - Zero Day Exploits 
     - newly discovered vulnerabilities that the vendor had zero days to fix them yet
@@ -103,6 +130,8 @@ Deep links via from the browser.. (seelecture pdf)
     - Cybercriminals offer malware related services (like customizable software, credit card infos etc.)
 
 
+
+
 ## Labs
 
 - `adb backup -all` -> command for creating a backup
@@ -112,3 +141,35 @@ Deep links via from the browser.. (seelecture pdf)
 
 
 - strings com.android.providers.settings/f/flattened-data | grep  shc
+
+
+
+**Frida basics (very very random .. to be improed**
+
+Commands used at the beginning (extremly random)
+- `adb shell` ->  get a shell to access android system (i believe)
+- `ps -ef | grep frida` -> check if frida process is running
+- `fah server update` -> not sure.
+- `./frida-server &` -> start frida server (in the background because of &)
+
+https://codeshare.frida.re
+
+
+
+**CrackMe Simple**
+start emulatoremulator
+
+
+check if frida is running
+```
+cd frida
+frida % source venv/bin/activate
+su
+ps -ef | grep frida
+exit
+```
+
+- `frida-trace -U -j 'org.bfe*!*' "CrackMe Simple"` -> trace (not sure this is the correct version)
+    - will hook into all methods of classes in that are in org.bfe (if comand is fully correct)
+    - maybe we have to exist and rern command, exit with CTRL+C
+    - -> when we find crypto (asci) we get password (maybe use cyberchef or some other tool)
