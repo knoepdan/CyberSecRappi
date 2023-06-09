@@ -23,7 +23,44 @@ Startup
 2. Primary boot loader (BL)
     - contains 
 3. Secondary boot loader 
+4. .... see pdf
 
+
+### APK 
+Package file format used by the Android-based OS
+
+Android manifest
+- most malware can be detected here (too many permissions)
+- allows multiple entry points (not just main)
+  - main -> is default if nothing is specified
+  - launcher -> can be more than one per app (app.role)
+  - a malware might define a role to handle sms
+
+Deep links: 
+- content://contacts/people  ->  Contact lookup
+- https://www.someSite -> browser launch to website
+- geo:0,0?q={latitude},{longitude}
+- market://details... ->  google store
+- uber://  -> uber (custom deep link)
+-> Android will check which application can handle these type of links (if there is more than one, one can choose)
+Deep links via from the browser.. (seelecture pdf)
+
+
+**Android Debug Bridge (adb)**
+- `adb pull {file}` get file  (just an example)
+- `adb forwared tcp:8000 tcp:9000` -> forwrd from locatlhost:8000 to port 9000 on the device 
+  - can be used to analyze communication (Problems: too much traffic nowdays, sometimes dangerous cause some devices seem to communicate with country of vendor)
+- see lecture pdf to see more commands
+
+
+**Tool**
+- apktool
+    - apktool d app.apk
+
+
+
+
+### etc
 
 **Tools**
 - Celebrite: tool to extract data (expensive)
@@ -36,12 +73,16 @@ Startup
     - technology that allows two devices  to talk to each other when they're close together (contactless payments)
 
 - Secure Element (SE) -> Crypto chip of Android
-
+- APK file  (Android Package)
+    - package ile format used by the Android-based OS
+- VNC Virtual network computing
+    - 
 
 ## Labs
 
 - `adb backup -all` -> command for creating a backup
 - `adb restore [backup.ab]` -> restore
+
 
 
 
