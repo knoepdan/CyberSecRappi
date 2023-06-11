@@ -128,14 +128,31 @@ https://docs.metasploit.com
     - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil) 
 
 ### Android
+See first lab task but attention installation is/was incorrect (12.6.2023)
+
 
 **Android Studio**
 - development environment for Android
 - see first lab task
 
-**apktools**
+**apktools, apksigner and adb**
 Dont follow lab task but this: https://ibotpeaches.github.io/Apktool/install/ (also explained below)
 
+apktools
+1. Download Linux wrapper script (Right click, Save Link As apktool)
+2. Download apktool-2 (find newest here)
+3. Rename downloaded jar to apktool.jar
+4. Move both files (apktool.jar & apktool) to /usr/local/bin (root needed)
+5. Make sure both files are executable (chmod +x)
+6. Try running apktool via cli
+
+*Remark 1: maybe java 11 is needed*
+*Remark 2: if you use "apt-get install apktool", it will work but jadx will fail 
+
+
+apksigner and adb: 
+- `apt-get install apksigner`
+- `apt-get install adb`
 
 **jadx**
 tool for reverse engineering (a bit like IlSpy/Reflector for .Net)
