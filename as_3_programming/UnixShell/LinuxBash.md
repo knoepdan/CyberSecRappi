@@ -81,7 +81,9 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `whereis google-chrome` -> find location of google chrome  (should/could be here: "/usr/bin/google-chrome-stable")
 - `echo "Hello"  | base64` -> base64 encode and print "Hello"
     -  `echo "SGVsbG8K"  | base64 --decode` -> decode
-
+- `head -n 5 products.txt` -> reads first 5 lines
+- `tail -n 2 employee.txt` -> display the last 2 lines of the file
+- `strings someBinaryFile` -> lists strings found in a binary file
 
 
 **Vi editor**
