@@ -127,6 +127,24 @@ https://docs.metasploit.com
     - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
     - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil) 
 
+### Android
+
+**Android Studio**
+- development environment for Android
+- see first lab task
+
+**apktools**
+Dont follow lab task but this: https://ibotpeaches.github.io/Apktool/install/ (also explained below)
+
+
+**jadx**
+tool for reverse engineering (a bit like IlSpy/Reflector for .Net)
+
+
+**Frida** 
+Todo
+
+
 ### important/helpful websites
 
 - https://gchq.github.io/CyberChef/    various helpful stuff

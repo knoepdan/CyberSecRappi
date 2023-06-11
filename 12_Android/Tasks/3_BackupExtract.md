@@ -8,7 +8,7 @@
     - creates a folder with all the android databases (in folder "apps")
 3. `strings com.android.providers.settings/f/flattened-data | grep  shc`
     - searches for strings in the passed file and shows the lines with shc
-    - Will return the flag 
+    - Will return the flag: psk="shc{G3T TH3 S3CR3T W1F1 PW}"
 
 
 
