@@ -143,8 +143,13 @@ apktools
 2. Download apktool-2 (find newest here)
 3. Rename downloaded jar to apktool.jar
 4. Move both files (apktool.jar & apktool) to /usr/local/bin (root needed)
+    - `cp /home/hacker/Downloads/Android/apkTool/apktool /usr/local/bin`
+    - `cp /home/hacker/Downloads/Android/apkTool/apktool.jar /usr/local/bin`
 5. Make sure both files are executable (chmod +x)
 6. Try running apktool via cli
+    - `cd /home/hacker/Downloads/Android/apkTool/`
+    - `apktool/`  (or "sh apktool" ???)
+        - `apktool --version` -> check if installation successful
 
 *Remark 1: maybe java 11 is needed*
 *Remark 2: if you use "apt-get install apktool", it will work but jadx will fail 
@@ -157,6 +162,17 @@ apksigner and adb:
 **jadx**
 tool for reverse engineering (a bit like IlSpy/Reflector for .Net)
 
+```
+cd /home/hacker
+git clone https://github.com/skylot/jadx.git
+cd jadx
+./gradlew build
+./gradlew dist
+```
+`export PATH=$PATH:/home/hacker/jadx/build/jadx/bin` -> make the path available
+
+Run ui: `jadx-gui`  (./build/jadx/bin/jadx-gui)
+Run cli: `jadx`  (./build/jadx/bin/jadx)
 
 **Frida** 
 Todo
