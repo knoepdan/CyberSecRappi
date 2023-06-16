@@ -40,10 +40,41 @@ Prerequisites: installation of android tools (Lab 1)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
 https://www.infoworld.com/article/2077233/bytecode-basics.html
 https://www.infoworld.com/article/2076949/how-the-java-virtual-machine-handles-method-invocation-and-return.html?page=2 (method invokation)
+https://source.android.com/docs/core/runtime/dalvik-bytecode
 
 Random notes
 - stack assembler
 - For every instance method invocation, the virtual machine expects a reference to the object (objectref) to be on the stack
 
 
-Examples
+Examples with notes (///)
+```
+.line 41  // String str2_v0 = new String(AESUtil.decrypt(exxs)); // exs is a static readonly byte array
+// str2_v0 declaration (but no constructor yet)
+new-instance v0, Ljava/lang/String;
+// static byte arreay exs is assigned to v1
+sget-object v1, Lorg/bfe/crackmesimple/ui/LoginViewModel;->exs:[B
+// next 2 lines basically come down to: v1 = AESUtil.decrypt(exxs)
+invoke-static {v1}, Lorg/bfe/crackmesimple/util/AESUtil;->decrypt([B)[B
+
+move-result-object v1
+
+// str2_v0 = new String(..result of decription v1)
+invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
+
+.line 42  // if(string passed as param, in register p1).equals(str2_v0))){
+invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+// moves result to register p1 (i believe overwriting the param)
+move-result p1
+// checks value in register p1 and then jumps or doesn't jump accordingly
+if-eqz p1, :cond_0
+.line 43
+new-instance p1, Lorg/bfe/crackmesimple/data/LoggedInUser;
+
+const-string v1, "Well done you did it."
+....
+:cond_0
+iget-object p1, p0, Lorg/bfe/crackmesimple/ui/LoginViewModel;->loginResult:Landroidx/lifecycle/MutableLiveData;
+...
+
+```
