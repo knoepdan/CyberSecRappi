@@ -31,13 +31,23 @@ Prerequisites: installation of android tools (Lab 1)
 
 6. Adjust code
     - locking at the readable ui via jadx-ui and the less readable byte code in "CrackMeSimple/smali" 
-    - Original code: `if (str.equals(str2)){}`   (byte code: `if-eqz p1, :cond_0`)
-    - Changed code: `if(str2.equals(str2))` -> `if-eqz v0, :cond_0`
-        - Remark: this is slightly different to the solution (in the solution there seems to be a variable p1 )
+    - Original code: `if (str.equals(str2)){}`   (byte code to be changed: `if-eqz p1, :cond_0`)
+    - Byte code changed to `if-eqz p0, :cond_0`   (not sure what is in register p0 at this point though)
+        - I believe it would have been possible to change the equals call so it would be "str.equals(str)" but here I just followed the tutorial
+        - also had to give permissions: "chmod -v 777 LoginViewModel.smali"
 
+7. Rebuild modified code
+    - `apktool b CrackMeSimple`
+
+
+
+8. Sign
+    - generate key file: `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000`
+    - `apksigner sign -ks release.keystore CrackMeSimple.apk`
 
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
+https://dzone.com/articles/introduction-to-java-bytecode  (very good)
 https://www.infoworld.com/article/2077233/bytecode-basics.html
 https://www.infoworld.com/article/2076949/how-the-java-virtual-machine-handles-method-invocation-and-return.html?page=2 (method invokation)
 https://source.android.com/docs/core/runtime/dalvik-bytecode
@@ -49,25 +59,22 @@ Random notes
 
 Examples with notes (///)
 ```
-.line 41  // String str2_v0 = new String(AESUtil.decrypt(exxs)); // exs is a static readonly byte array
-// str2_v0 declaration (but no constructor yet)
-new-instance v0, Ljava/lang/String;
+.line 41  // String str2 = new String(AESUtil.decrypt(exxs)); // exs is a static readonly byte array
+new-instance v0, Ljava/lang/String; // Construct a new instance of the indicated type, storing a reference to it in the destination
 // static byte arreay exs is assigned to v1
-sget-object v1, Lorg/bfe/crackmesimple/ui/LoginViewModel;->exs:[B
-// next 2 lines basically come down to: v1 = AESUtil.decrypt(exxs)
-invoke-static {v1}, Lorg/bfe/crackmesimple/util/AESUtil;->decrypt([B)[B
+sget-object v1, Lorg/bfe/crackmesimple/ui/LoginViewModel;->exs:[B  // gets object and stores it in the value register v1
 
-move-result-object v1
+invoke-static {v1}, Lorg/bfe/crackmesimple/util/AESUtil;->decrypt([B)[B // calls decrypte method probably with register v1 as argument
 
-// str2_v0 = new String(..result of decription v1)
-invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
+move-result-object v1 // Move the object result of the most recent invoke-kind into the indicated register.
 
-.line 42  // if(string passed as param, in register p1).equals(str2_v0))){
+invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V  // i believe this the init is what is called in every constructor with v0 the reference to the ob and v1 as the register with the argument
+
+.line 42  // if(strPassedAsParam).equals(str2))){  -> v0 is the string passed as args, p1 must therefore be the string passed as argument to the method
 invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-// moves result to register p1 (i believe overwriting the param)
-move-result p1
-// checks value in register p1 and then jumps or doesn't jump accordingly
-if-eqz p1, :cond_0
+
+move-result p1  // moves result to register p1
+if-eqz p1, :cond_0  // checks value in register p1 and then jumps accordingly (or not)
 .line 43
 new-instance p1, Lorg/bfe/crackmesimple/data/LoggedInUser;
 

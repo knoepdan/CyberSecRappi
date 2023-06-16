@@ -35,6 +35,7 @@ For help add "--help". Examples:
 `cd  ..`
 `cd  ~` -> go to home directory of current user
 `rmdir  folderToDelete` 
+`rm -r  folderToDelete` -> will delete non-empty directory 
 `pwd`  -> shows current folder
 `rm fileToDelete` -> delete  file (might need more params)
 `cp source destination`  -> copy file (or folder??)

@@ -159,6 +159,9 @@ apksigner and adb:
 - `apt-get install apksigner`
 - `apt-get install adb`
 
+
+Basic usage: `apktools d apkFile.apk` -> will unpack/decode apk file and write it into a folder
+
 **jadx**
 tool for reverse engineering (a bit like IlSpy/Reflector for .Net)
 

@@ -159,6 +159,9 @@ Commands used at the beginning (extremly random)
 https://codeshare.frida.re
 
 
+**Lab-Besprechung**
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2013%2D20230614%5F170558%2DBesprechungsaufzeichnung%2Emp4
+
 
 **CrackMe Simple**
 start emulatoremulator
