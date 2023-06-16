@@ -105,7 +105,7 @@ Similar to dynamic analysis but change it on the fly. Works well with interpeted
 - Frida (used in lab)
     - installation see lab (in virtual environment)
     - https://codeshare.frida.re -> sample and usable hooks
-- Xposed (obsolete)
+- Xposed (obsolete, not used)
     - hooks into Zygote (problem, changes with every Android release, needs root permissions, reboot needed)
     - Zygote is the process that needs to run all the time and starts other system processes     - 
   
@@ -142,6 +142,10 @@ Similar to dynamic analysis but change it on the fly. Works well with interpeted
 
 - strings com.android.providers.settings/f/flattened-data | grep  shc
 
+
+Tipps for lab:
+- always use jadx-ui to quickly check what kind of software we have
+    - a lot of stuff can be analyzed/solved just by looking at the code (and maybe the help of cyberchef etc.)
 
 
 **Frida basics (very very random .. to be improed**

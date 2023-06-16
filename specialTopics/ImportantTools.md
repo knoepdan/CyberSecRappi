@@ -175,7 +175,12 @@ Run ui: `jadx-gui`  (./build/jadx/bin/jadx-gui)
 Run cli: `jadx`  (./build/jadx/bin/jadx)
 
 **Frida** 
-Todo
+Todo/improve
+allows tracing on android devices. Will install a process (frida server) on the android device which then allows to trace and communicate via frida client.  (to be verified)
+
+
+
+*Remark: never install frida on a device with the playstore installed*
 
 
 ### important/helpful websites
