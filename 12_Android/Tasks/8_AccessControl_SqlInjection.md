@@ -1,8 +1,6 @@
 # Adroid Access Control (via sql injection)
 
 ### Steps
-
-
 1. Download and install the app from the resources.
    - `adb install InputValidationApp.apk`
         - app requires api level minSdkVersion 27, so I had to use a different emulator 
@@ -24,8 +22,6 @@ banker:  JKfv!378   {SQL_injection_flag}
  
 
 
-
-
 ## Mitigate the problem
 
 1. Explain the security problem
@@ -35,7 +31,5 @@ banker:  JKfv!378   {SQL_injection_flag}
 3. Explain mitigation (how this can be fixed)
     - Do not allow user input to be run as code. 
     - Use a "Prepared statement" (java jargon, in other languages its called differently, e.g: "prameterized query")
-    - see 
+    - see https://www.digitalocean.com/community/tutorials/sql-injection-in-java
 
-
-danielknoepfel@hotmail.com
