@@ -51,6 +51,10 @@ Prerequisites: installation of android tools (Lab 1)
 9. Install it
     - `adb install CrackMeSimple/dist/CrackMeSimple.apk`
 
+## Random note
+some commands
+`adb shell` -> 
+
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
 https://dzone.com/articles/introduction-to-java-bytecode  (very good)
