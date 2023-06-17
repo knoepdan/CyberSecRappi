@@ -45,8 +45,11 @@ Prerequisites: installation of android tools (Lab 1)
     - generate key file: `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000`
         - step through the process and provide meaningful answers plus give a reasonable password. 
         - Creates a keyfile "release.keystore" in the folder the command was executed in
-    - `apksigner sign -ks release.keystore CrackMeSimple.apk`  (apksigner sign -ks [keyFile] CrackMeSimple.apk)
+    - `apksigner sign -ks release.keystore CrackMeSimple/dist/CrackMeSimple.apk`  (apksigner sign -ks [keyFile] [ourChangedApkFile.apk])
         - will ask for the password
+
+9. Install it
+    - `adb install CrackMeSimple/dist/CrackMeSimple.apk`
 
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
@@ -60,7 +63,7 @@ Random notes
 - For every instance method invocation, the virtual machine expects a reference to the object (objectref) to be on the stack
 
 
-Examples with notes (///)
+**Examples with basic notes on LoginViewModel login method**
 ```
 .line 41  // String str2 = new String(AESUtil.decrypt(exxs)); // exs is a static readonly byte array
 new-instance v0, Ljava/lang/String; // Construct a new instance of the indicated type, storing a reference to it in the destination
