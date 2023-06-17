@@ -6,7 +6,7 @@ https://www.sqlite.org
 `.tables` -> shows tables
 `.schema tablename` -> shows schema
 `SELECT * FROM tablename;` -> shows content of table
-`.help` -> help
+`.help -- single line comment` -> help with single line comment
 `.exit` -> exit sqlite command line (if not in multiline mode)
 
 if you are in multiline mode, exexute the command using a semi colon: 
