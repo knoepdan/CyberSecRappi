@@ -48,8 +48,9 @@ Prerequisites: installation of android tools (Lab 1)
     - `apksigner sign -ks release.keystore CrackMeSimple/dist/CrackMeSimple.apk`  (apksigner sign -ks [keyFile] [ourChangedApkFile.apk])
         - will ask for the password
 
-9. Install it
-    - `adb install CrackMeSimple/dist/CrackMeSimple.apk`
+9. Install it my changed and signed apk file
+    - first uninstall previous installation of crackMeSimple: `adb uninstall org.bfe.crackmesimple` (full package name needed)
+    - `adb install CrackMeSimple/dist/CrackMeSimple.apk` -> install
 
 ## Random note
 some commands

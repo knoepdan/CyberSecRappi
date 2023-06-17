@@ -85,6 +85,9 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 - `head -n 5 products.txt` -> reads first 5 lines
 - `tail -n 2 employee.txt` -> display the last 2 lines of the file
 - `strings someBinaryFile` -> lists strings found in a binary file
+- `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000` -> certificate file "release.keystore"
+    - step through the process and provide meaningful answers plus give a reasonable password (for testing something like "123456" would be enough)
+    - Creates a keyfile "release.keystore" in the folder the command was executed in
 
 
 **Vi editor**
