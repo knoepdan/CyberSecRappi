@@ -52,12 +52,16 @@ Prerequisites: installation of android tools (Lab 1)
     - first uninstall previous installation of crackMeSimple: `adb uninstall org.bfe.crackmesimple` (full package name needed)
     - `adb install CrackMeSimple/dist/CrackMeSimple.apk` -> install
 
+10. Test it in real app via emulator
+    - possible to enter any password wen we get a "Well done you did it." and the flag "HL{R3v3rsing.FUN}"
+
 ## Random note
 some commands
 - `adb shell` ->  get a shell to access android system
     - `exit` -> return to normal shell
-
-## (Random notes on java byte code)
+- `adb install myAndroidapp.apk` -> will install android application
+- `adb uninstall org.bfe.crackmesimple` -> uninstalls android app (attention: full package name is needed)
+## Random notes on java byte code
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
 https://dzone.com/articles/introduction-to-java-bytecode  (very good)
 https://www.infoworld.com/article/2077233/bytecode-basics.html
