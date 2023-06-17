@@ -53,7 +53,8 @@ Prerequisites: installation of android tools (Lab 1)
 
 ## Random note
 some commands
-`adb shell` -> 
+- `adb shell` ->  get a shell to access android system
+    - `exit` -> return to normal shell
 
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 

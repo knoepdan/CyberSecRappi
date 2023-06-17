@@ -152,6 +152,7 @@ Tipps for lab:
 
 Commands used at the beginning (extremly random)
 - `adb shell` ->  get a shell to access android system (i believe)
+    - `exit` -> return to normal shell
 - `ps -ef | grep frida` -> check if frida process is running
 - `fah server update` -> not sure.
 - `./frida-server &` -> start frida server (in the background because of &)
