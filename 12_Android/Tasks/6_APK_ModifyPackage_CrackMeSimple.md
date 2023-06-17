@@ -43,7 +43,10 @@ Prerequisites: installation of android tools (Lab 1)
 
 8. Sign the generated apk file: "apksigner sign -ks [keyFile] CrackMeSimple.apk"
     - generate key file: `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000`
+        - step through the process and provide meaningful answers plus give a reasonable password. 
+        - Creates a keyfile "release.keystore" in the folder the command was executed in
     - `apksigner sign -ks release.keystore CrackMeSimple.apk`  (apksigner sign -ks [keyFile] CrackMeSimple.apk)
+        - will ask for the password
 
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
