@@ -38,12 +38,12 @@ Prerequisites: installation of android tools (Lab 1)
 
 7. Rebuild modified code
     - `apktool b CrackMeSimple`
+        - will build/compile a new apk file with our changes to: "./CrackMeSimple/dist/CrackMeSimple.apk" (cannot be installed yet as it is not yet signed)
+      
 
-
-
-8. Sign
+8. Sign the generated apk file: "apksigner sign -ks [keyFile] CrackMeSimple.apk"
     - generate key file: `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000`
-    - `apksigner sign -ks release.keystore CrackMeSimple.apk`
+    - `apksigner sign -ks release.keystore CrackMeSimple.apk`  (apksigner sign -ks [keyFile] CrackMeSimple.apk)
 
 ## (Random notes on java byte code)
 https://en.wikibooks.org/wiki/Java_Programming/Byte_Code 
