@@ -4,7 +4,7 @@
 **1. Download and install CrackMeSimple.apk**
 - Download 
 - Start emulator (using "Pixel 6 API 28", Android 9.0 | x86_64)
-- uninstall previously installed version to be sure:  `adb uninstall org.bfe.crackmesimple`
+- uninstall previously installed version if it exists:  `adb uninstall org.bfe.crackmesimple`
 - `adb install CrackMeSimple.apk` -> install
 
 **2. Install Frida**
@@ -42,11 +42,33 @@ basic test run `frida-ps` or `frida --version`
     - `chmod 755 /data/local/tmp/frida-server`
     - `cd /data/local/tmp`
     - `./frida-server &` -> start frida server ("&" to not block cmd)
+        - output: "[1] 5691"
 
 Check if server is up and running
 - `exit` -> leave device bash (but still in the same window)
-- `frida-ps -U`
+    - somehow I got stuck and had to send the Quit signal (right click on window>send signal) and then I had to reconnect to virtual environment via "pipenv --python 3 shell"
+- `frida-ps -U` -> there should be a process "frida-server"
 
+
+**3 start tracing (and find pw)**
+Now that server is running we can start tracing. 
+In the emulator I start CrackMeSimple and enter a password and try to sign in to ensure all classes are loaded (tried it without it, not all classes are traced)
+
+- `frida-trace -U -j 'org.bfe*!*' 'CrackMe Simple'` -> starts tracing
+    - will trace process "CrackMe Simple" and classes in namespace/classpath "org.bfe" 
+    - i get the name of the process from "frida-ps -U"
+    - I'll find " | <= [72,76,123,82,51,118,51,114,115,105,110,103,46,70,85,78,125]" in the trace, which is the password
+
+**4. decide pw byte array found in tracing**
+Using CyberChef:  copy array as input -> choose from Decimal (Comma as separator)
+Using Python (as in lab task)
+```
+a=[72,76,123,82,51,118,51,114,115,105,110,103,46,70,85,78,125]
+for e in a:
+    flag=flag+chr(e)
+```
+
+Found password/flag: "HL{R3v3rsing.FUN}"
 
 ### Security Questions
 
