@@ -11,6 +11,9 @@
 **2. Check Resources**
 Check the Android Permission. Check if it can intercept and write SMS messages.
 
+Suspicious resources found in res/values/string.xml
+
+
 
 **3. Find the CC server address (Protocol,IP, Port)**
  Find the CC server address (Protocol,IP, Port) in the resource files
