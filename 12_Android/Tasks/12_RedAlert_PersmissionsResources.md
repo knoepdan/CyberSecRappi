@@ -23,10 +23,11 @@ Find the CC server address (Protocol,IP, Port) in the resource files.
 
 Suspicious resources found in res/values/string.xml: 
 
-<string name="domain">http://119.28.128.207:7878</string> -> doesn't seem to be used to get data
-    
-<string name="eifve4u8dgbr9">https://bstwwitter.com/</string>
-    -> is called com.teron.bin.e.a method i  (called multiple time in catch block)
+<string name="domain">http://119.28.128.207:7878</string>  -> this is the flag
 
-    <string name="url_iewrciiwgtw32">http://www.gtimmaqp.org/utc/now?%5CD</string>
-    -> seems to be called but its not it
+From my understanding it is ultimatly used here:   HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(com.teron.bino.d.a.a(this.a).a() + "/" + str).openConnection();
+           
+
+Other: 
+<string name="eifve4u8dgbr9">https://bstwwitter.com/</string>
+<string name="url_iewrciiwgtw32">http://www.gtimmaqp.org/utc/now?%5CD</string>
