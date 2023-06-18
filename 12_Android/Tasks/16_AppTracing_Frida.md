@@ -64,8 +64,11 @@ Using CyberChef:  copy array as input -> choose from Decimal (Comma as separator
 Using Python (as in lab task)
 ```
 a=[72,76,123,82,51,118,51,114,115,105,110,103,46,70,85,78,125]
+flag = ''
 for e in a:
     flag=flag+chr(e)
+
+print(flag)
 ```
 
 Found password/flag: "HL{R3v3rsing.FUN}"
