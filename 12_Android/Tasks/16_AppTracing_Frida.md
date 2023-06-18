@@ -77,5 +77,12 @@ Found password/flag: "HL{R3v3rsing.FUN}"
 
 
 - What did you learn in this exercise?
+    - how to install frida and set up tracing
+        - getting reflected information about process internals and what is happing at runtime
 - What is the purpose of FRIDA
+    - Frida can be used for tracing android (and more) devices 
+    - it also allows to hook into methods which can be used
+        - advanced tracing
+        - spoofing of various input/resources (e.g. location) which can be used for reverse engineering, development etc.
 - Explain how FRIDA works
+    - On the device there has to be a process "fida-server" that the frida-client can communicate. This server process is the interface to which frida-client can connect to from outside and get information about what is happing on the android device
