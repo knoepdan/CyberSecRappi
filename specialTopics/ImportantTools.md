@@ -172,7 +172,7 @@ cd jadx
 ./gradlew build
 ./gradlew dist
 ```
-`export PATH=$PATH:/home/hacker/jadx/build/jadx/bin` -> make the path available
+`export PATH=$PATH:/home/hacker/jadx/build/jadx/bin` -> make the path available (it has happened that the path variable got lost, just reexecute cmd)
 
 Run ui: `jadx-gui`  (./build/jadx/bin/jadx-gui)
 Run cli: `jadx`  (./build/jadx/bin/jadx)
