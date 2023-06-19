@@ -9,5 +9,13 @@
 **2. Look at the code of CrackMe.apk**
 - `jadx-gui` and check decompiled code
   - *Remark: had to set path to the $path variable again: `export PATH=$PATH:/home/hacker/jadx/build/jadx/bin`*
-- Not done but would have been possible to analyze code on the level of java byte code:  'apktool d LokiBot.apk' 
 
+
+
+Hardcoded string in MainActivity: "MDE5MjgzNzQ2NTAw"
+What happens with string that is entered:
+1. var step1 = getBytes("UTF-8"); // reversible action
+2. var treatedAnswer = base64Encoded(step1); // reversible action
+3. if(treatedAnswer == "MDE5MjgzNzQ2NTAw") -> we have found the secret
+
+So goal is to find a string that after it is run through some functions results in a given string. Luckily, we don't deal with a real one-way functions (e.g. hashes) and can therefore, relativly easily revert the action. 
