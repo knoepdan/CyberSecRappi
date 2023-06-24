@@ -100,86 +100,54 @@ Not just debugging but also monitoring logs, network connections etc.
 ## Dynamic instrumentation
 Similar to dynamic analysis but change it on the fly. Works well with interpeted languages (such as java).
 
-
-**Tools**
-- Frida (used in lab)
-    - installation see lab (in virtual environment)
-    - https://codeshare.frida.re -> sample and usable hooks
-- Xposed (obsolete, not used)
-    - hooks into Zygote (problem, changes with every Android release, needs root permissions, reboot needed)
-    - Zygote is the process that needs to run all the time and starts other system processes     - 
   
 
 
+
+
+
+**Tools**
+- Android studio: development environment for Android
+    - used to start emulators
+    - sometimes also needed to run some android specific java code (usually not needed)
+- apktools, apksigner and adb etc.
+    - unpack/build apk files. Example unpack:  `apktools d apkFile.apk`   ()
+    - sign, install/uninstall apk files. Examples:  sign: `apksigner sign -ks release.keystore file.apk` install -> `adb install myAndroidapp.apk`
+    - jump to shell: `adb shell`
+    - backup  `adb backup -all` and  `adb restore [backup.ab]`
+- jadx: tool for reverse engineering (a bit like IlSpy/Reflector for .Net) 
+    - `jadx-gui` -> starts ui
+    - if path variable gets lost: reexecute: `export PATH=$PATH:/home/hacker/jadx/build/jadx/bin` 
+- Frida -> tool for tracing and hooking
+    - see lab or description for Android tools
+    - runs in a virtual environment, so you first have to activate it
+    - https://codeshare.frida.re
+
+
+
+
 ## Varia
+
+**General tipps and tricks**
+- always use jadx-ui to quickly check what kind of software we have
+    - a lot of stuff can be analyzed/solved just by looking at the code (and maybe the help of cyberchef etc.)
+- a lot of code snippets can be run using normal java
+
+**Lab-Besprechung**
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2013%2D20230614%5F170558%2DBesprechungsaufzeichnung%2Emp4
+
+**Terms**
 - Zero Day Exploits 
     - newly discovered vulnerabilities that the vendor had zero days to fix them yet
     - Are sold by on Zerodium website https://zerodium.com/program.html (only sold to clean companies)
 - NFC near field communication
     - technology that allows two devices  to talk to each other when they're close together (contactless payments)
-
 - Secure Element (SE) -> Crypto chip of Android
 - APK file  (Android Package)
     - package ile format used by the Android-based OS
 - VNC Virtual network computing
     - allows to control pc (like teamviewer)
-    - 
 - Rouge apps: apps pretending to be for someone else
     - example: app that look like post finance or blue win email and collecta username/email and pw
 - Malware as a Service (MaaS)
     - Cybercriminals offer malware related services (like customizable software, credit card infos etc.)
-
-
-
-
-## Labs
-
-- `adb backup -all` -> command for creating a backup
-- `adb restore [backup.ab]` -> restore
-
-
-
-
-- strings com.android.providers.settings/f/flattened-data | grep  shc
-
-
-Tipps for lab:
-- always use jadx-ui to quickly check what kind of software we have
-    - a lot of stuff can be analyzed/solved just by looking at the code (and maybe the help of cyberchef etc.)
-
-
-**Frida basics (very very random .. to be improed**
-
-Commands used at the beginning (extremly random)
-- `adb shell` ->  get a shell to access android system (i believe)
-    - `exit` -> return to normal shell
-- `adb install myAndroidapp.apk` -> will install android application
-- `adb uninstall org.bfe.crackmesimple` -> uninstalls android app (attention: full package name is needed)
-- `ps -ef | grep frida` -> check if frida process is running
-- `fah server update` -> not sure.
-- `./frida-server &` -> start frida server (in the background because of &)
-
-https://codeshare.frida.re
-
-
-**Lab-Besprechung**
-https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2013%2D20230614%5F170558%2DBesprechungsaufzeichnung%2Emp4
-
-
-**CrackMe Simple**
-start emulatoremulator
-
-
-check if frida is running
-```
-cd frida
-frida % source venv/bin/activate
-su
-ps -ef | grep frida
-exit
-```
-
-- `frida-trace -U -j 'org.bfe*!*' "CrackMe Simple"` -> trace (not sure this is the correct version)
-    - will hook into all methods of classes in that are in org.bfe (if comand is fully correct)
-    - maybe we have to exist and rern command, exit with CTRL+C
-    - -> when we find crypto (asci) we get password (maybe use cyberchef or some other tool)
