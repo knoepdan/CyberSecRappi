@@ -111,6 +111,7 @@ https://docs.metasploit.com
 - ViperMonkey    > for VBA  (best run in VM)
 - PSDecode > for Powershell  (best run in VM)
 - box-js  > for Javascript
+- Online website:  https://www.decompiler.com/  (mainly java/Android, but also other stuff)
 
 
 ### Live response
