@@ -113,24 +113,41 @@ Malware types:
 ## Dynamic analysis
 Not just debugging but also monitoring logs, network connections etc.
 
-- System logs
-  - Tool: Logcat
+- Communication analysis
+    - all channels need to be intercepted (WIFI, Bluethooth, mobile communication, etc.)
+        - might be encrypted, tunneled
+        - MiM usually not possible due to certificate pinning
+    - Example WIFI + GSM interception see pdf
+- Log analysis with Logcat (low level system info)
+- Debug  (debug pre built APK's, since Android Studio 3.0)
+- Use a sandbox
+    - Androl4b - (https://github.com/sh4hin/Androl4b)
+    - CuckooDroid: (https://github.com/idanr1986/cuckoo-droid)
+    - https://www.virustotal.com
+    - https://www.joesandbox.com/
 
-
-
-
-- Joe sandbox is very good at unwrapping code (random comments)
 
 ## Dynamic instrumentation
 Similar to dynamic analysis but change it on the fly. Works well with interpeted languages (such as java).
 
-  
+Toolbased
+- Frida
+    - allows tracing/hooking
+    - see lab and other 
+- xposed (not used in lab, maybe irrelevant by now)
+- commercial tools 
 
 
 
 
+## Varia
 
-**Tools**
+**Lab: General tipps and tricks**
+- always use jadx-ui to quickly check what kind of software we have
+    - a lot of stuff can be analyzed/solved just by looking at the code (and maybe the help of cyberchef etc.)
+- a lot of code snippets can be run using normal java
+
+**Lab: Tools**
 - Android studio: development environment for Android
     - used to start emulators
     - sometimes also needed to run some android specific java code (usually not needed)
@@ -147,15 +164,7 @@ Similar to dynamic analysis but change it on the fly. Works well with interpeted
     - runs in a virtual environment, so you first have to activate it
     - https://codeshare.frida.re
 
-
-
-
-## Varia
-
-**General tipps and tricks**
-- always use jadx-ui to quickly check what kind of software we have
-    - a lot of stuff can be analyzed/solved just by looking at the code (and maybe the help of cyberchef etc.)
-- a lot of code snippets can be run using normal java
+Remark: see lab tasks and separate tooling md
 
 **Lab-Besprechung**
 https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2013%2D20230614%5F170558%2DBesprechungsaufzeichnung%2Emp4
