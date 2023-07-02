@@ -94,3 +94,27 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+
+## Different approach using Frida hooking (from video)
+
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x012000DA88AEB389EBC1429C0A3BD2AC030A1D&sortField=Modified&isAscending=false&id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FDebriefing%20Lab%2013%2D20230622%5F170113%2DMeeting%20Recording%2Emp4&viewid=8c2d7430%2Df604%2D47d8%2Dbf67%2D85f8bb932d8e&parent=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings
+(how to setup frida for hooking: 23:30 )
+
+
+Script (not tested.. python/javascript script.. probably check video)
+```
+setTimeout(function() {
+Java.perform(function () {
+console.log("[*] Start hooking ......................................................................................");
+var loginM = Java.use("org.bfe.crackmesimple.util.AESUtil");
+var string = Java.use("java.lang.String");
+loginM.decrypt.overload('[B').implementation = function(pw){
+    var dec=this.decrypt.apply(this,[pw]);
+    var flag=string.$new(dec);
+    send("Tata the flag is " + flag );
+    return pw;
+};
+console.log("[*] Finished hooking ..................................................................................");
+});
+});
+```

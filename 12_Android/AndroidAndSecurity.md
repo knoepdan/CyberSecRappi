@@ -170,6 +170,8 @@ Remark: see lab tasks and separate tooling md
 https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2013%2D20230614%5F170558%2DBesprechungsaufzeichnung%2Emp4
 
 https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/Freigegebene%20Dokumente/Forms/AllItems.aspx?FolderCTID=0x012000DA88AEB389EBC1429C0A3BD2AC030A1D&sortField=Modified&isAscending=false&id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FDebriefing%20Lab%2013%2D20230622%5F170113%2DMeeting%20Recording%2Emp4&viewid=8c2d7430%2Df604%2D47d8%2Dbf67%2D85f8bb932d8e&parent=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings
+(how to setup frida for hooking: 23:30 )
+
 
 **Terms**
 - Zero Day Exploits 
@@ -183,3 +185,5 @@ https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/Freigegebene%20Do
 - Malware as a Service (MaaS)
     - Cybercriminals offer malware related services (like customizable software, credit card infos etc.)
     - quite common for Android
+- a rooted android device
+    - In the Android ecosystem, since the platform is based upon Linux permissions and file-system ownership, rooting means gaining “superuser” access.
