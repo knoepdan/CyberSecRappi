@@ -15,6 +15,12 @@ What is Forensic readiness:
 - a lot faster than forensics
 > often only live response is done
 
+
+
+### EQL
+
+
+
 ## Varia
 
 
