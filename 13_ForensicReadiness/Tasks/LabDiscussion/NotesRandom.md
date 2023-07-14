@@ -1,5 +1,10 @@
 # Notes (more or less random)
 
+
+## Video
+
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2015%2D20230713%5F170043%2DMeeting%20Recording%2Emp4&referrer=Teams%2ETEAMS%2DWEB&referrerScenario=teamsSdk%2DopenFilePreview
+
 ## comments from chat  
 *just pasted them in chronological order... often they only make sense in combination with video**
 
@@ -46,3 +51,7 @@ https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1197/T1197.m
 
 
 https://github.com/redcanaryco/atomic-red-team
+
+
+
+process where not process.working_directory like "C*" and  process.working_directory != null
