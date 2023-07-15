@@ -17,11 +17,23 @@ What is Forensic readiness:
 
 
 
-### EQL
+### Kibana Query language 
+
+Varia
+- Date/Time query clause  (format "YYYY-MM-DD" or "YYYY-MM-DDThh:mm:ss")
+    - @timestamp <= "2023-07-14T11:12:10"    -> ATTENTION: this will be interpreted as  UTC
+        - so this timestap would be equivalent to "2023-07-14T13:12:10"
+    - @timestamp <= now-110m
+
+*Remark: probably less relevant than EQL*
 
 
 
-## Varia
+## EQL
+https://www.elastic.co/guide/en/elasticsearch/reference/current/eql-syntax.html   (Reference)
+https://eqllib.readthedocs.io/en/latest/
+https://eql.readthedocs.io/en/latest/query-guide/pipes.html#count (good)
+
 
 
 

@@ -135,10 +135,10 @@ What is easy to change:
 ## Some sources and tools useful for CTI
 (might overlap with some other links)
 
-- VirusTotal https://www.virustotal.com
+- VirusTotal https://www.virustotal.com  (Sandbox)
     - aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed
     - Login via danKnop or daniel.knoepfel@ost.ch
-- Bazaar https://bazaar.abuse.ch/
+- Bazaar https://bazaar.abuse.ch/   (Malware samples)
     - MalwareBazaar is a project from abuse.ch with the goal of sharing malware samples with the infosec community, AV vendors and threat intelligence providers.
 - https://otx.alienvault.com/browse 
     - Community-driven repository of indicators of compromise

@@ -113,6 +113,16 @@ https://docs.metasploit.com
 - box-js  > for Javascript
 - Online website:  https://www.decompiler.com/  (mainly java/Android, but also other stuff)
 
+- Sandboxes
+    - https://www.joesandbox.com/   (good, have to register)
+    - https://www.virustotal.com/gui/home/upload   (good)
+    - Cuckoo
+        - https://cuckoosandbox.org/  
+        - https://mlwr.ee/ (online service, works well) 
+    - more info: https://github.com/rshipp/awesome-malware-analysis
+
+
+
 
 ### Live response
 - Velociraptor  (collect info)
