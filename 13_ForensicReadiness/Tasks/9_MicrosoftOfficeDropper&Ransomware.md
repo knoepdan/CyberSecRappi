@@ -103,7 +103,6 @@ Limit just by host (as done before)
 Search for process
 - Starting from timeline (where we were before): > correlate 
     - Enter EQL: `process where process.hash.sha256:("c36728e99f92b081dbe0479781d414c5c85b2ebfa35e46c9151efd4caf2124f8")`
-        - we event with correlated hash
 
 
 ![Searching by process hash](9_ProcessHashQuery.png)
@@ -124,12 +123,16 @@ sequence with maxspan=10m
   [ file where event.type in ("change","deletion","creation")  and file.extension:("jpg","docx","zip")]
   [ file where stringContains(file.name, "ost") ]
 ```
-Rule used for rule. Detects that powershell is started from Word and then we see some rename actions and filenames end with ost. 
+EQL used for rule later on. Detects that powershell is started from Word and then we see some rename actions and filenames end with ost. 
 
 
-**9. Create a rule out of it**
--> see lab tasks
+**9. Create a rule out of it (and test)**
+Creating see via Security > Manage > Rules > Create new rule (more see lab task)
 
 
-
+After enabling custom rule, repeat attack (open word file) to see if rule works. 
 ![Custom rule works](9_CustomRuleWorks.png)
+
+
+## Solutions
+see steps
