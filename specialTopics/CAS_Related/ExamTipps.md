@@ -30,3 +30,6 @@ There will probably be
 - Ghidra
     - only static analysis: will be 32bit + windows
     - maybe good exercises: https://crackmes.one/ 
+
+### 13 Forensic readiness
+- EQL  
