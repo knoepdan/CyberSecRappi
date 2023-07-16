@@ -47,21 +47,21 @@ Check what a test actually does (example): https://github.com/redcanaryco/atomic
 ## Results
 | Att&CK | Test performed | Detected |  Detected | 
 | ----------- | ----------- | ----------- |  ----------- |  
-| T1546.008 | Atomic Test #1: Attaches Command Prompt as a Debugger to a List of Target Processes   | yes | |
+| T1546.008 | Atomic Test #1: Attaches Command Prompt as a Debugger to a List of Target Processes   | YES | |
 | T1546.008 | Atomic Test #2: Replace binary of sticky keys  | NO | events found in timeline but no alert |
 | T1098     | Test #1: Admin Account Manipulate   | YES  | Rule: image file execution |
-| T1098     | Test #2: Domain Account and Group Manipulate  | NO  | Might get detected if machine is in a domain  |
+| T1098     | Test #2: Domain Account and Group Manipulate  | NO  | Might get detected if machine is in a domain (tests didnt really run) |
 | T1546.010 | Test #1: Install AppInit Shim | YES   |
 | T1546.011 | Test #1: Application Shim Installation   | YES   | Rule: '..Custom Shim..' sdbinst.exe
 |T1546.011   | Test #2: New shim db files created in the default shim db dir   | YES   | Rule execution from unusal dir
 | T1546.011   | Test #3: Registry key creation and/or modification events for SDB | NO   |
 | T1053.002  | Test #1: At.exe Scheduled task   |  NO  | events in timeline found
-| T1197 | Test #1: Bitsadmin Download (cmd)  | YES   | Rule: 'Malicious Behavior..'
-| T1197 | Test #2: Bitsadmin Download (PowerShell)  |  NO  |
+| T1197 | Test #1: Bitsadmin Download (cmd)  | YES   | Rule: 'Ingress Transfer via Windows BITS..'
+| T1197 | Test #2: Bitsadmin Download (PowerShell)  |  YES  | Rule: 'Ingress Transfer via Windows BITS' ( I believe i didnt get an alert first time I tried)
 | T1197 | Test #3: Persist, Download, & Execute  | YES   |Rule: 'Malicious Behavior..'
 | T1197 | Test #4: Bits download using desktopimgdownldr.exe (cmd)   |  YES  | Rule 'Remote File download...'
 
 
 *Remark 1: sometimes GetPrerequisite + Cleanup operations trigger alerts*
-*Remark 2: I got an alerts: "Mulitple alerts involving user" and "Multiple Alerts in Different ATT&CK Tacticts.."
+*Remark 2: I got an alerts: "Mulitple alerts involving user" and "Multiple Alerts in Different ATT&CK Tacticts.."*
 
