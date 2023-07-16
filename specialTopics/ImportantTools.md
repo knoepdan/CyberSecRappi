@@ -1,6 +1,12 @@
 # Important tools
 
 
+## General
+    - Mitre attack framework 
+        - https://attack.mitre.org/ 
+
+
+
 ## Network general
 - netcat
     - network tool for tcp/udp connections (can be used for reverse shells)
@@ -138,6 +144,22 @@ https://docs.metasploit.com
     - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
     - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil) 
 
+
+### Forensic readiness
+
+- Atomic read team tests 
+    - Test to test IT security (red team teams together with blue team: purple team)
+    - https://github.com/redcanaryco/invoke-atomicredteam/wiki
+    - https://github.com/redcanaryco/atomic-red-team/tree/master/atomics  -> tests to run (via powershell)
+    - Example
+        - `Invoke-AtomicTest T1546.008 -TestNumbers 1 -GetPrereqs` -> get prerequisites (or `Invoke-AtomicTest T1546.008 -GetPrereqs` for all prerequisites)
+        - `Invoke-AtomicTest T1546.008 -TestNumbers 1` specific test  (all tests: `Invoke-AtomicTest T1546.008` )
+        - `Invoke-AtomicTest T1546.008 -TestNumbers 1 -Cleanup`   (cleanup for all tests: `Invoke-AtomicTest T1546.008 -Cleanup`)
+        - Check what a test actually does: https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1546.008/T1546.008.md 
+- Incident response methodologies
+    - list of prepared incident response plans (best practices.. a bit generic of course as not adapted to specific company)
+    - https://github.com/certsocietegenerale/IRM
+    - Examples: Pishing, Scam, DDOS, Ransomware etc.
 
 ### important/helpful websites
 
