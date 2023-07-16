@@ -50,9 +50,11 @@ https://eql.readthedocs.io/en/latest/query-guide/pipes.html#count (good)
 
 
 
-**terms** 
+**terms and varia** 
 - EDR: endpoint detection response
 - Nonrepudiation: one cannot successfully dispute action, authorship or validity (Nachweisbarkeit)
 - retention times: for how long can we keep information before we are forced to release/publish (from a legal perspective)
 - IOC Indicator of compromise
 - TTP Techniques, tactics and procedures (MITRE)
+- Atomic Red Team is a set of scripts or atoms to test your detection based on MITRE's ATT&CK.
+    - 
