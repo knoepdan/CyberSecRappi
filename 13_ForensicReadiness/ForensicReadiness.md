@@ -58,3 +58,12 @@ https://eql.readthedocs.io/en/latest/query-guide/pipes.html#count (good)
 - TTP Techniques, tactics and procedures (MITRE)
 - Atomic Red Team is a set of scripts or atoms to test your detection based on MITRE's ATT&CK.
     - 
+
+
+## Lab
+video mid-discussion
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FSprechstunde%20Lab%2015%2D20230713%5F170043%2DMeeting%20Recording%2Emp4&referrer=Teams%2ETEAMS%2DWEB&referrerScenario=teamsSdk%2DopenFilePreview
+
+
+video final
+https://ostch.sharepoint.com/teams/TS-CASCyberSecurity20222023/_layouts/15/stream.aspx?id=%2Fteams%2FTS%2DCASCyberSecurity20222023%2FFreigegebene%20Dokumente%2FGeneral%2FRecordings%2FMeeting%20in%20%5FGeneral%5F%2D20230720%5F170319%2DMeeting%20Recording%2Emp4
