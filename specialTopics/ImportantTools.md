@@ -10,10 +10,13 @@
 
 ## Network general
 
-- netcat
-  - network tool for tcp/udp connections (can be used for reverse shells)
-  - https://www.kali.org/tools/netcat/
-  - https://www.varonis.com/blog/netcat-commands
+**netcat**
+
+- network tool for tcp/udp connections (can be used for reverse shells)
+- `while true; do cat http_response.txt | nc -l 8000; done`
+  - create a simple webserver returning what is in the file http_response.txt
+- https://www.kali.org/tools/netcat/
+- https://www.varonis.com/blog/netcat-commands
 
 ### Bettercap
 
@@ -172,3 +175,14 @@ https://docs.metasploit.com
   - Tool: `sslyze localhost` (did not work: `sslyze --regular localhost` )
     - https://www.kali.org/tools/sslyze/
     - Doku: https://nabla-c0d3.github.io/sslyze/documentation/
+
+### Web
+
+- OpenSSL tool that implements TLS
+  - `openssl s_client -connect www.airlock.com:443 -crlf`
+- BURP -> browser extension
+  - similar: zap (also has fuzzer functionality to try different input variants: see web app fundamentals 1: proxy)
+  - With FF it is possible to manipulate and resend requests already built in in dev tool
+- "HackBar V2 by chewbaka" -> Firefox extension
+  - probably not important
+  - possible to change some request properties
