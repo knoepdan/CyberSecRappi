@@ -18,6 +18,20 @@
 - https://www.kali.org/tools/netcat/
 - https://www.varonis.com/blog/netcat-commands
 
+**DNS tools and commands**
+
+- https://www.whatsmydns.net/ -> website to check dns
+- dig (alternative to nslookup)
+  - `dig www.ost.ch` - get dns entry
+  - `dig @8.8.8.8 www.ost.ch` -> via google dns server
+  - `dig ns ost.ch` -> name server lookup (returns the name servers (authorative name servers))
+  - `dig mx ost.ch` mail server lookup
+  - `dig -x 146.136.105.52` -> reverse lookup ip to domain name
+  - `dig ost.ch ANY +short +trace` trace (more see pdf)
+- DNS over http
+  - `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
+    - (there are other dns over http servers as well..e.g. from google)
+
 ### Bettercap
 
 Tool that can be used for Man in the middle attacks.
