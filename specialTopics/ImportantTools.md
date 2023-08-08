@@ -35,7 +35,7 @@
   - `fpdns ost.ch`
   - https://manpages.org/fpdns
 - various other tools (possibly improve)
-  - `host 146.136.105.52` -> reverse lookup, ip to host (there are other tools for this as well.. even nmap can be used for this)
+  - `host 146.136.105.52` -> reverse lookup, ip to host (there are other tools for this as well.. dig, even nmap can be used for this)
   - `fierce -dns ost.ch` DNS brute forcing (my understanding, will try to get all dns entries).. reconaissance tools also for enumeration
   - sublist3r `python3 /usr/lib/python3/dist-packages/sublist3r.py -d google.com` (maybe full path can be omited) - DNS enumeration
   - subfinder `subfinder -d compass-security.com` - DNS enumeration

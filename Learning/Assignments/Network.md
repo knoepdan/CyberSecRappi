@@ -38,6 +38,7 @@ DNS varia:
 - DNS over HTTPS
   - DNS itself is vulnerable to eavesdropping and man-in-the-middle, so google and mozilla moved to DNS over http
   - `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
+- DNS main record types: A, AAAA (IPV6), CNAME (alias), NS (name server), MX (mail server), TXT (text), PTR (reverse lookup: ip to domain name)
 
 **DNSSEC (Security Extensions)**
 DNSSEC: Domain Name System Security Extensions
