@@ -31,6 +31,15 @@
 - DNS over http
   - `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
     - (there are other dns over http servers as well..e.g. from google)
+- FPDNS - determine version (and implementations) of dns server
+  - `fpdns ost.ch`
+  - https://manpages.org/fpdns
+- various other tools (possibly improve)
+  - `host 146.136.105.52` -> reverse lookup, ip to host (there are other tools for this as well.. even nmap can be used for this)
+  - `fierce -dns ost.ch` DNS brute forcing (my understanding, will try to get all dns entries).. reconaissance tools also for enumeration
+  - sublist3r `python3 /usr/lib/python3/dist-packages/sublist3r.py -d google.com` (maybe full path can be omited) - DNS enumeration
+  - subfinder `subfinder -d compass-security.com` - DNS enumeration
+  - amass `amass enum -d compass-security.com`
 
 ### Bettercap
 

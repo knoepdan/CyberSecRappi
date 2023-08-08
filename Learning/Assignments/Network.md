@@ -56,7 +56,27 @@ Example
 - openprovider.nl. 3600 IN RRSIG DS 8 2 3600 20181.... DS entry signed with public key (of this level as I understand it)
   Parent of parent -> same mechanism would apply here to verify the public key of the lower level (parent). If it is a root server, then we just have to trust it.
 
+**DNS enumeration**
+get all entries (usually for a specific domain.. so we get all related subdomains)
+Various tools for this: fierce, sublist (see tools)
+
+**DNS attacks**
+
+- Spoofed DHCP to DNS Update
+  - DHCP server can update DNS entries by sending the mappings IP-hostname to DNS. Attacker can now pretend to be the DHCP servern and send fake DNS update packages
+- DNS Man in the Middle
+  - (possibly improve on this)
+
 ## IP and similar
+
+**Three-way handshake**
+
+1. Client sends SYN (SeqNum:x)
+2. Server sends SYN (SeqNum:n) and ACK (SeqNum:x+1)
+3. Client sends ACK (SeqNum:n+1)
+   ACK will send the sequence number it next expects. (Seqence number refers to bytes. So if packages is 10 bytes, ACK will not be +1 but +11)
+
+Reset function: RST flag will be sent when connection is half open, a machine recieves tcp segements for which is no connection open etc.
 
 **Traceroute**
 sending ICPM packages with Time to leave (TTL) incremented each time (starting with 1) to see how far package gets.
@@ -66,3 +86,6 @@ sending ICPM packages with Time to leave (TTL) incremented each time (starting w
 - PXE (Pre-boot Execution Environment): load software (OS?) via network using standard protocols such as DHCP etc.
 
 - OSI-Model
+- Future
+  - QUIC (based on udp)
+  - HTTP3 (based on QUIC)
