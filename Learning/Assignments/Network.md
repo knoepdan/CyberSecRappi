@@ -63,9 +63,16 @@ Various tools for this: fierce, sublist (see tools)
 
 **DNS attacks**
 
+- DNS spoofing (basic.. not really attacks.. more for testing)
+  - hosts file (linux: "/etc/hosts") -> most simple (just works locally)
+  - "dnsmasq" -> see assignment network 1/2 -> "A1 Kookarai: dnsmasq" | "6_DNS_SpoofingAnswers.md"
 - Spoofed DHCP to DNS Update
   - DHCP server can update DNS entries by sending the mappings IP-hostname to DNS. Attacker can now pretend to be the DHCP servern and send fake DNS update packages
 - DNS Man in the Middle
+- (possibly improve on this)
+- DNS tunneling
+  - use dns protocol to send/receive data and usually a legitimate dns server that forwards via recursive queries
+  - example: [infected host] -> [legitimate dns server] -> hacker
   - (possibly improve on this)
 
 ## IP and similar
@@ -79,8 +86,15 @@ Various tools for this: fierce, sublist (see tools)
 
 Reset function: RST flag will be sent when connection is half open, a machine recieves tcp segements for which is no connection open etc.
 
+**IPSec**
+see pdf
+
 **Traceroute**
-sending ICPM packages with Time to leave (TTL) incremented each time (starting with 1) to see how far package gets.
+sending packages with Time to leave (TTL) incremented each time (starting with 1) to see how far package gets.
+
+- windows: `tracert.exe hsr.hacking-lab.com` (default using ICMP)
+  - `traceroute -M icmp www.compass-security.com` -> run it using ICMP (works when ICMP doesnt block )
+- linux: `traceroute www.compass-security.com` (default using udp)
 
 ## Varia
 

@@ -34,12 +34,24 @@
 - FPDNS - determine version (and implementations) of dns server
   - `fpdns ost.ch`
   - https://manpages.org/fpdns
+- DNS spoofing
+  - hosts file (linux: "/etc/hosts") -> most simple (just works locally)
+  - "dnsmasq" -> see assignment network 1/2 -> "A1 Kookarai: dnsmasq" | "6_DNS_SpoofingAnswers.md"
 - various other tools (possibly improve)
   - `host 146.136.105.52` -> reverse lookup, ip to host (there are other tools for this as well.. dig, even nmap can be used for this)
   - `fierce -dns ost.ch` DNS brute forcing (my understanding, will try to get all dns entries).. reconaissance tools also for enumeration
   - sublist3r `python3 /usr/lib/python3/dist-packages/sublist3r.py -d google.com` (maybe full path can be omited) - DNS enumeration
   - subfinder `subfinder -d compass-security.com` - DNS enumeration
   - amass `amass enum -d compass-security.com`
+
+**various**
+
+- `netstat -antp` check port and interface of services (or without -antp)
+- Trace IP packages
+  - windows: `tracert.exe hsr.hacking-lab.com` (default using ICMP)
+    - `traceroute -M icmp www.compass-security.com` -> run it using ICMP (works when ICMP doesnt block )
+    - `traceroute -M tcp -p 443 www.compass-security.com` -> run it using tcp (needs a listening port, here 443)
+  - linux: `traceroute www.compass-security.com` (default using udp)
 
 ### Bettercap
 
