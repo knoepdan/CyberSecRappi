@@ -176,6 +176,13 @@ https://towardsdatascience.com/basics-of-bash-for-beginners-92e53a4c117a
 **Advanced (bash with programming constructs)**
 https://www.computerhope.com/unix/ubash.htm
 
+Read in file line by line (best in a file "file.sh" and then start it "bash file.sh"): 
+```
+while IFS= read -r line; do
+    echo "Text read from file: $line"
+done < my_filename.txt
+```
+
 
 
 **TODO (might be worth a look)**

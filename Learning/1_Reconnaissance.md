@@ -69,8 +69,6 @@ We get:
 - IP-Ranges (of provider i guess)
 - BGP info (???)
 
-
-
 **Varia**
 - Search engines: mainly Google search (google dork)
     - use google to search for vulnerabilities (bing could probably also be used for this)
@@ -92,3 +90,60 @@ We get:
 
 
 ### Playbook passive reconnaissance
+Example with compass-security.ch. 
+Attention: a full list 
+
+**1. Whois**
+-  `whois compass-security.ch`
+    - alternative: https://www.nic.ch/whois/  (as might "whois" via bash might be prohibited)
+
+We get nameservers: ns1.compass-security.com, ns2.compass-security.com  (and possibly some additional info)
+
+**2. Get IPs**
+get ip:  `dig +short www.compass-security.ch`  -> 80.74.140.132
+
+*remark: also do this for the nameservers*s
+
+**3. Provider Lookup via WhoIs**
+provider info: `whois -h riswhois.ripe.net '80.74.140.132' | egrep -i "origin|desc"` (without part after "|" would be ok)
+we get ASN: AS21069   (ASN-METANET METANET AG, CH). 
+
+*remark: also do this for the nameservers*
+
+**4. Certificate Transparency (get more domains)**
+1. run in browser: https://crt.sh/?q=compass-security.ch   -> get html source
+2. if there too many: extract domains in Cyberchef
+    - html source from step one and extract domain names in cyberchef (Extractors-> Extract domains)
+        - if there are too many false positives: just copy inner html table
+        - also make sure you don't use incorrect 
+
+
+5. Get domains/subdomains from already retrieved domains
+
+Content of bash file "subdom.sh"
+```
+mkdir -p ./subdomains
+while read p; do
+    if [ -z $p ]
+    then 
+        echo "line empty"
+    else
+        echo $p
+        ### sublist3r -d $p -o ./subdomains/$p.txt  #did not yield good results
+        amass enum -d $p > ./subdomains/$p.txt
+    fi
+done <hosts.txt
+```
+Call file: `bash subdom.sh`
+*Remark: approach can also be used with other tools*
+
+**Varia**
+- get domain from IP
+    - `dig -x 146.136.105.52`
+    - or https://www.reverseip.ch/en/
+- Find related domains from IP
+    - bing search: "ip:+80.74.140.119"
+    - `curl -s https://api.hackertarget.com/reverseiplookup/\?q\=80.74.140.11
+- use Cyberchef to 
+    - sort, make unique or extract domains and/or IP's
+    - can be saved to a file and then used for further processing

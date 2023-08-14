@@ -27,6 +27,7 @@
   - `dig ns ost.ch` -> name server lookup (returns the name servers (authorative name servers))
   - `dig mx ost.ch` mail server lookup
   - `dig -x 146.136.105.52` -> reverse lookup ip to domain name
+    - via website: https://www.reverseip.ch/en/ 
   - `dig ost.ch ANY +short +trace` trace (more see pdf)
 - DNS over http
   - `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
@@ -43,6 +44,7 @@
   - sublist3r `python3 /usr/lib/python3/dist-packages/sublist3r.py -d google.com` (maybe full path can be omited) - DNS enumeration
   - subfinder `subfinder -d compass-security.com` - DNS enumeration
   - amass `amass enum -d compass-security.com`
+  - dnsenum: `dnsenum --noreverse -o result.xml compass-security.ch` -> will also find mailservers etc.
   - also see bookmarks for links
 
 **WhoIs**
