@@ -43,6 +43,16 @@
   - sublist3r `python3 /usr/lib/python3/dist-packages/sublist3r.py -d google.com` (maybe full path can be omited) - DNS enumeration
   - subfinder `subfinder -d compass-security.com` - DNS enumeration
   - amass `amass enum -d compass-security.com`
+  - also see bookmarks for links
+
+**WhoIs**
+WHOIS is a public database that houses the information collected when someone registers a domain name or updates their DNS settings.
+  - Linux tool "whois":  
+    - `whois -h riswhois.ripe.net -- '80.254.178.110'` (single ip)
+    - `whois -h riswhois.ripe.net -- '-m 193/19'` (ip mask)
+  - Online tool: https://stat.ripe.net/ 
+  - search for .ch and .li domains: https://www.nic.ch/whois/
+  - search for .com domains: https://lookup.icann.org/lookup
 
 **various**
 
@@ -52,6 +62,9 @@
     - `traceroute -M icmp www.compass-security.com` -> run it using ICMP (works when ICMP doesnt block )
     - `traceroute -M tcp -p 443 www.compass-security.com` -> run it using tcp (needs a listening port, here 443)
   - linux: `traceroute www.compass-security.com` (default using udp)
+- IANA: https://www.iana.org/  (global coordination for DNS root, IP addressing etc.)
+- Certificate transparency: Standard for monitoring + auditing the issuance of digital certificates.
+  - https://crt.sh/
 
 ### Bettercap
 

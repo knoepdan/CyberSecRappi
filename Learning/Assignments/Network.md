@@ -1,5 +1,7 @@
 # Network
 
+IANA: https://www.iana.org/  (global coordination for DNS root, IP addressing etc.)
+
 ## BGP protocol
 
 BGP is the most common protocol to connect 2 autonomous systems (AS) with each other.
@@ -98,9 +100,18 @@ sending packages with Time to leave (TTL) incremented each time (starting with 1
 
 ## Varia
 
+- WHOIS database
+  - WHOIS is a public database that houses the information collected when someone registers a domain name or updates their DNS settings.
+  - Linux tool:  `whois -h riswhois.ripe.net -- '80.254.178.110'`
+  - Online tool: https://stat.ripe.net/ 
+  - search for .ch and .li domains: https://www.nic.ch/whois/
+  - search for .com domains: https://lookup.icann.org/lookup
 - PXE (Pre-boot Execution Environment): load software (OS?) via network using standard protocols such as DHCP etc.
-
+- Ways to ensure certificates: 
+  - CRL Certificate revokation list
+  - CT Certficate Transparency (logs that monitor issuing of certifictes.. good for finding compromised CA's)
+  - OCSP
 - OSI-Model
-- Future
+- Future protocols
   - QUIC (based on udp)
   - HTTP3 (based on QUIC)
