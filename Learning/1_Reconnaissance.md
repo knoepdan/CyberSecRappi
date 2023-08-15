@@ -86,6 +86,8 @@ We get:
 
 **Tools**
 - Maltego (see liveCD)
+    - OSINT: Open Source Intelligence tool
+    - https://www.youtube.com/watch?v=BNLwp4uGB5A
 - there are more...
 
 
@@ -118,7 +120,7 @@ we get ASN: AS21069   (ASN-METANET METANET AG, CH).
         - also make sure you don't use incorrect 
 
 
-5. Get domains/subdomains from already retrieved domains
+**5. Get domains/subdomains from already retrieved domains**
 
 Content of bash file "subdom.sh"
 ```
@@ -136,6 +138,28 @@ done <hosts.txt
 ```
 Call file: `bash subdom.sh`
 *Remark: approach can also be used with other tools*
+
+**5b. Alternative scanning for subdomains via dnscan**
+"dnscan" tries to get subdomains via worklist. Attention: is considered active scanning
+
+Should run out of the box (maybe already downloaded)
+```
+cd /home/hacker
+git clone https://github.com/rbsec/dnscan.git
+cd dnscan
+python3 dnscan.py -d compass-security.com
+python3 dnscan.py -d compass-security.com -w subdomains-10000.txt
+```
+
+**5c. Alternative scanning for subdomains via dnsenum**
+script to enumerate via wordlist and goolge and discover non-contiguous IP blocks.  Attention: is considered active scanning
+```
+cd /home/hacker
+git clone https://github.com/rbsec/dnscan.git
+cd dnscan
+ls -al subdomain*
+```
+Run it: `dnsenum -f subdomains-100.txt --enum compass-security.com --private -p 20 -s 20 -r -w -o dnsenum-compass-100.xml` (some results may not make sense)
 
 **Varia**
 - get domain from IP

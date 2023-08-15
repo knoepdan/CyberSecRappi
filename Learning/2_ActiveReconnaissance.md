@@ -42,5 +42,8 @@ Types of Vulnerability scanners (simple, via agents etc.): see pdf
 - Nessus
     - (Network) Vulnerability scanner
     - commercial and free edition
+    - See lab task
 - .... many others
+
+
 

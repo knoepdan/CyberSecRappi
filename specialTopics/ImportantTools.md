@@ -45,7 +45,10 @@
   - subfinder `subfinder -d compass-security.com` - DNS enumeration
   - amass `amass enum -d compass-security.com`
   - dnsenum: `dnsenum --noreverse -o result.xml compass-security.ch` -> will also find mailservers etc.
-  - also see bookmarks for links
+  - dnscan -> scan for subdomains (via list, attention: active scanning, should be preinstalled)`
+    - see lab tasks and also my recap
+  - dnscan -> scans for subdomains and non-contiguous IP blocks.
+    - see lab tasks and also my recap
 
 **WhoIs**
 WHOIS is a public database that houses the information collected when someone registers a domain name or updates their DNS settings.
@@ -68,6 +71,8 @@ WHOIS is a public database that houses the information collected when someone re
 - Certificate transparency: Standard for monitoring + auditing the issuance of digital certificates.
   - https://crt.sh/
 
+## Reconassaince, Vulnerability etc
+
 ### Bettercap
 
 Tool that can be used for Man in the middle attacks.
@@ -77,20 +82,31 @@ https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
 
 <span style="color:red">TODO / Improve</span>
 
+
+
 ### NMAP
 Port scanner (and a little more)
 https://nmap.org/book/man.html (manual)
 -> see separate md file
 
 ### Nessus
-
 Vulnerability scanner
-
 https://www.youtube.com/watch?v=sfT_qEw3Fcs
+-> see labtask
 
-<span style="color:red">Improve</span>
+### Maltego
+Reconnaissance tool (passive)
+OSINT: Open Source Intelligence tool
+https://www.youtube.com/watch?v=BNLwp4uGB5A
 
-### Metaxploit
+
+### fail2ban
+Tool against password-spraying. (trying same pw with different users.)
+Will block IP's that have too many failed logins.
+
+https://www.youtube.com/watch?v=vkeb0pWYDr8
+
+### Metasploit
 
 metasploit can be used to:
 
@@ -160,7 +176,7 @@ https://docs.metasploit.com
   - Query example: "filename:_.exe AND message:NTFS_"
     - will return all entries for exe files which have a column message that starts with NTFS
 
-### Reverse engineering / Malware analysis (+ programming)
+## Reverse engineering / Malware analysis (+ programming)
 
 - GDB GNU Project Debugger (https://www.sourceware.org/gdb/)
   - GEf extension to GDB https://github.com/hugsy/gef
@@ -179,7 +195,7 @@ https://docs.metasploit.com
     - https://mlwr.ee/ (online service, works well)
   - more info: https://github.com/rshipp/awesome-malware-analysis
 
-### Live response
+## Live response
 
 - Velociraptor (collect info)
   - to collect info/evidence from clients (via agents or offline)
@@ -194,7 +210,7 @@ https://docs.metasploit.com
   - https://downloads.volatilityfoundation.org/releases/2.4/CheatSheet_v2.4.pdf
   - https://apps.dtic.mil/sti/pdfs/AD1004194.pdf Malware memory analysis for non-specialists (dtic.mil)
 
-### Forensic readiness
+## Forensic readiness
 
 - Atomic read team tests
   - Test to test IT security (red team teams together with blue team: purple team)
@@ -209,6 +225,8 @@ https://docs.metasploit.com
   - list of prepared incident response plans (best practices.. a bit generic of course as not adapted to specific company)
   - https://github.com/certsocietegenerale/IRM
   - Examples: Pishing, Scam, DDOS, Ransomware etc.
+
+## Varia
 
 ### important/helpful websites (probably to categorize)
 
