@@ -78,12 +78,9 @@ https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
 <span style="color:red">TODO / Improve</span>
 
 ### NMAP
-
 Port scanner (and a little more)
-
 https://nmap.org/book/man.html (manual)
-
-<span style="color:red">Improve</span>
+-> see separate md file
 
 ### Nessus
 

@@ -53,9 +53,10 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 `su ` -> switch to superuser (pw needed, disabled on some linux systems)
 
 **Network**
- `ip a `  ->  network interfaces (or "ip addr")
- `ifconfig -a `  -> network interfaces (probaly outdated, use "ip a")
- `curl http://site ` -> execute http get request
+`ip a `  ->  network interfaces (or "ip addr")
+`ip -c a l` -> current network configuration
+`ifconfig -a `  -> network interfaces (probaly outdated, use "ip a")
+`curl http://site ` -> execute http get request
 `nslookup compass-security.com`  -> get ip from domain name
 `dig compass-security.com`  -> alternative to nslookup (seems to provide a bit more info)
 `netstat -antp`  -> check port and interface of services
@@ -164,6 +165,7 @@ https://stackoverflow.com/questions/9834086/what-is-a-simple-explanation-for-how
 **">" and ">>" operators**
 ">" redirects the output of a program/command to something other than than "stdout" (standard output, which is the terminal by default). ">>" is similar but will for example not overwrite but append to a file.
 `ls -all > allmyfiles.txt` -> creates or overwrites the file with the resul tof ls
+`echo hello > scope.txt` -> creates or overwrites a file with content "hello"
 `echo "end" >> allmyfiles.txt`  -> appends "end" string to the file (or creates a new one if it doesn't exist)
 `> newZeroByteFile`  -> creates (or overwrites) a new file with zero bytes
 
