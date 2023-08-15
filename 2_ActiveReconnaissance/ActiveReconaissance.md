@@ -10,8 +10,6 @@ Portscanner = tool that tries to find via TCP/UDP
 NMAP
 - Discovery phase (phase 1)
   - find which system (WLANS etc)
-- 
-
 - is also a small vulnerability scanner
   - can run some scripts to check 
     - example: small DNS

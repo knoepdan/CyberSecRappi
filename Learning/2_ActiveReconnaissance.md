@@ -10,18 +10,37 @@ Some basics (supported by NMAP)
 - Vulnerability scanning
     - NMAP is also a small vulnerability scanner but there are better tools.. like Nessus
 
+## Vulnerability scanning
+Good for detecting standardized issues:(outdated software, configuration etc. Disadvantages: not good for complex, unknown serivces, false positives, noisy
 
+| **Problem** | **Measure** |
+|---|----|
+|Insufficient Monitorng & Alerting | Forensic Readiness, Fraud & APT Detection |
+| Vulnerable code | Secure programming, traing developers | 
+| Vulnerable libraries | Patching, Updating Libs |
+|Misconfiguration (TLS, Keys) | Hardening, Secure Configuration |
+| Daemon Vulnerability (Web, DNS, FTP, SSH) | Patching (Vendoer), Separation, Virtualization |
+| Vulnerability withing TCP/IP Stack | Firewall & Patching OS (Product) |
+*Nessus covers all except monitoring*
 
-banner
+**Host OS Vulnerability**
+1. Services
+2. Patch Level
+3. File Permissions
+4. ProcessPermissions
+5. Configurations
+*Example: covered by Microsoft Baseline Security Analyzer*
 
+Types of Vulnerability scanners (simple, via agents etc.): see pdf
 
 ## Tools
-- NMAP http://nmap.org/ -> see tools
+- NMAP http://nmap.org/
+    - mainly host discovery and port scanner but also a (small?) vulnerability scanner
+- Microsoft Baseline Security Analyz
+    - Host security scanner
+    - free, local host auditing
+- Nessus
+    - (Network) Vulnerability scanner
+    - commercial and free edition
+- .... many others
 
-
-- scanning via proxy
-- script scan
-- banner grabbing
-
-
-Zenmap -> ui tool for nmap
