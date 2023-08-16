@@ -144,12 +144,13 @@ https://man.archlinux.org/man/community/wireshark-cli/wireshark-filter.4.en
 Other tools:
 
 - Follow TCP stream
-  - Tshark (bash tool)
-  - Tcpflow
-  - Pcapcat
-  - Tcpxtract
+   - Tshark (bash of wireshark)
+      - https://www.thegeekdiary.com/tshark-command-examples-in-linux/
+   - Tcpflow
+   - Pcapcat
+   - Tcpxtract
 - Findsmtpinfo.py (pyhton script -> see assignment powerpoint)
 - NetworkMiner (multi purpose tool)
 - specialized tools
-  - Oftcat
-  - smtpdump
+   - Oftcat
+   - smtpdump

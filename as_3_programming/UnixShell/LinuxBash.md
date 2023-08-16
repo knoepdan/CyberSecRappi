@@ -63,7 +63,10 @@ hidden files/dirs: names that start with a dot (".") are hidden (offent config f
 `tshark -qn -z conv ,tcp -r evidence01.pcap` -> view packate conversations. (a bit like wireshark)
 `arp /a` -> MAC address - IP Addresses
 `while true; do cat http_response.txt | nc -l 8000; done` -> make a little webserver (returning content of http_response.txt)
-
+Tshark (bask command of wireshark)
+    - `tshark` -> will listen to all packages
+    - `tshark -d tcp.port==8888,http` -> decode tcp on port 8888 for http
+    - https://www.thegeekdiary.com/tshark-command-examples-in-linux/
 
 **Varia**
 - `code .`   -> will open current directory with VS Code (. is current dir)

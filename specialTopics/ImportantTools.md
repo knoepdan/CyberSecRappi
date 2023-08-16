@@ -32,6 +32,9 @@
 - DNS over http
   - `curl -s -H 'accept: application/dns-json' 'https://cloudflare-dns.com/dns-query?name=ost.ch&type=A' | jq .`
     - (there are other dns over http servers as well..e.g. from google)
+  - dns-over-https-docker
+    - https://github.com/ibuetler/dns-over-https-docker.git
+    - see lab task Reconnaissance 
 - FPDNS - determine version (and implementations) of dns server
   - `fpdns ost.ch`
   - https://manpages.org/fpdns

