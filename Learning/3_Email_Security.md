@@ -20,10 +20,14 @@ bla.ch sends masking as xx@compass.ch to to ost.ch email (mismatch sender mailse
 Example dig queries to get SPF entry
 `dig -t txt compass-security.com +noall +answer`
 `dig -t txt hacking-lab.com +noall +answer`
-`dig+shorthacking-lab.com txt`
+`dig +short hacking-lab.com txt`
 
 or query it via https://mxtoolbox.com/SuperTool.aspx
 https://mxtoolbox.com/SPFRecordGenerator.aspx
+
+
+**check in log if DKIM was applied for spam detection (see lab-task)**
+- Available/applied in X-Spamd-Result: "R_SPF_ALLOW(-0.20)"
 
 ### DKIM
 Check DKIM
@@ -32,18 +36,27 @@ Check DKIM
     - alternativly use DKIM loop via https://mxtoolbox.com/SuperTool.aspx (e.g.: "hsr.ch:hsr1119")
 3. With DKIM-Signature in mail and (public) key in DNS entry, it is possible to verify email 
 
+**check in log if SPF was applied for spam detection (see lab-task)**
+- Available/applied: "DKIM verification successful"
+
 ### DMARC
 Query for DMarc entry: `dig -t txt _dmarc.hacking-lab.com +short`
 
 Links
 - https://dmarcian.com/dmarc-record-wizard/
 - https://mxtoolbox.com/DMARCRecordGenerator.aspx
+
+
+**check in log if DMARC was applied for spam detection  (see lab-task)**
+- Available applied in X-Spamd-Result: "DMARC_POLICY_ALLOW(-0.50)"
+- Not available/applied in X-Spamd-Result: "DMARC_NA(0.00)"
+
 ### Varia
 
 **Also potentially checked by mail receiver**  (not really part of course)
-- ip blocklists
+- ip blocklists, rate limits etc.
 - reputation (often a rating system is used to determine if its spam)
-- rate limits etc.
+    - Check "X-Spamd-Result" in receiving mailserver (e.g. outlook-headers.txt): the fewer points the better (less likely to be spam). For example: having DKIM will deduct points. e.g:  "R_DKIM_ALLOW(-0.20)"
 
 **Opportunistic encryption**
 opportunistic encryption:  mail sending is encrypted but man in the middle is possible.

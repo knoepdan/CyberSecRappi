@@ -109,19 +109,30 @@ https://docs.metasploit.com
 
 ->see separate file
 
+### Goship (run pishing attacks)
+https://github.com/ibuetler/gophish.git  (runs via docker, see man-in-the-middle lab tasks)
+Allows to configure mails to be sent to people (user and groups) which have a link to a target page.  Goship provides templates etc. (also contains Mailcatcher to overview mails)
+
+
 
 ### Bettercap (man in the middle)
-
-Tool that can be used for Man in the middle attacks.
-https://www.bettercap.org/
-https://www.cyberpunk.rs/install-mitm-attack-framework-bettercap (and follow up articles)
-https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
+Tool that can be used for Man in the middle attacks (arp spoofing.. probably has more features) https://www.bettercap.org/
+->see separate file
 
 <span style="color:red">TODO / Improve</span>
 
 ### Scapy
 scapy: tool (fake/forge packages/requests, e.g. dns spoofing)  (see man-in-the-middle powerpoint)
 for man-in-the-middle
+
+
+### Varios attack tools (minor or hacking lab stuff)
+- Postfix
+  - send mails/spam (see man-in-the-middle lab tasks)
+  - https://github.com/ibuetler/postfix.git
+- Alpine-apache2-reverse-proxy
+  - To redirect requests (see man-in-the-middle lab tasks)
+  - https://github.com/Hacking-Lab/alpine-apache2-reverse-proxy.git
 
 ## Forensic
 

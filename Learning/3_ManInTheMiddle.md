@@ -156,6 +156,8 @@ Ways to prevent/mitigate it:
 - FIDO2
 - etc. (block websites for emergancy, monitor)
 
+also see: https://www.youtube.com/watch?v=5D53mhAD2JQ
+
 ### Offline phishing
 Faking the website. User will often be directed to these fake websites by an email with a link to it. 
 
