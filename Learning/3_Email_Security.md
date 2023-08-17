@@ -23,6 +23,7 @@ Example dig queries to get SPF entry
 `dig+shorthacking-lab.com txt`
 
 or query it via https://mxtoolbox.com/SuperTool.aspx
+https://mxtoolbox.com/SPFRecordGenerator.aspx
 
 ### DKIM
 Check DKIM
@@ -31,7 +32,12 @@ Check DKIM
     - alternativly use DKIM loop via https://mxtoolbox.com/SuperTool.aspx (e.g.: "hsr.ch:hsr1119")
 3. With DKIM-Signature in mail and (public) key in DNS entry, it is possible to verify email 
 
+### DMARC
+Query for DMarc entry: `dig -t txt _dmarc.hacking-lab.com +short`
 
+Links
+- https://dmarcian.com/dmarc-record-wizard/
+- https://mxtoolbox.com/DMARCRecordGenerator.aspx
 ### Varia
 
 **Also potentially checked by mail receiver**  (not really part of course)
