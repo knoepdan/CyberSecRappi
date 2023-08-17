@@ -163,30 +163,12 @@ Faking the website. User will often be directed to these fake websites by an ema
 
 
 
-### Varia
+## Varia
 
 **bettercap tool**
 Tool created to perform various types of MITM attacks against a network, manipulate HTTP, HTTPS and TCP traffic in realtime, sniff for credentials and more. "Man-in-the-middle" is possible.  (probably best tool right now)
-
 `bettercap -iface eth0` > starts bettercap for interface eth0
 
-
-**Varia**
-- Cookie: Secure: only via encrypted connection
-- Transparent Proxy
-    - Cisco explanation: https://www.cisco.com/c/en/us/support/docs/security/web-security-appliance/117940-qa-wsa-00.html
-- WAF: Web application firewall 
-    - man in the middle often has to be able to do what a WAF does. For example rewrite links and headers (and even JS)
-- "iptables" tool under linux to define rules for filtering and modifying packages (also see "netfilter")
-
-
-**Tipps for excercises/testing**
-- use virgin browsers (for some tests like HSTS): FF create new profile  (open browser with "-P", also see live cd VM)
-- ARP Spoofing: Tip for VM-> dont bridge VM !!!
-
-## Varia
-
-- Man in the browser (not a classic man in the middle attack)
 
 **Generally: revent man in the middle (also see other stuff)**
 - Mobile apps:  Certificate Pinning
@@ -210,3 +192,16 @@ Tool created to perform various types of MITM attacks against a network, manipul
 <https://teams.microsoft.com/l/message/19:5a6be47a2da447f19d52b11b53297b22@thread.tacv2/1668178379961?tenantId=a6e70fa3-1c7a-4aa2-a25e-836eea52ca22&amp;groupId=b9c4c81d-e84b-41ff-ba3a-af504e582f74&amp;parentMessageId=1668178300199&amp;teamName=CAS Cyber Security 2022 / 2023&amp;channelName=2022-11-11 Man in the Middle&amp;createdTime=1668178379961&amp;allowXTenantAccess=false> 
 
 
+Varia terms and notes
+- Man in the browser (not a classic man in the middle attack)
+- Cookie: Secure: only via encrypted connection
+- Transparent Proxy
+    - Cisco explanation: https://www.cisco.com/c/en/us/support/docs/security/web-security-appliance/117940-qa-wsa-00.html
+- WAF: Web application firewall 
+    - man in the middle often has to be able to do what a WAF does. For example rewrite links and headers (and even JS)
+- "iptables" tool under linux to define rules for filtering and modifying packages (also see "netfilter")
+
+
+**Tipps for excercises/testing**
+- use virgin browsers (for some tests like HSTS): FF create new profile  (open browser with "-P", also see live cd VM)
+- ARP Spoofing: Tip for VM-> dont bridge VM !!!

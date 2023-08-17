@@ -76,16 +76,9 @@ WHOIS is a public database that houses the information collected when someone re
 
 ## Reconassaince, Vulnerability etc
 
-### Bettercap
-
-Tool that can be used for Man in the middle attacks.
-https://www.bettercap.org/
-https://www.cyberpunk.rs/install-mitm-attack-framework-bettercap (and follow up articles)
-https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
-
-<span style="color:red">TODO / Improve</span>
-
-
+### Maltego  
+Passive reconaissance (and maybe partly active as well??)
+-> see separate md file
 
 ### NMAP
 Port scanner (and a little more)
@@ -97,26 +90,38 @@ Vulnerability scanner
 https://www.youtube.com/watch?v=sfT_qEw3Fcs
 -> see labtask
 
-### Maltego
-Passive reconaissance (and maybe partly active as well??)
--> see separate md file
+
 ### fail2ban
 Tool against password-spraying. (trying same pw with different users.)
 Will block IP's that have too many failed logins.
 
 https://www.youtube.com/watch?v=vkeb0pWYDr8
 
-### Metasploit
+## Run attacks
 
+### Metasploit  (all kind of things)
 metasploit can be used to:
-
 - create trojan horses
 - run attacks
 
 https://www.youtube.com/watch?v=oBAC5UfalC8
 https://docs.metasploit.com
 
-> see separate file
+->see separate file
+
+
+### Bettercap (man in the middle)
+
+Tool that can be used for Man in the middle attacks.
+https://www.bettercap.org/
+https://www.cyberpunk.rs/install-mitm-attack-framework-bettercap (and follow up articles)
+https://www.cyberpunk.rs/bettercap-usage-examples-overview-custom-setup-caplets
+
+<span style="color:red">TODO / Improve</span>
+
+### Scapy
+scapy: tool (fake/forge packages/requests, e.g. dns spoofing)  (see man-in-the-middle powerpoint)
+for man-in-the-middle
 
 ## Forensic
 
