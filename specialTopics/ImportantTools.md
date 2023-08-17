@@ -98,11 +98,8 @@ https://www.youtube.com/watch?v=sfT_qEw3Fcs
 -> see labtask
 
 ### Maltego
-Reconnaissance tool (passive)
-OSINT: Open Source Intelligence tool
-https://www.youtube.com/watch?v=BNLwp4uGB5A
-
-
+Passive reconaissance (and maybe partly active as well??)
+-> see separate md file
 ### fail2ban
 Tool against password-spraying. (trying same pw with different users.)
 Will block IP's that have too many failed logins.

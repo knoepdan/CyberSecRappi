@@ -12,3 +12,8 @@ Passive reconaissance (and maybe partly active as well??)
 **Basics**
 drag menu items into canvas (e.g. email) and then with right click to find out staff
 
+
+
+**Varia**
+- https://www.youtube.com/watch?v=BNLwp4uGB5A
+- 
