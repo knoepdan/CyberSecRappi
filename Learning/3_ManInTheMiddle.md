@@ -118,32 +118,46 @@ https://developers.facebook.com/docs/certificate-transparency/
     - During the TLS handshake: the client (browser) can ask the OCSP responder if server certificate is still valid.
         - (Alternative: OCSP Stapling: server asks OCSP responder and caches answer from some time and can then send its OCSP status to the client during handshake. Not widely supported/used yet )
 
--> generally: CRL, OCSP browser will still accept certificate if CLR or OCSP servers not reachable. When using OCSP stapling: Flag "Must Staple" (X.509 extension), makes browser abort connection when no OCSP response is present.
-- 
+
+generally: CRL, OCSP browser will still accept certificate if CLR or OCSP servers not reachable. When using OCSP stapling: Flag "Must Staple" (X.509 extension), makes browser abort connection when no OCSP response is present.
 
 
 ### RDP Man in the middle (and how to deactivate it)**
-Only possible with deactivated NLA (Configure Network Level Authentication). Can be configured in RDP advanced settings. 
+Man-in-the-middle is possible for RDP (without NLA), for example using the tool gosecure. (to get and run: `docker pull gosecure/pyrdp:latest`, `docker run --rm -i -p 3389:3389 gosecure/pyrdp pyrdp-mitm.py <ip address of rdp server>`, see lab task)
 
-NLA works as follows: 
-When connection is being established:
-Step 1: Server sends certifiate to client (or man in the middle)  
-Step 2: Server will sign some server info + random number and sent it to client agein 
-Step 3: Client will verifes the sent info via server certificate (public key). 
--> IMPORTANT: all this happens during connection setup and this is built into the protocol so the man in the middle cannot yet act and send "fake signed server info" (not fully clear how this works though, see pdf )
+**NLA Network Level Authentication**
+With NLA disabled, man-in-the-middle is no longer possible.  Can be configured in RDP advanced settings. (Control Panel > System > Allow remote access > Checkbox "Allow connections..." is to be checked)
+NLA is deeply integrated in the protocol and it is thus not possible to bypass it and "become the man in the middle". Exact workings not fully clear to me, here just some notes:
+- CredSSP
+    - This is the protocol responsible for the transfer of the credentials ("Credential Security Support Provider")
+    - CredSSP ensures that first the authentication happens (via TLS+NTLM for client authentication) and only then the actual RDP session starts. 
+        - I believe Server and client both use the pw hash as part of the symmetric TLS key as it is known to both and man-in-the-middle cannot guess it. (not sure though)  
+- More info see pdf or https://www.gosecure.net/blog/2020/10/20/announcing-pyrdp-1-0/
+- NMAP: Check if NLA is enabled: `nmap -P0 -p 3389 --script rdp-enum-encryption 192.168.75.142` -> If NLA is enabled, SSL: SUCCESS is NOT shown in the last scan.
+    - other RDP related nmap stuff: `nmap -P0 -p 3389 --script ssl-cert 192.168.75.142`, `nmap -P0 -p 3389 --script rdp-ntlm-info 192.168.75.142`
 
-*Remark: with a fake login screen, man in the middle would still be possible (which would work for most connection setups which includes passwords)*
+*Remark: with a fake login screen, man in the middle would still be possible even with NLA (which would work for most connection setups which includes passwords)*
+
+**Connect to RDP from Linux**
+- remmina (UI should be part of linux live-cd)
+- xfreerdp (command line tool) 
+    - example: `xfreerdp /u:user /v:192.168.75.142`
+
+
+
 
 ### SSH Man in the middle
-Example request: `ssh -l hacker localhost` (not verified)
-Only possible with username/Pw (can be deactiveted (PasswordAuthentication no"))
+Example request: `ssh -l hacker -p 4444 localhost` (se lab task, without "-p" default port should be used)
+Man-in-the-middle is only possible when client authenticates via username/password. 
 
-Tool: "keygen" to generate private+public key (and then man in the middle won't be possible anymore client authenticates via public/key)
-see pdf: `ssh-keygen -f "/home/hacker/.ssh/known_hosts" -R "localhost"`
+Prevent man-in-the-middle via ssh: 
+- Create a key via `ssh-keygen`  (see lab-task, might have to be copied to the right location afterwards)
+- Disable password authentication in "/etc/ssh/ssh_config" (PasswordAuthentication no")
 
 Varia
 - 2 factor authentication (e.g. google authenticator) does not work against midm 
 - recommendations regarding ~,ssh/config see pdf (not sure i understand though)
+- https://www.youtube.com/watch?v=Oqj9Op1Er-Y
 
 ### Online phishing
 - man in the middle is between real website and client

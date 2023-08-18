@@ -129,7 +129,7 @@ Ececute scripts examples
 - `nmap -n -Pn -p 445 --script smb-vuln-ms17-010 -iL targets.txt -oA nmap_script_eternalblue` scan for EternalBlue vulnerability
 - `nmap --script +mysql-enum -p 6666 <host>` Using script with non-standard-port by adding `+` before the script name. Option "-p" must be used, otherwise script will run on all open ports
 - `nmap –sC –script-args ‘arg1=foo,arg2=bar’ …`  Scripts may also accept arguments
-
+- `nmap -P0 -p 3389 --script rdp-enum-encryption 192.168.75.142` -> check RDP (more see rdp man-in-the-middle stuff)
 
 https://www.infosecmatter.com/nmap-nse-library/
 

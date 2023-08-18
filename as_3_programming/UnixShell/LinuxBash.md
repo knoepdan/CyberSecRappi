@@ -92,6 +92,9 @@ Tshark (bask command of wireshark)
 - `keytool -genkey -v -keystore release.keystore -alias example -keyalg RSA -keysize 2048 -validity 10000` -> certificate file "release.keystore"
     - step through the process and provide meaningful answers plus give a reasonable password (for testing something like "123456" would be enough)
     - Creates a keyfile "release.keystore" in the folder the command was executed in
+- `ssh-keygen` -> will generate a public/private rsa key pair (for ssh)
+    - will create a key file for ssh (as root it would be in "/root/.ssh/id_rsa")
+    - step through the process to create the file
 
 
 **Vi editor**

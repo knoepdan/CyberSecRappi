@@ -65,6 +65,12 @@ WHOIS is a public database that houses the information collected when someone re
 **various**
 
 - `netstat -antp` check port and interface of services (or without -antp)
+- SSH
+  - `ssh -l hacker -p 4444 localhost`
+  - Possible to authenticate via private/public key (SSH Public Key Auth). 
+    - Generate key: `ssh-keygen` (and then probybly to copy via "ssh-copy-id", see lab-task)
+  - lab task for man-in-the-middle via ssh:  https://github.com/Hacking-Lab/alpine-ssh-mitm-legacy.git
+
 - Trace IP packages
   - windows: `tracert.exe hsr.hacking-lab.com` (default using ICMP)
     - `traceroute -M icmp www.compass-security.com` -> run it using ICMP (works when ICMP doesnt block )
