@@ -20,3 +20,9 @@
 - APT Advanced Persistent Threat
     - example: states
     - usually stay long in the network. (one has to understand the attack fully before responding to an ATP attack)
+- Pishing
+    - Phishing is the attempt to obtain sensitive information such as usernames, passwords, and credit card details, for malicious reasons, by disguising as a trustworthy entity in an electronic communication.
+- Smishing: pishing via sms
+- Vishing: use phone calls to extract info (phishing via phone)
+- Punycode: 
+    - codind to allow ASCI characters to display unicode characters

