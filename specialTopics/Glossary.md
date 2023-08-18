@@ -14,3 +14,9 @@
         - A program, which produces the above
         - A program, which produces the above, and a means of transportation to the target
         - A program, which produces the above, and a means of communication with the shellcode
+- Malvertising: advertisment that redirects to pishing site
+- TTP's: Tactics, Techniques and Procedures"
+    - see MITRE framework
+- APT Advanced Persistent Threat
+    - example: states
+    - usually stay long in the network. (one has to understand the attack fully before responding to an ATP attack)

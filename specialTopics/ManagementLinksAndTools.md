@@ -30,6 +30,17 @@
 - https://cve.mitre.org/  (again)
 
 
+### Traffic light Protokoll (TLP)
+
+- TLP:Red
+    - Don't distribute info at all.
+- TLP:AMBER
+    - distribute within the organsation on a need-to-know basis
+- TLP:Green
+    - distribute within the organisation and their partners but NOT publicly
+- TLP:WHITE
+    - information can be distributed freely and publicly (except maybe for copyright issues.. but thats not covered by TLP)
+
 ### Varia
 
 <span style="color:orange">
