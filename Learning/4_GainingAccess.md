@@ -100,6 +100,11 @@ Some notes:
     - check social media, google etc.
 - etc.
 
+**Some tipps to find infos**
+- check metadata (author) of files (e.g. pdf)
+- check social media
+- etc.
+
 ### Malware
 Malware is broad definition for software with harmul intent 
 - Malware 
@@ -159,7 +164,7 @@ Some (many) security solutions use sandboxing to detect malware. Some malware tr
 Once a malware detects a virtualized environment, it changes it's behavior or exits.
 
 
-**Botnetz Communication**
+**Botnet Communication**
 Infected machines ("bots") will ask botnet server (C&C) which tells bot what to do.
 Any protocol can be used (theoretically): HTTP/HTTPS, DNS, P2P, etc.
 Configuration of bot can be static or dynamic (meaning: is downloaded from C&C)
@@ -189,12 +194,12 @@ Using existing apps (and there vulnerabilities) to introduce additional (malicio
 
 Vulnerability classes
 - Memory Corruption
-− Injection Attacks
-− Deserialization issues
+- Injection Attacks
+- Deserialization issues
     - deserialization often calls constructors (possibility to introduce code)
     - also see web lab task with java
-− Information Disclosure
-− Misconfiguration
+- Information Disclosure
+- Misconfiguration
 
 Type of attacks
 - Local exploit
@@ -204,8 +209,44 @@ Type of attacks
 - client exploit
     - client accesses some "evil" machine/code/website (etc.) and due to a vulnerability remote code can be executed
 
+**Memory corruption**
+Often called buffer overflow. Programms developped in unsafe programming languages such as C or C++ are vulnerable to memory corruption. 
 
-Tool: metasploit (see separate md file)
+
+
+Types
+- Variable overflow
+- SIP Overwrite
+- Shellcode execution
+    - instead of just giving the SIP a new address to resume execution, the code triggers the shell and the passed arguments (*password) is the shell code to be executed
+
+Basic example (also see pdf - especially for stack layout - and lab tasks): 
+```
+void handleData(char *password) {
+    int isAdmin = 0;  // 2 bytes on stack
+    char msg[16]; // 16 bytes on stack
+    isAdmin = checkPw(password);
+    sprintf(msg, "Password %s", password); // will write "Password" + passed param into msg on stack. If it's too big it will overwrite isAdmin variable on stack and if it is even bigger it will overwrite SIP (return address)
+    if(admin){
+        // do something...
+    }
+}
+```
+
+Repetition and varia: 
+- Stack grows down (towards 0 address), but writes go up (thats way buffer overflow in examples works)
+- Little Endian used in intel: 0xAABBCCDD -> is ordered in memory DD CC BB AA (unintuitive)
+- SIP Stored Instruction pointer (memory address on stack where execution should continue when stack frame is discarded, aka method returns)
+- in C, 0 is usually false (and any other value than 0 is true)
+- use python to generate strings of arbitrary length: `python -c 'print("A"*132)'` (and then call "exeFile `python -c 'print("A"*132)'`")
+- ASLR (Address Space Layout Randomization) will have to be disabled on live-cd for memory exercises: `echo 0 | sudo tee /proc/sys/kernel/randomize_va_space` (see lab tasks, will be reenabled after every reboot)
+- also see excel: "AssemblyAndStack.xlsx"
+
+**Varia**
+- Command & Control
+    - Often initial exploit is used to connect to a C&C server later (often reverse shell). 
+- Metasploit: Penetration testing framework
+    - see separate md file and lab tasks
 
 ## Varia/leftovers
 
