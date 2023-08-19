@@ -119,7 +119,6 @@ https://github.com/ibuetler/gophish.git  (runs via docker, see man-in-the-middle
 Allows to configure mails to be sent to people (user and groups) which have a link to a target page.  Goship provides templates etc. (also contains Mailcatcher to overview mails)
 
 
-
 ### Bettercap (man in the middle)
 Tool that can be used for Man in the middle attacks (arp spoofing.. probably has more features) https://www.bettercap.org/
 ->see separate file
@@ -136,7 +135,7 @@ Exploits heartbleed bug (https://heartbleed.com/) and is more relyable than the 
 *Might have to run more than once for a successful exploit. Supposed to be more reliable than metasploit but cannot confirm this*
 -> see "Gaining Access/Heartbleed OpenSSL"
 
-### Varios attack tools/repos (minor or hacking lab stuff)
+### Various attack tools/repos (minor or hacking lab stuff)
 - Postfix
   - send mails/spam (see man-in-the-middle lab tasks)
   - https://github.com/ibuetler/postfix.git
@@ -144,6 +143,24 @@ Exploits heartbleed bug (https://heartbleed.com/) and is more relyable than the 
   - To redirect requests (see man-in-the-middle lab tasks)
   - https://github.com/Hacking-Lab/alpine-apache2-reverse-proxy.git
 
+
+## Maintainig access
+for example for privilege escalation.
+
+### Cobald Strike
+TODO 
+
+
+### Various other
+- Meterpeter
+  - Keylogging, Screenshots, Clipboard dump
+- PowerSploit: > collection of powershell scripts
+- SharpUp > various PowerUp functionality
+- Seatbelt.exe (more to gain info about system)
+    - performs 50+ security oriented host-survey "safety checks“ for you
+    - Internet history, recent commands, files SSH info etc.
+- Snaffler (mainly data maining)
+    - tool to find secrets (credentials) in AD. etc.
 ## Forensic
 
 - Bitlocker decryption

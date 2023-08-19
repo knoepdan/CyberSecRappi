@@ -27,6 +27,10 @@ Files that other (priviledged) users could be modified and thus attacker can ele
 
 **Varia**
 - LinEnum: script for local enumeration & privilege escalation (see pdf)
+    - `curl -LO https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh` get script
+    - `./LinEnum.sh -s -k keyword -r report -e /tmp/ -t` -> execute with a given user
+- LinPEAS -> script/tool
+- Lynis -> security tool
 - also good https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist
 
 Also see "05D Privilege Escalation.pdf"

