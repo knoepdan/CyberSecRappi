@@ -94,8 +94,7 @@ https://nmap.org/book/man.html (manual)
 ### Nessus
 Vulnerability scanner
 https://www.youtube.com/watch?v=sfT_qEw3Fcs
--> see labtask
-
+-> see labtask "Reconaissance/Nessus Vulnerability Scanner" or "Gaining Access/Metasploitable VM" where we find vulnerability with nexus to be then exploited via Metasploit"
 
 ### fail2ban
 Tool against password-spraying. (trying same pw with different users.)
@@ -131,8 +130,13 @@ Tool that can be used for Man in the middle attacks (arp spoofing.. probably has
 scapy: tool (fake/forge packages/requests, e.g. dns spoofing)  (see man-in-the-middle powerpoint)
 for man-in-the-middle
 
+### Heartleach
+Exploits heartbleed bug (https://heartbleed.com/) and is more relyable than the same exploit in Metasploit. Install if needed: `sudo apt-get install hl-heartleech`
+`/opt/applic/heartleech/heartleech --scan heartbleed.vm.vuln.land --autopwn --threads 20`
+*Might have to run more than once for a successful exploit. Supposed to be more reliable than metasploit but cannot confirm this*
+-> see "Gaining Access/Heartbleed OpenSSL"
 
-### Varios attack tools (minor or hacking lab stuff)
+### Varios attack tools/repos (minor or hacking lab stuff)
 - Postfix
   - send mails/spam (see man-in-the-middle lab tasks)
   - https://github.com/ibuetler/postfix.git
