@@ -28,8 +28,7 @@ Some companies only allow categorized domains so users can't see all websites. S
 - Conditional  -> example appache server
     - depending on some criteria (e.g. in url) -> traffic will be from/to C2. Is confusing.
 - Domain Fronting  
-
-    - Redirect traffic through well known cloud 
+    - Redirect traffic through well known cloud (e.g. Azure)
     - Example: in http request header: the host points to the attacker and then then cloud (example azure) will direct the request to the attacker defined in host
 
 
