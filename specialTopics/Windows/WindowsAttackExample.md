@@ -25,7 +25,7 @@ From the Linux machine, we perform analysis of the network
         - sC -> Script Scan -> Runs default scripts against known services
         - -sV -> Service/Version detection -> Tries to determine service/version for open ports
 
-## Situational awareness and privilege escalation
+## Situational awareness and privilege escalation to local admin
 
 **Windows configuration check with PrivescCheck**
 Run PrivescCheck ( https://github.com/itm4n/PrivescCheck ) to get info about windows configuration. 
@@ -64,5 +64,19 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
 
 
 2. Run bloodhound to find potential paths to domain admin
-    - see lab tasks
-    - see Bloodhound tool
+    - collect AD data and import it into bloodhound (for example via SharpHound)
+    - find path to domain admin (or whatever we would like to do)
+    - *see lab tasks "Maintain Access/AD Information Gathering & Analysis" or "Bloodhound_AD.md*
+
+## Get other credentials from LSASS/SAM 
+Using Mimimkatz, we can now get credentials of other (currently logged on) users. (or some other tool would be possible too)
+Via Mimikatz we can get credentials (NTLM hashes) from
+- LSASS process (AD accounts)
+- SAM process (local accounts)
+If we get new credentials, we can afterwards update Bloodhound paths (owned flag) to see how much closer we got to our target.
+
+*see lab tasks "Maintain Access/Credential Dumping on Windows 10 Client" or "Mimikatz_Credentials.md*
+
+
+## Varia/Random
+Usually, these steps might have to be applied multiple times (in rounds). Example: from a machine we escalate to local admin, to get AD credentials of another user so we can jump to another machine, to which other users are logged in etc. etc.
