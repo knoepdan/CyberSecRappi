@@ -148,10 +148,15 @@ Exploits heartbleed bug (https://heartbleed.com/) and is more relyable than the 
 for example for privilege escalation.
 
 ### Cobald Strike
-TODO 
+Software for Adversary Simulations and Red Team Operations. Using beacons (agents) in infected clients.
+see separate file
 
 ### Bloodhound  (for AD)
 For Active Directory (AD): find paths to domain controller (as an attacker), or eliminate paths (as a defender)
+see separate file
+
+### Mimikatz  (Credential manipulation)
+Credential manipulation tool (for windows)
 see separate file
 
 ### Various Active directory related

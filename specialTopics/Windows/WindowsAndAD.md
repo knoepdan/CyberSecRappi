@@ -81,7 +81,6 @@ Often important:
 ## ---------- Leftovers/Varia -------------
 ### NTML
 
-
 LSASS process > keeps the NTLM hash in memory on the machine the user is typing password
 
 ### To check
@@ -95,6 +94,3 @@ LSASS process > keeps the NTLM hash in memory on the machine the user is typing 
         - https://www.eshlomo.us/restricted-rdp-for-admin-restrictedadmin/
     
 
-
-### Varia
-- UAC -> see separate file

@@ -25,4 +25,10 @@
 - Smishing: pishing via sms
 - Vishing: use phone calls to extract info (phishing via phone)
 - Punycode: 
-    - codind to allow ASCI characters to display unicode characters
+    - coding to allow ASCI characters to display unicode characters
+- AD (Active directory)
+    - Access control List ACL (contains list of access control entries AEC)
+        - specifies access rights (allowed, denied, audited) for object
+        - Discretionary Access Control (DACL): basically permissions for object
+        - System Access Control (SACL): enables admisn to log
+

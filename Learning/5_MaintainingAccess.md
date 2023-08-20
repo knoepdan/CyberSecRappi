@@ -146,8 +146,33 @@ Varia:
 see  "WindowsAndAD.md"
 
 ## 5. Credential Abuse
+Compromized credentials are key for privilege escalation and lateral movement. 
 
-## Varia/Leftovers
+Some techiques: 
+- Extract credentials from SAM (local) or LSASS (AD)
+    - see tool Mimikatz
+- Impersonate tokens (Mimikatz, cobalt strike)
+- DCSync (Replicating directly from domain controller)
+    - via Mimikatz, CobaltStrike
+    - or script secretsdump.py (see pdf)
+- DPAPI
+- Simple you that asks for credentials (like pishing)
+
+**How to protect windows**
+- Deploy an Active Directory administrative tier model
+- Make use of Logon Restrictions and Protected Users Group for privileged accounts
+    - ensure privileged accounts are never logged on on exposed systems
+- LSA Protection (RunAsPPL)
+    - prevents apps to access protected processes (like LSASS process)
+    - is not bulletproof (but attack will be easier to detect) There are ways around it
+protection
+- Credential guard (Win10/WinServer 2016)
+    - isolates secrets in virtualized secure enfironments
+    - solves problems but not so easy to introduce in company networks (probably due to backwards compatibility)
+- etc. (update, followo microsoft recommendations)
+
+
+## Varia/Leftovers/Random
 - SMB -> server message block (windows protocol name)
 - Reading memroy of other processes
     - possible if other process is running under the same user. Via OS tools 

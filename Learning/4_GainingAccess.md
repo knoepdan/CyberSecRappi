@@ -212,8 +212,6 @@ Type of attacks
 **Memory corruption**
 Often called buffer overflow. Programms developped in unsafe programming languages such as C or C++ are vulnerable to memory corruption. 
 
-
-
 Types
 - Variable overflow
 - SIP Overwrite
