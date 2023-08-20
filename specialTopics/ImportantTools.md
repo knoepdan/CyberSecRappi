@@ -150,6 +150,26 @@ for example for privilege escalation.
 ### Cobald Strike
 TODO 
 
+### Bloodhound  (for AD)
+For Active Directory (AD): find paths to domain controller (as an attacker), or eliminate paths (as a defender)
+see separate file
+
+### Various Active directory related
+- Native tools: ADUC, nltest, net xyz, WMI
+    - Net commands
+        - `net user alice [/domain]`
+        - `net localgroup Administrators`
+        - `net group "Domain Admins" /domain`
+        - `net share`
+        - `net account`
+    - WMI
+        - `wmic NTDOMAIN GET DomainControllerAddress,DomainName,Roles /VALUE`
+        - `wmic process call create "cmd.exe /c calc.exe"` dummy example
+- Sysinternals tools: ADExplorer
+    - if you don't have ADUC, use this
+- PowerView (powershell tools)
+    - see pdf "05E AD Situational Awareness.pdf"
+- etc. (LDAP clients, PingCastle...)
 
 ### Various other
 - Meterpeter

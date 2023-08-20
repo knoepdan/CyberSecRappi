@@ -162,7 +162,7 @@ GPO
     - tool that is good at finding path's to elevate a normal user to domain admin (if AD is setup according to microsoft recommendations this should not be possible.. but not so easy to configure AD correctly)
         - for every logged in user, there is a credential info (e.g. NTML hash) in memory that can be exploited
 - ...
-By desing, AD objects are visible to everybody.
+By design, AD objects are visible to everybody.
 
 Often important: 
 - which user has permissions to the service/machine I want (not always necessary to be admin)

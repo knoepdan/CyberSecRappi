@@ -143,6 +143,7 @@ Varia:
 
 
 ## 4. AD Situational Awareness
+see  "WindowsAndAD.md"
 
 ## 5. Credential Abuse
 
