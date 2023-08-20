@@ -41,7 +41,8 @@ For help add "--help". Examples:
 `cp source destination`  -> copy file (or folder??)
 `chmod -v 777 someFile` -> changes permissions (-v verbose, 777 full permissions
 `touch file` -> creates an empty file (touch can also be used to change timestamps) 
-- `unix2dos filename` -> will convert unix file to dos
+`unix2dos filename` -> will convert unix file to dos
+`file useradd.msi` -> get info about files
 
 hidden files/dirs: names that start with a dot (".") are hidden (offent config files)
 

@@ -8,9 +8,18 @@
 - Test file existence: `Test-Path $file`
 - empty check: `$var -eq $null`
 - Negation: `! ($expr)`
--  Echo: `Write-Host $text`
+- Echo: `Write-Host $text`
+- Set language: `powershell -c "Set-WinUserLanguageList -LanguageList de-ch -Force"`
+- Whoami: `whoami`
+    `whoami /groups` see which groups user belongs to (does not mean process runs elevated when in admin group, labels "Mandatory Level HIGH" indicate this)
+- Ip configuration: `ipconfig`
+- show local users: `net user`
+- inspect user: `net user username`
+- create local admin: `net user /add hacker Hacker@Work && net localgroup administrators hacker /add`
+    - username "hacker", password "Hacker@Work"
 
 
+*Remark: some commands would also work in CMD*
 
 **Security policy**
 - `powershell.exe -ep bypass`  open a new powershell to bypass security policy

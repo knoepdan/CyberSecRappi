@@ -102,12 +102,14 @@ Will block IP's that have too many failed logins.
 
 https://www.youtube.com/watch?v=vkeb0pWYDr8
 
+
 ## Run attacks
 
 ### Metasploit  (all kind of things)
 metasploit can be used to:
 - create trojan horses
 - run attacks
+- contains payload generator (msfvenom)
 
 https://www.youtube.com/watch?v=oBAC5UfalC8
 https://docs.metasploit.com
@@ -152,12 +154,24 @@ Software for Adversary Simulations and Red Team Operations. Using beacons (agent
 see separate file
 
 ### Bloodhound  (for AD)
-For Active Directory (AD): find paths to domain controller (as an attacker), or eliminate paths (as a defender)
+For Active Directory (AD): find paths to domain controller (as an attacker), or eliminate paths (as a defender). 
+To collect data about AD another tool like "SharpHound" might be needed. 
 see separate file
 
 ### Mimikatz  (Credential manipulation)
 Credential manipulation tool (for windows)
 see separate file
+
+
+### PrivescCheck (check windows configuration)
+Script to enumerate common windows configuration issues.
+https://github.com/itm4n/PrivescCheck
+
+
+### PingCastle (check Active Directory)
+Runs a health check on the active directory. Just run `.\PingCastle.exe` and choose (usually healthcheck) to generate result as html. 
+https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
+
 
 ### Various Active directory related
 - Native tools: ADUC, nltest, net xyz, WMI
