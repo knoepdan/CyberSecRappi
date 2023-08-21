@@ -62,19 +62,29 @@ User secret decryption: DPAPI User masterkeys are in LSASS memory for logged on 
     - Tools like Cobalt Strike also support bypassing UAC
 
 
+
+
 ## Protection against attacks 
 
 **Configuration**
-- Deploy an Active Directory administrative tier model
-    - https://docs.microsoft.com/en-gb/windows-server/identity/securing-privileged-access/securing-privileged-accessreference-
+- Deploy an Active Directory administrative tier model (against Pass-the-hash)
+    - Tier 0 -> highest privige (Domain controller)
+    - Tier 1 -> servers (sensitive business data)
+    - Tier 2 -> normal workstation
+    - One Tier can usually not interact with another tier. However, every tier has an admin workstation, from which it is possible to "break" tiers in a way that pass-the-way is not possible. (e.g. from admin workstation in tier 3, user has to log on to server in tier 1 via RDP. from which pass-the-hash is not possible)
+        - Sometimes instead to log on from admin workstation to the next tier, a jump host is used (a machine to connect between tiers)
+    - More: https://docs.microsoft.com/en-gb/windows-server/identity/securing-privileged-access/securing-privileged-accessreference-
 material
-- Make use of Logon Restrictions and Protected Users Group for privileged accounts
+- Make use of Logon Restrictions and Protected Users Group for privileged accounts (i believe it requires update KB28791997)
     - ensure privileged accounts are never logged on on exposed systems
     - https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/protected-userssecurity-
 group
 
 **From Microsoft**
-- Update KB2871997: improved some stuff (like stopping plaintext pw in most/all? cases, limit logon credential cache to logon lifetime )
+- Update KB2871997: improved some stuff
+    - disables cleartext pw in memory by default
+    - Protected Users group -> NTML hash or users in that group will not be cached! (SSO is not possible, user has to enter pw)
+    - For local accounts only: Groups "Local account"
 - LSA Protection (RunAsPPL)
     - prevents apps to access protected processes (like LSASS process)
     - is not bulletproof (but attack will be easier to detect) There are ways around it:
@@ -90,3 +100,42 @@ protection
 Hash-Attacks-and-Other-Credential-Theft-Version-2.pdf
     - https://download.microsoft.com/download/7/7/a/77abc5bd-8320-41af-863c-6ecfb10cb4b9/mitigating%20pass-thehash%
 20(pth)%20attacks%20and%20other%20credential%20theft%20techniques_english.pdf
+
+
+
+## NTLM
+NTLM is available in "modern" windows alongside Keberos. Used when Kerberos is not working or supported (standalone server is not domain joined, kerberos is not supported, ip address is used, DNS fails). 
+Disabling NTLM would break features, therefore disable is not usually not an option (not sure if it is even possible)
+
+Authentication works with challenge response. In a Active Directory environment, the Domain controller will ultimatly validate the (challenged) response. For local accounts the local machine (or for home networks probably a server) will check the (challenged) response.
+1. Client requests access
+2. Server sends challenge message
+3. Clients sends response (challenge is encrypted with NTLM hash of user, which is in LSASS memory)
+    4. Server sends challenge and response to domain controller
+    5. Domain controller challenge and response to authenticate user
+6. Server sends response to client. 
+
+Where are NTML hashes stored (can be accessed with local admin privileges):
+- SAM: saves NTML hashes of local users
+- LSASS process: caches NTML hashes of domain users
+    - My understanding: I'm on machine A and log on to machine B via NTLM, the LSASS process of A now contains my NTLM hash
+- Domain controller(s): stores NTML hashes of all domain users (NTDS.dit)
+
+**Varia**
+- NTLM hash -> multiple names (when googling) -> actually is a MD4 hash
+- NTLM hash lacks salting.. basically just the hash: MD4(UTF-16-LE(password))
+
+### Attacks on NTLM
+
+**Crack the hash (get pw)**
+Premise: we have managed to get access to an NTLM hash (via LSASS). Since MD4 is outdated, password can be cracked.
+
+**Pass-The-Hash**
+Since the answer to the challenge (see NTLM workflow) just requires the NTLM hash and not the actual password, an attacker that got hold of an NTLM hash can authenticate against any service that supports NTLM (e.g.: SMB, LDAP, WMI, RDP)
+*Remark: not working againg a regular windows tool or ui as there, the password is required*
+
+Tools for pass the hash: Mimikatz (local only), Cobalt Strike, Metasploit, Impacket, CrackMapExec (see pdf)
+
+
+**NTLM Relaying**
+... TODO
