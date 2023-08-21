@@ -178,6 +178,13 @@ Runs a health check on the active directory. Just run `.\PingCastle.exe` and cho
 https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
 
 
+### impacket (linux tools for windows attacks)
+https://www.secureauth.com/labs/open-source-tools/impacket/
+Supports
+- pass-the-hash (via psexec, smb possibly more)
+- can also be used as a simple smb client
+see Lab tasks for maintaining access (and also windows attacks)
+
 ### Various Active directory related
 - Native tools: ADUC, nltest, net xyz, WMI
     - Net commands
@@ -195,7 +202,10 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
     - see pdf "05E AD Situational Awareness.pdf"
 - CrackMapExec
   - also for pass-the-hash
-  - use re-used password: see pdf "06B Lateral Movement.pdf"
+  - https://github.com/Porchetta-Industries/CrackMapExec
+  - use re-used password: see pdf "06B Lateral Movement.pdf" and lab "Lateral Movements to WS1"
+    - verify credentials: `crackmapexec smb 10.0.1.100 -u cclear -d winattacklab.local -p Welc0me2022!`
+    - verify cred in subnet: `crackmapexec smb 10.0.1.0/24 -u cclear -d winattacklab.local -p Welc0me2022!`
 - etc. (LDAP clients, PingCastle...)
 
 ### Various other
@@ -208,8 +218,11 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
     - Internet history, recent commands, files SSH info etc.
 - Snaffler (mainly data maining)
     - tool to find secrets (credentials) in AD. etc.
+    - see lab task "Maintain Access/Situational Awareness on FS1"
 - Rubeus
-  - for example for Kerberos "Over-pass-the-hash", "Pass-the-ticket"
+  - for example for Kerberos "Over-pass-the-hash", "Pass-the-ticket", password spraying
+  - see lab task "Maintain Access/Password Spraying"
+- pypykatz -> analyze memorydumpy
 ## Forensic
 
 - Bitlocker decryption

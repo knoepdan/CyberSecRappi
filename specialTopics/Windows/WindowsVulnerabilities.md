@@ -39,6 +39,15 @@ Windows has some tools which facilitate running malware:
     - `sc \\IP create Service binPath=<command>`
 - PsExec
     - `psexec \\test.domain -u Domain\User -p Password ipconfig`
+    - Workflow:
+        - Uploads PSEXESVC.exe to the $ADMIN shared folder
+        - Remotely creates a service that will run PSEXESVC.exe
+        - Remotely starts the service using the Windows service control manager
+        - Execute our arbitrary commands/programs under a parent process of PSEXESVC.exe
+        - Redirects the input/output of the process via named pipes
+        - When complete, the PsExec service will be stopped and removed
+    - Varia: 
+        - Windows systems have hidden network shares that are accessible only to adminis. Examples include C$, ADMIN$, and IPC$. (might be abused to transfer binarries via SMB and run them)
 - WMI
     - `wmic /node:target.domain process call create "C:\Windows\System32\cmd.exe /c payload.exe"`
 - Windows Remote Management (WinRM)

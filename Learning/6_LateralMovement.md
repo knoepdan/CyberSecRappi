@@ -56,70 +56,14 @@ can be done with Cobalt Strike or Metasploit
 see separate file 
 
 ## 3. Kerberos Authentication and Abuse
-Protocol for authentication, default authentication in windows. 
+Possible attacks are: 
+- Overpass the hash (aka pass-the-key)
+- Pass the ticket
+- Golden tickets 
+- Silver tickets (similar to golden ticket but just for service)
+- Kerberoasting (find weak hashes that can be cracked)
+see separate file 
 
-Building blocks
-    - Authentication Server (AS)
-        - basically returns a "Ticket Granting Ticket" (TGT) against credentials
-    - Ticket Granting Server (TGS)
-        - will provide a service ticket (ST) against a TGT for a particular service
-            - ST is specific to a a service.
-    - Services with "Service Principal Name" (SPN)
-        - unique identifier of a service instance within the domain
-        - Format: <service class>/<host>:<port>/<service name>
-            - example: MSSQLSvc/ws1.winattacklab.local:1433
- 
- ![Kerberos Authentication Flow](pics/KerberosFlow.png)
-
-
-Some aspects: 
-- ticket based
-- mutual authentication (no man in the middle)
-    - Example: sql server would authenticate via "MSSQLSvc/ws1.winattacklab.local:1433"
-- based on shared secrets and  temporary session keys
-    - example: (part) TGT is encrypted via with key of TG, so client cannot read it but pass it to TGS which can interpret it and knows that the TGT was actually handed out by the Authentication server (details see pdf)
-- "krbtgt" Account
-    - built-in account or the KDC service
-    - is disabled (and cant be activated)
-    - its hash is used to encrypt TGT's 
-        - therefore like a masterkey 
-        - password is not changed automatically (so many AD's in practice still have the same)
-- account policy info is in the TGT (stateless)
-    - can be abused when we are able to build golden/silver tickets (build working tickets with disabled)
-
-**Overpass the hash** (aka pass-the-key) -> attack
-Passing a stolen encryption key (Pre-Authentication data) to get a TGT for another user
-Using the pre-authentication data ()
--> similar pass-the-hash for NTLM, just for kerberos
-
-good explanation: https://www.whitehat.de/active-directory-hacking-angriffe-mit-mimikatz/pass-the-key-ptk-overpass-the-hash-oth
-
-**Pass the ticket** -> attack
-Steal tickets
-    - steal "Ticket Granting Ticket" TGT 
-    - steal service ticket (ST)
-How to get the tickets: with local admin rights possible to dump them from LSASS
-(can be done via tools like Mimikatz, Cobalt Strike, Rubeus)
-
-
-**Golden tickets (and silver ticket)**  -> attack
-    - forged ticket-granting tickets (TGTs)
-    - When we just forge a service ticket (ST) it is called silver ticket
-    - Since all account policies are passed in tickets, we can forge autorisation data
-        - group memberships, account disabled etc.)
-        - it used to be even possible with non-existing users (no longer possible though)
-*Remark: AD security boundary is the forest, not the domain. So if we get a golden ticket for a domain.. we can compromise the entire forest (see powerpoint)
-
-
-**Kerberoasting** -> attack (cracking ticket)
-Background: every user can request a ticket for any service, even if user has no right to it. With such a ticket, the password for the service ticket can be cracked.
--> possible because service accounts might have weak passwords and use a weak algorithm by default (RC4). Machine accounts passwords are strong and use a strong ciphery (AES), so this is (normally) not possible.
-1. Find a user/service account with a service principal name (SPN)
-2. Request a service ticket with RC4_HMAC_MD5 encryption and extract a hash from it
-    - if SPN is registered for a user/service account and not a machine account, the users pw might be weak
-3. try crack password  (possible tools: hashcat, John the Ripper)
-To avoid detection (OpSec considerations): dont just request service tickets for every user, ......
--> also see pdf
 
 ## 4. Persistance
 How can an attacker keep a compromised machine when the machine is rebooted?
@@ -136,8 +80,15 @@ Aspects/Components:
         - hidden in shortcut (.LNK)
             - example using regsvr32.exe and malware dll passed as argument
         - Backdor common .exe
-
-
+    - startup folder (easy to detect)
+    - Registry Run Keys  ("HKLM\Software\Microsoft\Windows\CurrentVersion\Run")
+        - "reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run" /v MalwareKey /t REG_SZ /d "...\Malware.exe""
+    - Windows Service
+    - scheduled tasks
+        - Linux: cronjobs (or something like this)
+    - WMI Event Subscriptions
+    - COM Object Hijacking
+        - see pdf 
 
 Some ways 
 - add code in startup folder (easy to detect)
@@ -149,8 +100,5 @@ Some ways
 
 
 
-## 5. Red Team War Stories
-
-## 6. Recap
 
 
