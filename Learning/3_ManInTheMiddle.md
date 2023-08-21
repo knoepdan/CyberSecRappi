@@ -216,6 +216,7 @@ Varia terms and notes
 - WAF: Web application firewall 
     - man in the middle often has to be able to do what a WAF does. For example rewrite links and headers (and even JS)
 - "iptables" tool under linux to define rules for filtering and modifying packages (also see "netfilter")
+- - LLMNR/NBT-NS: obsolete protocol for address resolution that is used when DNS fails on windows. Can be used to get into a man-in-the-middle position (see info about windows)
 
 
 **Tipps for excercises/testing**

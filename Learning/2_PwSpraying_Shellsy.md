@@ -5,6 +5,16 @@ Try to login with different users and same password (instead of same user differ
 Tool fail2ban will lock IP after too many failed login attempts. (can be bypassed by changing IP via tools as proxychain or toor etc.)
 https://www.youtube.com/watch?v=vkeb0pWYDr8
 
+Varia
+- Good to now password policy to avoid being locked (via powershell: `net accounts`) 
+- also used (and mentioned) for lateral movement 
+- tool SharpSpray.exe on windows `SharpSpray.exe --Passwords Winter2020 --Sleep 15 --Delay 300`
+- Countermeasures
+    - strong password policiy
+    - no default passwords
+    - monitor and ban (e.g. via fail2ban)
+    - different passwords for local admin accounts
+        - helpful: LAPS Local Administrator Password Solution: AD tool to manage local admin accounts
 
 ## Shells
 Allows code execution over a network (Remote code execution: RCE). What every hacker wants.

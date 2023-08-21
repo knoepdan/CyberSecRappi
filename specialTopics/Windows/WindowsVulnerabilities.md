@@ -1,7 +1,7 @@
 # Windows
 
 
-## Used Windows tools
+## Windows tools to run malware
 
 Windows has some tools which facilitate running malware:
 
@@ -31,3 +31,24 @@ Windows has some tools which facilitate running malware:
     - is not only used to run but also to persist malware
 
 
+## Windows tools for lateral movement
+
+- Create a scheduled task (on remote system)`
+    - `schtasks /create /s {IP} /tn {name} /u {user} /sc {frequency} /p {password} /st {time} /sd {date} {command}`
+- Creating System services
+    - `sc \\IP create Service binPath=<command>`
+- PsExec
+    - `psexec \\test.domain -u Domain\User -p Password ipconfig`
+- WMI
+    - `wmic /node:target.domain process call create "C:\Windows\System32\cmd.exe /c payload.exe"`
+- Windows Remote Management (WinRM)
+    - `winrs -r:EXAMPLE.lab.local -u:DOMAIN\user -p:password calc.exe`
+    - `Invoke-Command -ComputerName TARGET -ScriptBlock { dir c:\ }` via powershell
+- DCOM
+    - DCOM is a way to execute code on a remote machine. (is less easily detected than default tools)
+    - Examples see "06 Lateral Movement.pdf"
+        - run a excel on another machine (and excel runs macro)
+    - DCOM can also be used to start/stop services, get system info, shut down system etc.
+
+*Remark: some of the techniques,tools can also be used for persistence or running code locally*
+*Remark2: Check Double-Hop-Problem with Network logons which makes it more difficult to jump then to another host*

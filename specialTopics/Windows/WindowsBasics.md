@@ -76,9 +76,12 @@ User secret decryption: DPAPI User masterkeys are in LSASS memory for logged on 
     - More: https://docs.microsoft.com/en-gb/windows-server/identity/securing-privileged-access/securing-privileged-accessreference-
 material
 - Make use of Logon Restrictions and Protected Users Group for privileged accounts (i believe it requires update KB28791997)
-    - ensure privileged accounts are never logged on on exposed systems
+    - ensure privileged accounts are never logged on on exposed systems (mainly against pass-the-hash)
     - https://docs.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/protected-userssecurity-
 group
+- Against NTLM relay
+    - Active "SMB Signing"
+    - Disable LLMNR & NBT-NS  (so attacker cannot get become into man-in-the-middle position easily)
 
 **From Microsoft**
 - Update KB2871997: improved some stuff
@@ -138,4 +141,10 @@ Tools for pass the hash: Mimikatz (local only), Cobalt Strike, Metasploit, Impac
 
 
 **NTLM Relaying**
-... TODO
+Attacker, who is already man-in-the-middle uses NTLM relaying to authenticate himself against a different machine. 
+Man-in-the-middle just forwards NTLM challenge response to the server he wants to authenticate.
+
+On windows, one way to get into the man-ind-the middle position is the usage of the old protocols LLMNR/NBT-NS, which are used when DNS fails. (i believe they are disabled on a domain controller but still  active otherwise). So attacker can try to trigger a a request to non-existing domain, so DNS fails and it will fallback to LLMNR/NBT-NS. (For example with an image source in a mail: "file:///\\nonexisting-UNC\somePath\resource")
+NTLM relaying is often used with SMB but also possible with HTTP, LDAP etc.
+Countermeasure: "SMB Signing must be activated" (only default on domain controllers)
+*Tools for NTLM relay: Inveigh (windows/powershell), Responder (Linux/Python)*

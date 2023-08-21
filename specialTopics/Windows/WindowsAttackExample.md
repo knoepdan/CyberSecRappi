@@ -80,3 +80,16 @@ If we get new credentials, we can afterwards update Bloodhound paths (owned flag
 
 ## Varia/Random
 Usually, these steps might have to be applied multiple times (in rounds). Example: from a machine we escalate to local admin, to get AD credentials of another user so we can jump to another machine, to which other users are logged in etc. etc.
+
+## Lateral movement
+Various possibilities
+
+- Based on NTLM 
+    - pass-the-hash
+    - NTLM relay (man-in-the-middle)
+    - break NTLM hash (as not that strong)
+- Password spraying (get password)
+
+ - bypass firewalls, prevent inspection,  prevent being detected
+    - Port forwarding
+    - SOCKS Pivoting (???)

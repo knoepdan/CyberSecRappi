@@ -34,3 +34,9 @@ Files that other (priviledged) users could be modified and thus attacker can ele
 - also good https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist
 
 Also see "05D Privilege Escalation.pdf"
+
+## Lateral movement
+
+- Port forwarding (to bypass firewalls or avoid traffic inspection, prevent being detected)
+    - `ssh -L localhost:3389:127.0.0.1:3389 root@[target host]` SSH tunneling of a specific port
+    - `ssh -D 9050 root@[target host]` application-level port forwarding acting as SOCKS server

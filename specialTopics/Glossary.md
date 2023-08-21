@@ -31,4 +31,5 @@
         - specifies access rights (allowed, denied, audited) for object
         - Discretionary Access Control (DACL): basically permissions for object
         - System Access Control (SACL): enables admisn to log
-
+- LLMNR/NBT-NS: obsolete protocol for address resolution that is used when DNS fails on windows. Can be used to get into a man-in-the-middle position
+- LAPS Local Administrator Password Solution: AD tool to manage local admin accounts

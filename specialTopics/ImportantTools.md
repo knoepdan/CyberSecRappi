@@ -125,7 +125,9 @@ Allows to configure mails to be sent to people (user and groups) which have a li
 Tool that can be used for Man in the middle attacks (arp spoofing.. probably has more features) https://www.bettercap.org/
 ->see separate file
 
-<span style="color:red">TODO / Improve</span>
+### Password sprying  (password spraying)
+run: `SharpSpray.exe --Passwords Winter2020 --Sleep 15 --Delay 300`
+see lateral movment "06B Lateral Movement.pdf"
 
 ### Scapy
 scapy: tool (fake/forge packages/requests, e.g. dns spoofing)  (see man-in-the-middle powerpoint)
@@ -144,7 +146,10 @@ Exploits heartbleed bug (https://heartbleed.com/) and is more relyable than the 
 - Alpine-apache2-reverse-proxy
   - To redirect requests (see man-in-the-middle lab tasks)
   - https://github.com/Hacking-Lab/alpine-apache2-reverse-proxy.git
-
+- Password spraying tools
+  - SparSpray: `SharpSpray.exe --Passwords Winter2020 --Sleep 15 --Delay 300` (windows)
+  - Kerbrute `./kerbrute_linux_amd64 passwordspray --dc 10.0.0.1 -d corp.local domain_users.txt Winter2020` (Linux)
+  - also check CrackMapExec (mentioned again for AD)
 
 ## Maintainig access
 for example for privilege escalation.
@@ -188,11 +193,14 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
     - if you don't have ADUC, use this
 - PowerView (powershell tools)
     - see pdf "05E AD Situational Awareness.pdf"
+- CrackMapExec
+  - also for pass-the-hash
+  - use re-used password: see pdf "06B Lateral Movement.pdf"
 - etc. (LDAP clients, PingCastle...)
 
 ### Various other
 - Meterpeter
-  - Keylogging, Screenshots, Clipboard dump
+  - Keylogging, Screenshots, Clipboard dump, also port forwarding
 - PowerSploit: > collection of powershell scripts
 - SharpUp > various PowerUp functionality
 - Seatbelt.exe (more to gain info about system)

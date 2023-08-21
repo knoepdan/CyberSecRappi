@@ -17,7 +17,8 @@
 - inspect user: `net user username`
 - create local admin: `net user /add hacker Hacker@Work && net localgroup administrators hacker /add`
     - username "hacker", password "Hacker@Work"
-
+- Invoke WinRM for lateral movement: `Invoke-Command -ComputerName TARGET -ScriptBlock { dir c:\ }`
+- Chech password policy: `net accounts`
 
 *Remark: some commands would also work in CMD*
 
