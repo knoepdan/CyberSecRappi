@@ -224,6 +224,8 @@ see Lab tasks for maintaining access (and also windows attacks)
   - see lab task "Maintain Access/Password Spraying"
 - pypykatz -> analyze memorydumpy
 ## Forensic
+Zimmerman tools: https://ericzimmerman.github.io/#!index.md
+
 
 - Bitlocker decryption
   - Linux: Dislocker `sudo apt-get install dislocker`

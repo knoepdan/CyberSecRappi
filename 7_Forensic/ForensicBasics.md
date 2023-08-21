@@ -187,7 +187,7 @@ Tool "Lolbas"
         - Cmd.exe 
 
 Tool "Velociraptor"
-- see Powerpoint
+- see Powerpoint and Live forensic
 
 
 ICard: tool to test file (or downlod stuff to be detected by virus) (not really related to forensics)

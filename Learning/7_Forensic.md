@@ -1,0 +1,2 @@
+# Forensic
+Digital forensic is the application of science to the identification, collection, examination, and analysis of data while preserving the integrity of the information and maintaining a strict chain of custody of the data.
