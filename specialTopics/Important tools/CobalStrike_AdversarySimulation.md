@@ -1,6 +1,7 @@
 # Cobal strike
 Software for Adversary Simulations and Red Team Operations. Using beacons (agents) in infected clients.
 https://www.cobaltstrike.com/
+*Cobalt strike can make use of other tools like Mimikatz as well*
 
 **Situational awareness**
 - Screenshots: `screenshot -p <path> -q <quality>`
@@ -26,4 +27,10 @@ Attention: WMI or WinRM use "Network Logon" Sessions, credentials are not sent a
 
 Furthermore, SOCKS Pivoting is possible (see "Pivot traffic/tools into network")
 
-see pdf "06B Lateral Movement.pdf"
+*see pdf "06B Lateral Movement.pdf"*
+
+**Kerberos** (also lateral movmement)
+- Over-pass-the-hash: `pth [DOMAIN\user] [NTLM hash]` will use Mimikatz’s sekurlsa::pth as well:
+- Pass-the-ticket
+- Golden Ticket (via Mimikatz)
+    - silver ticket also works as very similar

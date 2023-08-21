@@ -19,6 +19,10 @@
     - username "hacker", password "Hacker@Work"
 - Invoke WinRM for lateral movement: `Invoke-Command -ComputerName TARGET -ScriptBlock { dir c:\ }`
 - Chech password policy: `net accounts`
+- show Kerberos tickets: `klist`
+- show network shares: `net share`
+- Find a user/service account `Get-DomainUser -SPN –Properties distinguishedname,serviceprincipalname [-Domain FOREIGN]`
+    - helful for Kerberoasting-attack
 
 *Remark: some commands would also work in CMD*
 

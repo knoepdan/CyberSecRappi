@@ -208,6 +208,8 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_rules_list.html
     - Internet history, recent commands, files SSH info etc.
 - Snaffler (mainly data maining)
     - tool to find secrets (credentials) in AD. etc.
+- Rubeus
+  - for example for Kerberos "Over-pass-the-hash", "Pass-the-ticket"
 ## Forensic
 
 - Bitlocker decryption

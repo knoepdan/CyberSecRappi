@@ -33,3 +33,7 @@
         - System Access Control (SACL): enables admisn to log
 - LLMNR/NBT-NS: obsolete protocol for address resolution that is used when DNS fails on windows. Can be used to get into a man-in-the-middle position
 - LAPS Local Administrator Password Solution: AD tool to manage local admin accounts
+- Service Principal Name SPN (for Kerberos)
+    - unique identifier of a service instance within the domain
+    - Format: <service class>/<host>:<port>/<service name>
+        - example: MSSQLSvc/ws1.winattacklab.local:1433

@@ -140,6 +140,11 @@ https://wiki.wireshark.org/CaptureFilters
 https://www.varonis.com/de/blog/verwendung-von-wireshark
 https://man.archlinux.org/man/community/wireshark-cli/wireshark-filter.4.en
 
+**Wireshark and Kerberos**
+Wireshark comes with a built-in dissector for Kerberos. Some parts of kerberos messages are encrypted. With correct keytab file, Wirshark can decrypt Kerberos. (Edit > Preferences > Protocols > KRB5 > Kerberos keytab file)
+Tools to get keytab files: ktutil (on Unix) or ktpass (Windows)
+Details see "06C Kerberos Authentication and Abuse.pdf"
+
 **Beyond Wireshark**
 Other tools:
 

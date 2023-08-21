@@ -93,3 +93,11 @@ Various possibilities
  - bypass firewalls, prevent inspection,  prevent being detected
     - Port forwarding
     - SOCKS Pivoting (???)
+
+- Based on Kerberos
+    - "Overpass the hash" -> get a TGT for another tickes via stolen preauthentication data
+    - Pass the ticket (TGT)
+    - Golden tickets -> forged ticket-granting tickets
+    - Silver ticket -> forge a service ticket 
+    - Kerberoasting
+        - try to get weack hash from service to crack password
