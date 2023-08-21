@@ -3,13 +3,13 @@ Software for Adversary Simulations and Red Team Operations. Using beacons (agent
 https://www.cobaltstrike.com/
 *Cobalt strike can make use of other tools like Mimikatz as well*
 
-**Situational awareness**
+## Situational awareness**
 - Screenshots: `screenshot -p <path> -q <quality>`
 -  Clipboard: via powershell "Start-ClipboardMonitor.ps1"
 - KeePass (open source password manager) -> when unlocked passwords can be read from memory
 
 
-**Credential abuse**
+## Credential abuse
 Examples:
 - extract local credentials with the help of Mimikatz
 - DcSync 
@@ -17,7 +17,7 @@ Examples:
 
 Cobalt strike will store the passwords
 
-**Lateral movement**
+## Lateral movement
 - Span a new beacon
     - `jump [module] [target] [listener]` via varios means: psexec, ssh, winrm, etc. 
 - Remotely run a command
@@ -34,3 +34,7 @@ Furthermore, SOCKS Pivoting is possible (see "Pivot traffic/tools into network")
 - Pass-the-ticket
 - Golden Ticket (via Mimikatz)
     - silver ticket also works as very similar
+
+**Persistance**
+Not built in commands for persistance but scripts can be found: 
+https://github.com/harleyQu1nn/AggressorScripts/tree/master/Persistence

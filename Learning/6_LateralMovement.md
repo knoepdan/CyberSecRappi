@@ -122,6 +122,31 @@ To avoid detection (OpSec considerations): dont just request service tickets for
 -> also see pdf
 
 ## 4. Persistance
+How can an attacker keep a compromised machine when the machine is rebooted?
+- Advantage: avoid re-compromising the machine
+- Drawback: persistence could be detected
+Aspects/Components:
+- Payload: malicious code
+- Payload storage: where to store it 
+    - Alternate Data Streams
+    - Custom WMI classes (WMI allows this)
+    - Registry (stored as text)
+- Code Execution Vectors: when/how to start it
+    - User Driven
+        - hidden in shortcut (.LNK)
+            - example using regsvr32.exe and malware dll passed as argument
+        - Backdor common .exe
+
+
+
+Some ways 
+- add code in startup folder (easy to detect)
+- registry to trigger start of application
+- shortcut -> when user clicks malware starts (or a download of the software can be triggered.. etc.)
+- scheduled tasks
+    - Linux: cronjobs (or something like this)
+- etc.
+
 
 
 ## 5. Red Team War Stories
