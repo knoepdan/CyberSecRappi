@@ -15,8 +15,23 @@ Logon Session types
 - Network Logons: Type 3
     - Clients prove they have the credentials but do NOT send them
 - Non-Network Logins (nteractive/NetworkCleartext/)
-    - Type 10 (remote interactive)
+    - Type 10 (remote interactive, e.g. RDP)
+        - means if i log in via RDP to another machine, that machine will have my credentials in LSASS as well! (meaning, if a have a local admin on that machine, I can read the NTLM hash from LSASS if NTLM was used)
     - Type 2 (interactive)
+see WindowsSecurityLogQuickref.pdf
+
+| Logon Type  | Description   |
+| --------------- | ---------------------------------- |
+|2| Interactive (logon at keyboard and screen of system) |
+|3| Network (connection to shared folder on this computer from elsewhere on network) |
+|4| Batch (scheduled task) |
+|5| Service (Service startup) |
+|7| Unlock (unnattended workstation with password protected screen saver) |
+|8 | NetworkCleartext: Logon with credentials sent in the clear text. Most often indicates a logon to IIS with basic authentication. |
+|9 | NewCredentials such as with RunAs or mapping a network drive with alternate credentials. "A caller cloned its current token and specified new credentials for outbound connections. The new logon session has the same local identity but uses different credentials for other network connections." |
+|10| RemoteInteractive (Terminal Services, Remote Desktop or Remote Assistance) |
+|11|CachedInteractive (logon with cached domain credentials such as when logging on to a laptop when away from the network) |
+
 
 Processes important for logon sessions:
 - LSASS  for AD

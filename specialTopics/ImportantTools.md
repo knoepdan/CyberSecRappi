@@ -251,11 +251,11 @@ Zimmerman tools: https://ericzimmerman.github.io/#!index.md
   - Install Testdisk: `sudo apt -y install testdisk`
   - run testdisk: `sudo testdisk usbstick.dd`
     - interactive application
-- TimelineExplorer (Windows, Zimmermann Tools)
+- TimelineExplorer (Windows, Zimmermann Tools UI)
   - Points out anomalies on files
     - reads in a csv file which can be created via "MFTECmd.exe" and "$MFT" table (also Zimmermann tool)
 - MFTECmd.exe (Windows, Zimmermann Tools)
-  - can create a csv file (fro TimelineExplorer) from a $MFT file
+  - can create a csv file (for TimelineExplorer) from a $MFT file
     `.\MFTECmd.exe -f 'C:\Cases\Timestomping\$MFT' --csv 'C:\Cases\Timestomping\'`
 - "sigcheck" (Windows)
   - check signatures of dll's and exe files (signed not signed)

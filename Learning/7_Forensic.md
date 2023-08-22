@@ -36,7 +36,7 @@ Before we analyse:
         - see pdf
 
 
-### Partiations
+### Partitions
 Basics
 - Partitions allow the use of different filesystems to be installed. 
 - (Secondary) Storage > Partition(s) > Filesystem > Files
@@ -60,7 +60,7 @@ Fiels have Id's
 
 Journaling Filesystem
 - keeps track of the changes (helps recover in case of a crash)
-- in NTFS it is called "Transaction Log"
+- in NTFS it is called "Transaction Log" (NTFS Metafile "$LogFile")
 - some file systems like FAT do not have a journaling filesystem
 - what exactly is logged, depends on system (often similar)
 
@@ -86,14 +86,38 @@ Journaling Filesystem
     - can be UTC or local time
     - These timestamp (e.g.: LastAccessTime) can be set programmatically !!
         - often done by attackers: Timestomping
+- NTFS Metafiles
+    - $MFT Master File Table MFF -> main file: filenames, timestamps, stream names, where datastreams are, security identifiers, file attributes
+    - $LogFile -> transaction log (or Journaling filesystem)
+        - contains before and after
+        - what was changed
+        - over time will be overwritten (circular buffer)
+    - $Boot -> Volume boot record. Bootstrap code and BIOS parameter
+    - $Extended varios optional extensions...
+    - $UsnJrn Update Sequence Number Journale  ($Extend\$UsnJrn)
+        - maintains changes made to the volume (and filename changes, delete, etc.etc. )
+        - imprtant to find evidence of deleted/renamed files. 
+        - find when program was run (e.g. prefetch files modified)
+        - over time will be overwritten (circular buffer)
 - Multiple attributes
     - each (?) attribute has its own timestamp attributes (which only kernel has access to)
     - Examples
         - $Data attribute -> there can be multiple (data streams)
         - $Name attribute  (multiple if there are hard links)
 
+Analyzing NFTS
+- Basics: MFTECmd.exe 
+    - `.\MFTECmd.exe -f 'C:\XXX\NTFS\$MFT' --csv 'C:\XXX\NTFS\Output'` -> will generate output
+    - then import output into Timeline explorer
+- Timestamp anomalies
+    - Compare $STANDARD_INFORMATION and $FILE_NAME  (and get inode)
+- Important for file analysis  (all files/journals get a view of historical actions)
+    - $MTF -> current state of file
+    - $LogFile -> Granular level of changes
+    - $USNJrnl Summary of file actions
+    - (*LogFile + $USNJrnl may only go a while back*)
 
-**Files**
+**Files (mainly NFTS)**
 - File signatures
     - https://en.wikipedia.org/wiki/List_of_file_signatures
     - example: "exe" starts with "MZ" (decoded text)
@@ -103,4 +127,56 @@ Journaling Filesystem
         - recover full file
     - Volumen Shadow copy: using microsoft recovery mechanism (not important for us)
     - $logFile (from Journaling filesystem) -> we can detect that a file existed
-    - USN Journal
+    - USN Journal -> actions performed on file
+    - also possible to find: existence and execution evidence etc.
+    - or just some kind of backup?
+
+## Event logs
+- Typically stored in Windows/System32/winevt/Logs  (*.evtx)
+- Can be configured what is to be logged (probably only to some degree)
+- Security -> usually most important one for forensics
+    - only LSASS process writes to it (by default only readable by admin)
+    - Logon Types (incomplete here): 
+        - Type 2: interactive (actually typing username/pw), Type 3: Network (e.g. network, shared folder), Type 4: batch, Type 5: Service, ...., Type 9: NewCredentials (RunAS.. ...), Type 10: RemoteInteractive (Terminal/RDP...), etc.
+     - see WindowsSecurityLogQuickref.pdf 
+- Detect 
+    - e.g. failed logins (Many 4625 with Logon Type 3)
+    - etc.
+- Deleting event logs results in an event log entry (1102)
+    - if deleted: recovery via file carving etc. (or someone some companies backup logs)
+- Command Line Auditing
+    - Event 4688  (unfortunately, not enabled by default)
+    - Will show any process created by anybode!!
+- Can be manipulated but usually but is very hard. Usually, attackers just clear the log
+- Some auditing has to be enabled first
+    - Process creating: Event 4688 
+        - To be enabled in GPO (Group Policy)
+        - would show any process created -> we might even see powershell command
+
+Some common events
+- Most common here:  WindowsSecurityLogQuickref.pdf  
+- 4688 -> process created
+- 4648 -> Explicit Credential Logon (RunAs) 
+    - may indicate RDP (NLA use on source system)
+    - PsExec sometimes ("PsExec.exe -u AHacker -i -h cmd.exe)
+- 4672 Special Privileges Login
+    - discover privilege escalation and malicious activity
+- 4720 Account Creation
+- 4728 / 4732 / 4756 - member was added to security-enabled group
+- 4624 Successfull logon
+- 4697, 5145, 5140 Share Access (Depends on config)
+- 7045 
+- 4698 Scheduled task created (Scheduler event log)
+- 4700 scheduled task enabled (Scheduler event log)
+- 7045 new service installed (system log)
+- Powershell log (Poershell/Operational Log)
+    - 4013 Module/Pipeline output logging
+    - 4104 Script block logging (warning)
+    - %appdata%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt  -> logs (if enabled, which it is by default)
+
+**Powershell**
+- `powershell.exe -ep bypass`  open a new powershell to bypass security policy
+- %appdata%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt  -> logs (if enabled, which it is by default)
+    - records last 4096 typed commands
+- Transcript Logs  (disabled by default, needs to be enabled by GPO)
+    - %userprofile%\Documents

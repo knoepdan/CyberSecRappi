@@ -23,6 +23,9 @@
 - show network shares: `net share`
 - Find a user/service account `Get-DomainUser -SPN –Properties distinguishedname,serviceprincipalname [-Domain FOREIGN]`
     - helful for Kerberoasting-attack
+- Eventlogs examples
+    - `Get-WinEvent -ListLog *powershell*` available logs 
+    - `Get-WinEvent -FilterHashTable @{LogName='System';ID='1','41'}` find by name and id
 
 *Remark: some commands would also work in CMD*
 
