@@ -186,7 +186,7 @@ Tool created to perform various types of MITM attacks against a network, manipul
 `bettercap -iface eth0` > starts bettercap for interface eth0
 
 
-**Generally: revent man in the middle (also see other stuff)**
+**Generally: prevent man in the middle (also see other stuff)**
 - Mobile apps:  Certificate Pinning
     - Fingerprint of servier certificate is compiled into app. If server certificate doesn't have the same finger, connection is not established:  Prevents "Man in the middle"
 - [OBSOLETE] Browser: HPKP  (Http Public Key Pinning)

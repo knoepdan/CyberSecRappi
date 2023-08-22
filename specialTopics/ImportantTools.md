@@ -225,8 +225,6 @@ see Lab tasks for maintaining access (and also windows attacks)
 - pypykatz -> analyze memorydumpy
 ## Forensic
 Zimmerman tools: https://ericzimmerman.github.io/#!index.md
-
-
 - Bitlocker decryption
   - Linux: Dislocker `sudo apt-get install dislocker`
   - Windows: Arsenal image mounter: https://arsenalrecon.com/downloads/
@@ -282,6 +280,11 @@ Zimmerman tools: https://ericzimmerman.github.io/#!index.md
   - https://timesketch.org/guides/user/basic-concepts/ (for same tool????)
   - Query example: "filename:_.exe AND message:NTFS_"
     - will return all entries for exe files which have a column message that starts with NTFS
+
+## Cyber Threat intelligence
+
+### Misp
+TTP tool -> see separate file
 
 ## Reverse engineering / Malware analysis (+ programming)
 

@@ -162,7 +162,7 @@ Tools for pass the hash: Mimikatz (local only), Cobalt Strike, Metasploit, Impac
 
 **NTLM Relaying**
 Attacker, who is already man-in-the-middle uses NTLM relaying to authenticate himself against a different machine. 
-Man-in-the-middle just forwards NTLM challenge response to the server he wants to authenticate.
+Man-in-the-middle just forwards NTLM challenge response (NetNTLM) to the server he wants to authenticate.
 
 On windows, one way to get into the man-ind-the middle position is the usage of the old protocols LLMNR/NBT-NS, which are used when DNS fails. (i believe they are disabled on a domain controller but still  active otherwise). So attacker can try to trigger a a request to non-existing domain, so DNS fails and it will fallback to LLMNR/NBT-NS. (For example with an image source in a mail: "file:///\\nonexisting-UNC\somePath\resource")
 NTLM relaying is often used with SMB but also possible with HTTP, LDAP etc.

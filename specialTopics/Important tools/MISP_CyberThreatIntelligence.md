@@ -20,6 +20,23 @@ There are multiple instances of MISP. Information sharing among instances can be
     - MISP object template format...
     - ... (see pdf)
 
+## Some infos about tool
+Information could also be entered in an excel but with MISP we can: a) have a tool that is targeted at indicators of compromise and allows easy sharing. 
+
+MISP has - as far as I understand - the following main entities:
+- Event
+    - Event is an occurence of an cyber security incident
+    - consists of Objects and Attributes (and probably can also contain Galaxies)
+- Object of an event -> (mainly used in exercise)
+    - can easily be connected to other objects (for graph)
+    - Model: attackers, vicitms, vulnerabilities etc. with objects
+- Attribute of an event 
+    - connection for
+- Galaxy
+    - Can be used to describe "MITRE ATT&CK", "Tool", "Threat Actors" etc. of an event in more  details (depens on how you model it)
+
+A lot is up to the user on how he/she wants to model it. Example: Sometimes add an information as object or as attribute. 
+
 
 ## Varia
 
