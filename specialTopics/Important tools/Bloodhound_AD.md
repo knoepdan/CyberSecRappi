@@ -5,12 +5,13 @@ BloodHound uses graph theory to reveal the hidden and often unintended relations
 ### Basics
 
 **installation**
-to install on live-cd: `apt-get install hl-bloodhound`
+to install on live-cd: `sudo apt-get install hl-bloodhound` (non root-terminal)
+*Remark: installs latest neo4j and bloodhound, then changes pw.. thats it*
 
 **start**
-1. start one terminal (bash): `sudo neo4j console` 
+1. start one non-root terminal (bash): `sudo neo4j console` 
     - wait till "Started." appears
-2. start another terminal (bash) and enter: `BloodHound`
+2. start another non-root terminal (bash) and enter: `bloodhound`  (no capital letters!!)
     - Ui will open
     - user: neo4j / password: compass
 
