@@ -40,3 +40,16 @@ Also see "05D Privilege Escalation.pdf"
 - Port forwarding (to bypass firewalls or avoid traffic inspection, prevent being detected)
     - `ssh -L localhost:3389:127.0.0.1:3389 root@[target host]` SSH tunneling of a specific port
     - `ssh -D 9050 root@[target host]` application-level port forwarding acting as SOCKS server
+
+
+## Linux forensic
+- just basic info here.. 
+- as of now (2023) attackers rarely care to hide their actions (more so on linux than on windows)
+- usually attacker will save something in /tmp (because of the write permissions)
+- often interesting:
+    - bash history
+    - etc.
+- when in doubt: compare with an distribution/imag and compare
+- Logins log:  /var/log/utmp, var/log/wtmp, /ar/log/btmp
+- Useful command will extract all readable characters (even binary files)
+    `strings someFile`

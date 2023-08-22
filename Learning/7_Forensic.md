@@ -180,3 +180,147 @@ Some common events
     - records last 4096 typed commands
 - Transcript Logs  (disabled by default, needs to be enabled by GPO)
     - %userprofile%\Documents
+
+## Windows Forensic
+
+### Evasion Detection
+
+- Masquerading  (requires you to know normal/default)
+    - use names similar to system files
+    - use system locations
+- Detection of Masquerading
+    - check code signature
+    - check hash
+    - check anomalies:
+        - section headers
+        - obfuscation
+        - timestamps
+        - entropy
+    - ...
+    - Tool 
+        - `.\sigcheck64.exe --help`
+        - `.\sigcheck64.exe -nobanner -e -c -w .\output\sigcheck.csv E:\C\Windows\System32`
+- Signed Binary Proxy Execution
+    - using a signed binary that executes content
+        - Rundll32 (used to execute binaries/.cpl files + js)
+        - Mshta.exe (used to execute .hta files)
+        - Regsvr32  (for (un)registering COM)
+
+### Evidence of execution 
+
+**Windows Prefetch**
+- Windows Memory Manager monitors execution and records first 10 seconds
+- C:\Windows\Prefetch\<executablename>-<Hash>.pf
+- contains info about which files are executed and when (including loaded dlls )
+    - compressed, best to analyze via tool (Zimmerman)
+    - example: `.\PECmd.exe -f "C:\Windows\Prefetch\7ZFM.EXE-44040917.pf"`
+    - `.\PECmd.exe -d "C:\Windows\Prefetch\" --csv prefetchParsed -q` -> results in csv files to be viewd in TimeLine explorer
+- we get the following info: 
+    - first time app was executed
+    - number of times app was executed
+    - up to the last eight times app was executed
+    - path of execution
+    - loaded dlls
+    - last time of execution
+**Amcache Hive**
+- C:\Windows\AppCompat\Programs\Amcache.hve > info about installed and executed files 
+- parse using tool
+    - `.\AmcacheParser.exe -f "K:\C\Windows\appcompat\Programs\Amcache.hve" –i --csv ..\Projects\AmcacheOutput` (and view in TimeLine explorer)
+    - Key Last Write Timestamp → Time of first execution
+**LNK Shortcuts**
+- Some shortcut files are automatically created by Windows. Opening files and documents will generate a shortcut file (not always be present)
+- see pdf (also Zimmerman tool LECmd.exe)
+**Registry**
+- also stores info about executed apps
+    - nof executions via windows explorer
+    - Last execution dateTime
+
+
+*Remark: evidence of data exfiltration best via Network forensic*
+### Evidence of persistence
+- Common Startup Folder
+    - %WinDir%\Start Menu\Programs\StartUp
+- Current User startup folder
+    - %AppData%\Roaming\Microsoft\Windows\Start
+- Services
+    - Logged in Event Log (and some stuff additionally in MFT or Service Analysis)
+- Scheduled task
+    - Deprecated scheduled tasks: "At.exe" (but still running)
+        - "Windows\Tasks" and "Windows\System32\Tasks"
+    - schtasks.exe
+        - check security event log and TaskScheduler EventLog (System32\winevt\Logs\Microsoft-Windows-TaskScheduler*.EVTX)
+    - Attention: tasks can be started on a remote system
+- WMI
+    - can also be used to persist code (see pdf)
+
+Varia: 
+- There is a tool that collects all autostarted applications 
+- Bootkits -> MemoryAnalysis 
+- Linux forensic see separate file related to linux security
+
+### Artefact collection
+with tools (gkape, velociraptor)
+
+## Timelining
+Basically, collection infos from various sources that are ordered by time (and filterable).
+So obtain data from various artefacts (filesystem, registry, etc.) - injest almost any type of source - and then generate ordered output.
+
+
+Tools: 
+- SleuthKit
+- PLASO
+    - generates plaso file
+- Timesketch (ui)
+    - can read PLASO file
+
+## Network forensic
+Mostly analyzing log files (that are available)
+
+What to use: 
+- what is available
+- logs from firewalls/switches/proxy/reverse proxy
+- packet data
+- cache dat
+- IDS (Intrusion detection system) / IPS (Intrusion prevention system)
+    - Intrusion prevention can kill connection whereas IDS can only alert
+- etc..
+
+Not so easy.. a lot of data
+
+PCAP files (network traffic) -> open with Wireshark
+(tool tcpdump to use to create pcap files if no wireshark is available)
+
+**Web Proxys**
+- mostly for http
+- TLS may be split
+    - SSL Splitting (TLS splitting)
+    - https://pdos.csail.mit.edu/papers/ssl-splitting-usenixsecurity03/
+web proxy analysis: logs (some linux tools: grep, awk)
+
+**IDS / IPS (Network Monitoring Devices)**
+
+- Intrusion Detection System (IDS)
+    - logs and alerts
+- Intrusion Prevention System (IPS)
+    - logs and kills connection
+
+
+**Log forwarding**
+Automatically send logs from various servers to a centralized server (which can also run some analysis)
+SEM: Security event management
+
+**SIM / SEM / SIEM**
+- Security information management (SIM)
+    - Collection of data such as log files into a central repository for trend analysis
+- Security event management (SEM)
+    - Centralization and Interpretation of logs or events running on a network
+- Security information and event management (SIEM)
+    - Combining SIM and SEM: Real-time analysis of security alerts generated by applications and network hardware
+
+Example tool: Splunk
+
+## Varia/Leftovers
+
+IOC : Indicator of compromise
+TPM: Trusted platform module (type of HSM)
+HSM: hardware security module
