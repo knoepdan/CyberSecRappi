@@ -37,3 +37,15 @@
     - unique identifier of a service instance within the domain
     - Format: <service class>/<host>:<port>/<service name>
         - example: MSSQLSvc/ws1.winattacklab.local:1433
+- CISO Chief Information Security Officer
+    - responsible for IT security
+- CSIRT: Cyber security incident response team
+    - focus on incident response (can be part of SOC)
+- SOC Security operations center
+- CERT: Computer Emergency Response team
+- EDR: Endpoint detection and response
+- SIEM: Security information and event management
+    - context "forensic readiness"
+SIRP: Security Incident Response platform
+    - receives alerts from different sources (IDS, EDR, Mail..)
+    - example product: TheHive
