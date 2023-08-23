@@ -284,7 +284,8 @@ Zimmerman tools: https://ericzimmerman.github.io/#!index.md
 ## Cyber Threat intelligence
 
 ### Misp
-TTP tool -> see separate file
+Thread intelligence platforms (TIP's)
+-> see separate file
 
 ## Reverse engineering / Malware analysis (+ programming)
 
