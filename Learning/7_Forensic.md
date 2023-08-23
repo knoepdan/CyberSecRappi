@@ -39,12 +39,18 @@ Before we analyse:
 ### Partitions
 Basics
 - Partitions allow the use of different filesystems to be installed. 
-- (Secondary) Storage > Partition(s) > Filesystem > Files
+- Secondary Storage > Partition(s) > Filesystem > Files
 - Partition table: stores info about partitions (location, size)
     - Master Boot Record  (old but still found)
         - supports 4 partitions (see pdf)
     - GUID Partition Table GPT (todays standard)
+        - still based on Master boot record (kind of reserve entire disk via protective MBR as one partition, further headers to distinguish actual partitions)
         - supports 128 partitions
+        - typical GPT partitions
+            - EFI system partition (also ESP): used by firmware at boot time
+            - Microsoft Reserved Partition MSR: no meaningful data (reserved for alternative data storage space)
+            - Basic data partition (BDP): any filesystem (usually NTFS on windows)
+            - Windows Recovery: Windows Recovery environment for automatic repair, system restore etc.
         - see pdf
 - When a partition is deleted: the data is no longer accessible via OS but data remains on disk. (Forensic tools can recreate it)
 - Tool to restore a partition table: TestDisk
@@ -320,7 +326,8 @@ SEM: Security event management
 Example tool: Splunk
 
 ## Varia/Leftovers
-
+Primary storage is memory
+Secondery storage: disk (covered here)
 IOC : Indicator of compromise
 TPM: Trusted platform module (type of HSM)
 HSM: hardware security module
