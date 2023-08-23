@@ -1,4 +1,11 @@
-# Live response
+# Live Response
+Difference to Live Response: 
+- Forensic: Integrity assured, Access to complete data
+    - no volatile data (memory), possibly encrypted data, Shutdown might change data
+- Live response: Fast, Volatile data.
+    - but: integrity cannot be assured, risk of damage
+    - focuses on containment 
+
 
 
 **Standards**
@@ -11,6 +18,7 @@
         - etc.
     2. Detection and Analysis
         - Gather everything about incident, then analyze it
+            - Who, What, How, Where, Why
         - prioritizing the handling of incident
             - leads need to be: relevant, actionable, detailed
             - lead has to be validated, categorized, prioritized
@@ -69,6 +77,7 @@ Terms:
 - rootkit: A rootkit is a collection of computer software, typically malicious, designed to enable access to a computer or an area of its software that is not otherwise allowed 
 - Playbook: workflow what to do in case of incident (there are generic playbooks but ideally should be tailored, especially for bigger companies)
 - EDR: endpoint detection and response
+- IOC: indicator of compromise
 
 
 **Registry info**
