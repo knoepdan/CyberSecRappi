@@ -50,6 +50,7 @@ Some usage examples:
     - `exit` -> return to normal shell
 - `adb install myAndroidapp.apk` -> will install android application
 - `adb uninstall org.bfe.crackmesimple` -> uninstalls android app (attention: full package name is needed)
+- `adb reverse tcp:9000 tcp:443` -> port forwarding. On laptop (where adb runs) we have a service running on port 443. On the connected android phone, we now forward request on port 9000 to the port 443 on the service. So to access the service on the laptop (443), one has to call https://localhost:9000 on the phone
 
 
 Basic usage: `apktools d apkFile.apk` -> will unpack/decode apk file and write it into a folder
